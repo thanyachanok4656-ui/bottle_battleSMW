@@ -786,3 +786,122 @@ textarea:focus-visible, select:focus-visible {
   .hero-actions { flex-direction: column; align-items: stretch; }
   .btn { width: 100%; }
 }
+/* HOME HERO: desktop 2 columns + mobile responsive */
+.hero--banner {
+  min-height: auto;
+  padding: calc(var(--nav-height) + 48px) 46px 56px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(360px, 0.85fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.hero--banner .hero-banner-frame {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hero--banner .hero-banner-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2103 / 748;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 28px;
+}
+
+.hero--banner .hero-copy-center {
+  max-width: 520px;
+  margin: 0;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.hero--banner .hero-subtitle {
+  max-width: 42ch;
+}
+
+.hero--banner .hero-actions {
+  justify-content: flex-start;
+}
+
+.hero--banner .hero-stats {
+  grid-column: 1 / -1;
+  max-width: 100%;
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* Tablet / phone */
+@media (max-width: 900px) {
+  .hero--banner {
+    padding: calc(var(--nav-height) + 24px) 16px 40px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero--banner .hero-copy-center {
+    max-width: 760px;
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .hero--banner .hero-actions {
+    justify-content: center;
+  }
+
+  .hero--banner .hero-banner-img {
+    border-radius: 20px;
+  }
+}
+
+/* Small phone */
+@media (max-width: 480px) {
+  .hero--banner {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hero--banner .hero-title {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .hero--banner .hero-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero--banner .hero-stats {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    padding: 32px 16px;
+  }
+
+  .hero-grid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-banner-frame {
+    border-radius: 20px;
+  }
+
+  .hero-banner-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2rem, 10vw, 3.4rem);
+  }
+}
