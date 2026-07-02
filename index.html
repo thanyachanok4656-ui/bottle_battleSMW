@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,44 +60,151 @@
 
 <main id="main">
   <!-- Hero -->
-  <section class="hero hero--banner">
-    <div class="hero-bg-orb orb-1"></div>
-    <div class="hero-bg-orb orb-2"></div>
-    <div class="hero-bg-orb orb-3"></div>
-
-    <div class="hero-banner-frame">
-      <img
-        src="images/hero-banner.png"
-        alt="Bottle Battle to Carbon Goal — school eco park banner with a recycling panda, bottle, lightbulb, and bin mascot"
-        class="hero-banner-img"
-        width="2103" height="748">
-    </div>
-
-    <div class="container hero-copy-center">
-      <span class="eyebrow">ไทรโยคมณีกาญจน์วิทยา · Season 2026</span>
-      <h1 class="hero-title">Bottle Battle <span class="accent">to Carbon Goal.</span></h1>
-      <p class="hero-subtitle">ร่วมกันคัดแยกขวดพลาสติก ลดขยะ ลดโลกร้อน เพื่อโรงเรียนและโลกที่น่าอยู่ของเรา — every bottle your classroom collects becomes CO₂ savings, ranking points, and school-wide bragging rights, updated in real time.</p>
-      <div class="hero-actions">
-        <a href="submit.html" class="btn btn-primary">Submit Collection</a>
-        <a href="ranking.html" class="btn btn-ghost">View Ranking</a>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-value js-counter" data-target="0" data-suffix=" kg">0 kg</div>
-          <div class="hero-stat-label">PET Collected</div>
+  <section class="hero-section">
+    <div class="hero-card-wrap">
+      <div class="hero-card reveal is-visible">
+        <div class="hero-card-media">
+          <img
+            src="images/hero-banner.png"
+            alt="Bottle Battle to Carbon Goal — school eco park banner with a recycling panda, bottle, lightbulb, and bin mascot"
+            width="2103" height="748">
         </div>
-        <div class="hero-stat">
-          <div class="hero-stat-value js-counter" data-target="0" data-suffix=" kg">0 kg</div>
-          <div class="hero-stat-label">CO₂ Reduced</div>
-        </div>
-        <div class="hero-stat">
-          <div class="hero-stat-value js-counter" data-target="0">0</div>
-          <div class="hero-stat-label">Classrooms Active</div>
+        <div class="hero-card-content">
+          <span class="eyebrow">ไทรโยคมณีกาญจน์วิทยา · Season 2026</span>
+          <h1 class="hero-title">Bottle Battle <span class="accent">to Carbon Goal.</span></h1>
+          <p class="hero-subtitle">ร่วมกันคัดแยกขวดพลาสติก ลดขยะ ลดโลกร้อน — ทุกขวดที่ห้องเรียนเก็บได้กลายเป็นคะแนนและการลดคาร์บอนแบบเรียลไทม์</p>
+          <div class="hero-actions">
+            <a href="submit.html" class="btn btn-primary">Submit Collection</a>
+            <a href="ranking.html" class="btn btn-ghost">View Ranking</a>
+          </div>
         </div>
       </div>
     </div>
-    <div class="scroll-cue"><span class="scroll-cue-dot"></span>Scroll</div>
+
+    <div class="hero-stats-row">
+      <div class="glass-card hero-stat-card reveal">
+        <div class="hero-stat-value js-counter" data-target="0" data-suffix=" kg">0 kg</div>
+        <div class="hero-stat-label">PET Collected</div>
+      </div>
+      <div class="glass-card hero-stat-card reveal">
+        <div class="hero-stat-value js-counter" data-target="0" data-suffix=" kg">0 kg</div>
+        <div class="hero-stat-label">CO₂ Reduced</div>
+      </div>
+      <div class="glass-card hero-stat-card reveal">
+        <div class="hero-stat-value js-counter" data-target="0">0</div>
+        <div class="hero-stat-label">Classrooms Active</div>
+      </div>
+    </div>
   </section>
+
+  <!-- Growing Tree Progress -->
+  <section class="section tree-section">
+    <div class="container">
+      <div class="tree-card reveal">
+        <div class="tree-card-media">
+          <svg class="tree-svg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="100" cy="205" rx="72" ry="9" fill="rgba(255,255,255,0.06)"/>
+
+            <!-- Stage 1: seed (0–20%) -->
+            <g class="tree-stage" data-stage="1">
+              <ellipse cx="100" cy="197" rx="9" ry="6" fill="#8a5a34"/>
+              <path d="M100 197 q2 -10 8 -14" stroke="#6ee7b7" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </g>
+
+            <!-- Stage 2: sprout (21–40%) -->
+            <g class="tree-stage" data-stage="2">
+              <path d="M100 200 v-32" stroke="#5c8a3a" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <ellipse cx="87" cy="171" rx="13" ry="7" fill="#6ee7b7" transform="rotate(-32 87 171)"/>
+              <ellipse cx="113" cy="171" rx="13" ry="7" fill="#12b76a" transform="rotate(32 113 171)"/>
+            </g>
+
+            <!-- Stage 3: small tree (41–60%) -->
+            <g class="tree-stage" data-stage="3">
+              <rect x="94" y="158" width="12" height="42" rx="4" fill="#8a5a34"/>
+              <circle cx="100" cy="140" r="34" fill="#12b76a"/>
+              <circle cx="82" cy="152" r="18" fill="#0a7a4c"/>
+              <circle cx="118" cy="152" r="18" fill="#0a7a4c"/>
+            </g>
+
+            <!-- Stage 4: big tree (61–80%) -->
+            <g class="tree-stage" data-stage="4">
+              <rect x="91" y="122" width="18" height="78" rx="5" fill="#8a5a34"/>
+              <circle cx="100" cy="100" r="50" fill="#12b76a"/>
+              <circle cx="66" cy="122" r="32" fill="#0a7a4c"/>
+              <circle cx="134" cy="122" r="32" fill="#0a7a4c"/>
+              <circle cx="100" cy="66" r="34" fill="#6ee7b7"/>
+            </g>
+
+            <!-- Stage 5: full eco tree (81–100%) -->
+            <g class="tree-stage" data-stage="5">
+              <rect x="88" y="100" width="24" height="100" rx="6" fill="#8a5a34"/>
+              <circle cx="100" cy="78" r="58" fill="#12b76a"/>
+              <circle cx="56" cy="104" r="40" fill="#0a7a4c"/>
+              <circle cx="144" cy="104" r="40" fill="#0a7a4c"/>
+              <circle cx="100" cy="40" r="42" fill="#6ee7b7"/>
+              <circle cx="76" cy="66" r="5" fill="#ffb800"/>
+              <circle cx="128" cy="82" r="5" fill="#ffb800"/>
+              <circle cx="100" cy="112" r="5" fill="#ffb800"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="tree-card-body">
+          <span class="eyebrow">ต้นไม้แห่งเป้าหมาย <span style="color:rgba(255,255,255,.5);font-weight:500;">· Growing Tree Progress</span></span>
+          <h2 class="tree-title">ยิ่งเก็บขวดได้มาก ต้นไม้ก็ยิ่งเติบโต</h2>
+
+          <!-- Loading state -->
+          <div class="tree-state tree-state-loading" id="treeLoading">
+            <div class="skeleton" style="height:16px;width:70%;margin-bottom:8px;"></div>
+            <div class="skeleton" style="height:10px;width:100%;"></div>
+          </div>
+
+          <!-- Error state -->
+          <div class="tree-state tree-state-error" id="treeError" style="display:none;">
+            <p>⚠️ ไม่สามารถโหลดข้อมูลต้นไม้ได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง</p>
+          </div>
+
+          <!-- Content state -->
+          <div class="tree-state tree-state-content" id="treeContent" style="display:none;">
+            <p class="tree-progress-text" id="treeProgressText">เก็บได้แล้ว <strong id="treeCurrentKg">0</strong> kg จากเป้าหมาย <strong id="treeTargetKg">0</strong> kg</p>
+            <div class="tree-progress-track">
+              <div class="tree-progress-fill" id="treeProgressFill" style="width:0%;"></div>
+            </div>
+            <span class="tree-progress-pct" id="treeProgressPct">0%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">How it works</span>
+        <h2 class="section-title">From bin to leaderboard</h2>
+      </div>
+      <div class="process-strip">
+        <div class="glass-card process-step reveal">
+          <span class="step-mark">COLLECT</span>
+          <h3>Classrooms gather bottles</h3>
+          <p>Homerooms collect and weigh PET bottles throughout the week.</p>
+        </div>
+        <div class="glass-card process-step reveal">
+          <span class="step-mark">SUBMIT</span>
+          <h3>Log it in Bottle Battle</h3>
+          <p>A student rep submits the weight and a photo through the Submit page.</p>
+        </div>
+        <div class="glass-card process-step reveal">
+          <span class="step-mark">COMPETE</span>
+          <h3>Watch the ranking move</h3>
+          <p>Points, CO₂ savings, and the podium update automatically for everyone to see.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
 <!-- Footer -->
 <footer class="site-footer">
   <div class="container">
@@ -141,6 +248,7 @@
 <script src="js/config.js"></script>
 <script src="js/api.js"></script>
 <script src="js/main.js"></script>
+<script src="js/tree.js"></script>
 <script>
   // Populate hero stat counters from the live summary once the API is reachable.
   document.addEventListener('DOMContentLoaded', async () => {
@@ -153,7 +261,7 @@
         co2El.dataset.target = summary.totalCo2Kg || 0;
         co2El.dataset.decimals = '1';
         classroomsEl.dataset.target = summary.activeClassrooms || 0;
-        initCounters(document.querySelector('.hero-stats'));
+        initCounters(document.querySelector('.hero-stats-row'));
       }
     } catch (err) {
       // Silently keep zeros if the backend isn't configured yet.
