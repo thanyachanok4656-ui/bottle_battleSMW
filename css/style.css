@@ -414,9 +414,10 @@ textarea:focus-visible, select:focus-visible {
 .hero-banner-frame {
   position: relative;
   z-index: 2;
-  max-width: 1180px;
-  margin: 0 auto var(--space-5);
-  padding: 0 var(--space-4);
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 var(--space-5);
+  padding: 0 8px;
 }
 .hero-banner-img {
   width: 100%;
