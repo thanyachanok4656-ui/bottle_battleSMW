@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>หน้าแรก | Bottle Battle</title>
+<meta name="description" content="Bottle Battle home dashboard — live KPIs, top classroom ranking, and quick links to every part of the PET bottle collection competition system.">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="loading-screen" role="status" aria-label="Loading">
+  <div class="loading-bottle">
+    <svg viewBox="0 0 60 100" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22 6h16v14c6 6 8 10 8 20v46a6 6 0 0 1-6 6H20a6 6 0 0 1-6-6V40c0-10 2-14 8-20V6z" fill="none" stroke="#eafff5" stroke-width="3"/>
+      <clipPath id="loadClip2"><path d="M22 6h16v14c6 6 8 10 8 20v46a6 6 0 0 1-6 6H20a6 6 0 0 1-6-6V40c0-10 2-14 8-20V6z"/></clipPath>
+      <g clip-path="url(#loadClip2)" class="loading-fill"><rect x="10" y="55" width="40" height="45" fill="#12b76a"/></g>
+    </svg>
+  </div>
+  <p class="loading-text">Loading Dashboard…</p>
+</div>
+
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M9 2h6v4l3 4v9a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-9l3-4V2z"/></svg></span>
+      <span class="brand-name">Bottle<span>Battle</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home Site</a>
+      <a href="dashboard.html" class="is-active">Dashboard</a>
+      <a href="submit.html">Submit</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="dash-shell">
+  <aside class="dash-sidebar" id="dashSidebar"></aside>
+  <button class="dash-sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+
+  <main class="dash-main" id="main">
+    <!-- Compact hero banner -->
+    <section class="dash-hero reveal">
+      <img src="images/hero-banner.png" alt="Bottle Battle to Carbon Goal banner" class="dash-hero-img">
+      <div class="dash-hero-scrim"></div>
+      <div class="dash-hero-copy">
+        <span class="eyebrow"><span class="live-dot"></span>Live · <span id="heroDateLabel">–</span></span>
+        <h1>ศึกขวดใส สู่เป้าหมายลดคาร์บอนต่ำ</h1>
+        <p>โรงเรียนไทรโยคมณีกาญจน์วิทยา — ภาพรวมการแข่งขันเก็บขวด PET แบบเรียลไทม์</p>
+      </div>
+    </section>
+
+    <!-- KPI row -->
+    <section class="kpi-row" id="kpiRow">
+      <div class="glass-card kpi-card-h reveal">
+        <span class="kpi-icon" style="background:var(--grad-eco);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6.5 7h11l1.5 13H5L6.5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg></span>
+        <div class="kpi-body">
+          <div class="kpi-value js-counter" id="kpiWeight" data-target="0" data-decimals="2" data-suffix=" kg">0 kg</div>
+          <div class="kpi-sub" id="kpiBottles">0 ขวด</div>
+          <div class="kpi-label">ขวดพลาสติกทั้งหมด</div>
+        </div>
+      </div>
+      <div class="glass-card kpi-card-h reveal">
+        <span class="kpi-icon" style="background:linear-gradient(135deg,var(--c-blue-500),var(--c-blue-700));display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M4 14a4 4 0 0 1 1-7.9A5 5 0 0 1 14 5a4.5 4.5 0 0 1 1 8.9"/><path d="M8 18h8M10 21h4"/></svg></span>
+        <div class="kpi-body">
+          <div class="kpi-value js-counter" id="kpiCo2" data-target="0" data-decimals="2" data-suffix=" kgCO2e">0</div>
+          <div class="kpi-sub" id="kpiCo2Tons">0 ตัน CO₂e</div>
+          <div class="kpi-label">ลดคาร์บอนไดออกไซด์</div>
+        </div>
+      </div>
+      <div class="glass-card kpi-card-h reveal">
+        <span class="kpi-icon" style="background:linear-gradient(135deg,var(--c-green-300),var(--c-green-700));display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22v-7"/><path d="M12 15 6 9l6-7 6 7-6 6Z"/></svg></span>
+        <div class="kpi-body">
+          <div class="kpi-value js-counter" id="kpiTrees" data-target="0" data-decimals="0">0</div>
+          <div class="kpi-sub">ต้น</div>
+          <div class="kpi-label">เทียบเท่าต้นไม้ที่ปลูก</div>
+        </div>
+      </div>
+      <div class="glass-card kpi-card-h reveal">
+        <span class="kpi-icon" style="background:linear-gradient(135deg,var(--c-blue-300),var(--c-green-500));display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><circle cx="18" cy="9" r="2.5"/><path d="M16 21v-1a5 5 0 0 1 5-5"/></svg></span>
+        <div class="kpi-body">
+          <div class="kpi-value js-counter" id="kpiParticipants" data-target="0" data-decimals="0">0</div>
+          <div class="kpi-sub" id="kpiParticipantsPct">0%</div>
+          <div class="kpi-label">นักเรียนที่มีส่วนร่วม</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top ranking teaser -->
+    <section class="glass-card widget-panel reveal top-ranking-teaser">
+      <div class="teaser-copy">
+        <div class="widget-title" style="margin-bottom:0;">
+          <span class="widget-title-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M8 21h8M12 17v4M7 4h10l-1 8a4 4 0 0 1-8 0L7 4Z"/></svg></span>
+          ผู้นำอันดับตอนนี้ <span class="en">· Current Leaders</span>
+        </div>
+        <p>ดูอันดับเต็มพร้อมโพเดียมและคะแนนทุกห้องเรียนได้ที่หน้าอันดับห้องเรียน</p>
+        <a href="ranking.html" class="btn btn-primary btn-sm">ไปหน้าอันดับห้องเรียน</a>
+      </div>
+      <div class="mini-podium" id="miniPodium"><div class="skeleton" style="height:80px;width:100%;grid-column:1/-1;"></div></div>
+    </section>
+
+    <!-- Quick links to every section -->
+    <section>
+      <div class="widget-title"><span class="widget-title-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>สำรวจแดชบอร์ด <span class="en">· Explore</span></div>
+      <div class="quick-link-grid" id="quickLinkGrid"><!-- injected by dashboard.js --></div>
+    </section>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border:none;padding-top:0;">
+      <span>&copy; <span class="js-year"></span> Bottle Battle · โรงเรียนไทรโยคมณีกาญจน์วิทยา</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
