@@ -9,10 +9,10 @@
 
 const CONFIG = Object.freeze({
   /** Google Apps Script Web App URL (ends with /exec). */
-  API_BASE_URL: 'https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec',
+  API_BASE_URL: 'https://script.google.com/macros/s/AKfycbxhtpTn4aXTsW8MPvd_taZVJIdgGiZUdYWYhTw5HSUHLac9XpP1aJRicy6MKLcuRBzV6A/exec',
 
   /** Shared secret sent with write requests (must match Apps Script SETTINGS sheet). */
-  API_KEY: 'CHANGE_ME_SCHOOL_SECRET',
+  API_KEY: 'SKMW_BOTTLE_2026',
 
   /** School branding. */
   SCHOOL_NAME: 'Saiyok Manikanjana Witthaya School',
