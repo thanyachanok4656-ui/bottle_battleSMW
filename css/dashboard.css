@@ -189,7 +189,7 @@
   overflow: hidden;
   box-shadow: var(--shadow-strong);
 
-  min-height: 320px;      /* เดิม 180px */
+  min-height: ุ600px;      /* เดิม 180px */
   width: 100%;
   display: flex;
   align-items: center;
