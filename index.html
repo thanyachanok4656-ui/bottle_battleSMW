@@ -149,30 +149,10 @@
             </g>
           </svg>
         </div>
-        <div class="tree-card-body">
-          <span class="eyebrow">ต้นไม้แห่งเป้าหมาย <span style="color:rgba(255,255,255,.5);font-weight:500;">· Growing Tree Progress</span></span>
-          <h2 class="tree-title">ยิ่งเก็บขวดได้มาก ต้นไม้ก็ยิ่งเติบโต</h2>
-          <!-- Loading state -->
-          <div class="tree-state tree-state-loading" id="treeLoading">
-            <div class="skeleton" style="height:16px;width:70%;margin-bottom:8px;"></div>
-            <div class="skeleton" style="height:10px;width:100%;"></div>
-          </div>
-
           <!-- Error state -->
           <div class="tree-state tree-state-error" id="treeError" style="display:none;">
             <p>⚠️ ไม่สามารถโหลดข้อมูลต้นไม้ได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง</p>
           </div>
-          <!-- Content state -->
-          <div class="tree-state tree-state-content" id="treeContent" style="display:none;">
-            <p class="tree-progress-text" id="treeProgressText">เก็บได้แล้ว <strong id="treeCurrentKg">0</strong> kg จากเป้าหมาย <strong id="treeTargetKg">0</strong> kg</p>
-            <div class="tree-progress-track">
-              <div class="tree-progress-fill" id="treeProgressFill" style="width:0%;"></div>
-            </div>
-            <span class="tree-progress-pct" id="treeProgressPct">0%</span>        </div>
-        </div>
-      </div>
-    </div>
-  </section>
     <div class="hero-stats-row">
       <div class="glass-card hero-stat-card reveal">
         <div class="hero-stat-value js-counter" data-target="0" data-suffix=" kg">0 kg</div>
