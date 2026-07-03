@@ -1034,3 +1034,7 @@ img, svg { max-width: 100%; }
 .home-page .home-hero {
   min-height: calc(100vh - var(--nav-height));
 }
+/* ซ่อน Footer เฉพาะหน้า Home */
+.home-page .site-footer {
+    display: none;
+}
