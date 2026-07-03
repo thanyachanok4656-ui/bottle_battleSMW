@@ -5,7 +5,6 @@
 .ranking-main {
   padding-bottom: var(--space-6);
 }
-
 .ranking-card {
   position: relative;
   overflow: hidden;
