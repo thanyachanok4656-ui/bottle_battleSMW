@@ -129,3 +129,25 @@
   .rank-points { display: none; }
   .leaderboard-head span:nth-child(4) { display: none; }
 }
+
+/* ============================================================
+   RANKING HERO BACKGROUND ARTWORK
+   Replaces the plain gradient with the school-provided podium
+   illustration, kept legible with a dark scrim so the "SEASON
+   STANDINGS" title/subtitle text still passes contrast.
+   Scoped to .ranking-main so it never affects other pages that
+   also use the shared .page-hero component.
+   ============================================================ */
+.ranking-main .page-hero {
+  background-image:
+    linear-gradient(180deg, rgba(6, 62, 43, 0.82) 0%, rgba(7, 89, 133, 0.6) 55%, rgba(6, 62, 43, 0.85) 100%),
+    url('../images/ranking-bg.png');
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+}
+.ranking-main .page-hero .hero-bg-orb { opacity: 0.35; }
+
+@media (max-width: 640px) {
+  .ranking-main .page-hero { background-position: center 25%; }
+}
