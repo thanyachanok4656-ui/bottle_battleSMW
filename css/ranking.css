@@ -24,7 +24,8 @@
 .ranking-hero-strip {
   position: relative;
   overflow: hidden;
-  padding: var(--space-5) var(--space-5) var(--space-6);
+  height: 460px;
+  padding: var(--space-5) var(--space-5) 0;
   background-image:
     linear-gradient(180deg, rgba(6, 62, 43, 0.6) 0%, rgba(6, 62, 43, 0.12) 22%, rgba(6, 62, 43, 0.05) 55%, rgba(6, 62, 43, 0.4) 100%),
     url('../images/ranking-bg.png');
@@ -39,7 +40,6 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
-  margin-bottom: var(--space-4);
 }
 .ranking-card-icon {
   font-size: 1.8rem;
@@ -54,16 +54,26 @@
 .ranking-card-head h1 .en { font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.75); }
 .ranking-card-head p { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-top: 4px; text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
 
-/* ---------- Podium ---------- */
+/* ---------- Podium ----------
+   Anchored to the BOTTOM of the fixed-height hero-strip with `position:
+   absolute`, so its vertical placement is precise and stable — it no
+   longer depends on (or affects) how tall the strip's content grows,
+   which was the bug: a content-driven strip height fed back into the
+   cover-sized background image's own scale, so growing the avatar box
+   also rescaled the photo and the gap never visibly changed. */
 .podium {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: end;
   gap: var(--space-3);
-  position: relative;
-  z-index: 2;
   max-width: 640px;
-  margin: 0 auto var(--space-6);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
 }
 .podium-slot {
   display: flex;
@@ -78,19 +88,6 @@
 .podium-slot.rank-2 { order: 1; }
 .podium-slot.rank-3 { order: 3; }
 
-/* Fixed-height wrapper so the 1st-place avatar (which is larger) doesn't
-   push the name/weight text below it out of alignment with 2nd/3rd place.
-   The extra height also carries the text down over the photo's own
-   illustrated podium stands instead of sitting right under the avatar. */
-.podium-avatar-wrap {
-  height: 250px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-}
-
-/* No stagger — all three sit on the same baseline so 1st place doesn't
-   overlap the (larger) cartoon character above it. */
 .podium-avatar {
   width: 76px; height: 76px;
   border-radius: 50%;
@@ -186,13 +183,13 @@
 .ranking-target-note strong { color: var(--c-green-300); font-family: var(--font-mono); }
 
 @media (max-width: 720px) {
-  .podium { max-width: 380px; gap: var(--space-2); }
+  .ranking-hero-strip { height: 380px; }
+  .podium { max-width: 380px; gap: var(--space-2); bottom: 14px; }
   .podium-avatar { width: 60px !important; height: 60px !important; font-size: 1.3rem !important; }
-  .podium-avatar-wrap { height: 160px; }
 }
 @media (max-width: 480px) {
   .ranking-card { padding-bottom: var(--space-4); }
-  .ranking-hero-strip { padding: var(--space-4) var(--space-3); }
+  .ranking-hero-strip { height: 340px; padding: var(--space-4) var(--space-3) 0; }
   .rank-grid-section { padding: var(--space-3) var(--space-3) 0; }
   .ranking-target-note { margin: var(--space-3) var(--space-3) 0; }
   .rank-grid-item { font-size: 0.88rem; }
