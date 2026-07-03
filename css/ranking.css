@@ -5,9 +5,7 @@
    design (numbered podium blocks, 3-column rank list, sparkle
    background) rather than a full-width table.
    ============================================================ */
-
 .ranking-main { padding-bottom: var(--space-6); }
-
 /* ---------- Card shell ---------- */
 .ranking-card {
   position: relative;
