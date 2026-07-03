@@ -165,7 +165,7 @@
 /* M.1/5 ขยับขึ้น + ซ้าย */
 .podium-slot.rank-3 .podium-name,
 .podium-slot.rank-3 .podium-weight {
-  transform: translate(-54px, -5px);
+  transform: translate(-54px, 5px);
 }
 
 /* ---------- RANK 4-10 ---------- */
