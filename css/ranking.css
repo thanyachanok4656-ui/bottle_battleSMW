@@ -352,3 +352,8 @@
     bottom: 42px;
   }
 }
+.target-goal{
+    color: #22c55e;
+    font-weight: 800;
+    text-shadow: 0 0 8px rgba(34,197,94,.35);
+}
