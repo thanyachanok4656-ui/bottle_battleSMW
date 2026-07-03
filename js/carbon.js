@@ -10,6 +10,10 @@ const CarbonPage = (() => {
 
   function renderChart(trend) {
     const ctx = document.getElementById('carbonChart');
+    if (!isChartJsReady()) {
+      renderChartUnavailable(ctx);
+      return;
+    }
     if (chart) chart.destroy();
     chart = new Chart(ctx, {
       type: 'bar',
