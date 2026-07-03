@@ -98,61 +98,6 @@
     </div>
   </div>
 </section>
-<!-- Growing Tree Progress -->
-  <section class="section tree-section">
-    <div class="container">
-      <div class="tree-card reveal">
-        <div class="tree-card-media">
-          <svg class="tree-svg" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <ellipse cx="100" cy="205" rx="72" ry="9" fill="rgba(255,255,255,0.06)"/>
-
-            <!-- Stage 1: seed (0–20%) -->
-            <g class="tree-stage" data-stage="1">
-              <ellipse cx="100" cy="197" rx="9" ry="6" fill="#8a5a34"/>
-              <path d="M100 197 q2 -10 8 -14" stroke="#6ee7b7" stroke-width="3" fill="none" stroke-linecap="round"/>
-            </g>
-
-            <!-- Stage 2: sprout (21–40%) -->
-            <g class="tree-stage" data-stage="2">
-              <path d="M100 200 v-32" stroke="#5c8a3a" stroke-width="4" fill="none" stroke-linecap="round"/>
-              <ellipse cx="87" cy="171" rx="13" ry="7" fill="#6ee7b7" transform="rotate(-32 87 171)"/>
-              <ellipse cx="113" cy="171" rx="13" ry="7" fill="#12b76a" transform="rotate(32 113 171)"/>
-            </g>
-
-            <!-- Stage 3: small tree (41–60%) -->
-            <g class="tree-stage" data-stage="3">
-              <rect x="94" y="158" width="12" height="42" rx="4" fill="#8a5a34"/>
-              <circle cx="100" cy="140" r="34" fill="#12b76a"/>
-              <circle cx="82" cy="152" r="18" fill="#0a7a4c"/>
-              <circle cx="118" cy="152" r="18" fill="#0a7a4c"/>
-            </g>
-
-            <!-- Stage 4: big tree (61–80%) -->
-            <g class="tree-stage" data-stage="4">
-              <rect x="91" y="122" width="18" height="78" rx="5" fill="#8a5a34"/>
-              <circle cx="100" cy="100" r="50" fill="#12b76a"/>
-              <circle cx="66" cy="122" r="32" fill="#0a7a4c"/>
-              <circle cx="134" cy="122" r="32" fill="#0a7a4c"/>
-              <circle cx="100" cy="66" r="34" fill="#6ee7b7"/>
-            </g>
-
-            <!-- Stage 5: full eco tree (81–100%) -->
-            <g class="tree-stage" data-stage="5">
-              <rect x="88" y="100" width="24" height="100" rx="6" fill="#8a5a34"/>
-              <circle cx="100" cy="78" r="58" fill="#12b76a"/>
-              <circle cx="56" cy="104" r="40" fill="#0a7a4c"/>
-              <circle cx="144" cy="104" r="40" fill="#0a7a4c"/>
-              <circle cx="100" cy="40" r="42" fill="#6ee7b7"/>
-              <circle cx="76" cy="66" r="5" fill="#ffb800"/>
-              <circle cx="128" cy="82" r="5" fill="#ffb800"/>
-              <circle cx="100" cy="112" r="5" fill="#ffb800"/>
-            </g>
-          </svg>
-        </div>
-          <!-- Error state -->
-          <div class="tree-state tree-state-error" id="treeError" style="display:none;">
-            <p>⚠️ ไม่สามารถโหลดข้อมูลต้นไม้ได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง</p>
-          </div>
   <!-- Footer -->
 <footer class="site-footer">
   <div class="container">
@@ -197,31 +142,26 @@
 <script src="js/main.js"></script>
 <script src="js/tree.js"></script>
 <script>
-  // Populate hero stat counters from the live summary once the API is reachable.
-  document.addEventListener('DOMContentLoaded', async () => {
-    try {
-      const summary = await Api.getSummary();
-      const [weightEl, co2El, classroomsEl] = document.querySelectorAll('.hero-stat-value');
-      if (summary) {
-        weightEl.dataset.target = summary.totalWeightKg || 0;
-        weightEl.dataset.decimals = '1';
-        co2El.dataset.target = summary.totalCo2Kg || 0;
-        co2El.dataset.decimals = '1';
-        classroomsEl.dataset.target = summary.activeClassrooms || 0;
-        initCounters(document.querySelector('.hero-stats-row'));
-      }
-    } catch (err) {
-      // Silently keep zeros if the backend isn't configured yet.
-      console.warn('Could not load live summary:', err.message);
-    }
-  });
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
   const targetKg = 100;
 
   try {
     const summary = await Api.getSummary();
-    const totalKg = Number(summary?.totalWeightKg || 0);
+    const data = summary?.data || summary;
+
+    const totalKg = Number(
+      data?.totalWeightKg ||
+      data?.totalWeight ||
+      data?.weightKg ||
+      data?.totalKg ||
+      0
+    );
+
     const percent = Math.min((totalKg / targetKg) * 100, 100);
 
     const emoji = document.getElementById('heroTreeEmoji');
@@ -241,10 +181,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     target.textContent = targetKg + ' kg';
     fill.style.width = percent + '%';
     pct.textContent = percent.toFixed(1) + '%';
+
   } catch (err) {
     console.warn('Tree progress load failed:', err);
   }
 });
-</script>            
+</script>
 </body>
 </html>
