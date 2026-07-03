@@ -64,8 +64,7 @@ const Dashboard = (() => {
     setCounter('kpiParticipants', summary.totalParticipants || 0);
     document.getElementById('kpiBottles').textContent = `${(summary.totalBottles || 0).toLocaleString('th-TH')} ขวด`;
     document.getElementById('kpiCo2Tons').textContent = `${((summary.totalCo2Kg || 0) / 1000).toFixed(2)} ตัน CO₂e`;
-    const pct = CONFIG.TOTAL_STUDENTS > 0 ? ((summary.totalParticipants || 0) / CONFIG.TOTAL_STUDENTS) * 100 : 0;
-    document.getElementById('kpiParticipantsPct').textContent = `${pct.toFixed(2)}% จากทั้งหมด`;
+    
   }
 
   function initials(classroom) {
