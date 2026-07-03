@@ -72,6 +72,17 @@
   gap: var(--space-2);
   text-align: center;
 }
+
+/* Fixed-height wrapper so the 1st-place avatar (which is larger) doesn't
+   push the name/weight text below it out of alignment with 2nd/3rd place.
+   The extra height also carries the text down over the photo's own
+   illustrated podium stands instead of sitting right under the avatar. */
+.podium-avatar-wrap {
+  height: 150px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
 .podium-avatar {
   width: 76px; height: 76px;
   border-radius: 50%;
@@ -89,30 +100,8 @@
 .podium-slot.rank-2 .podium-avatar { background: linear-gradient(135deg, var(--c-silver), #7c8894); }
 .podium-slot.rank-3 .podium-avatar { background: linear-gradient(135deg, var(--c-bronze), #99522c); }
 
-.podium-name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: #fff; }
-.podium-weight { font-family: var(--font-mono); color: rgba(255,255,255,0.75); font-size: 0.82rem; }
-
-/* Numbered cylinder-style block beneath each avatar (matches the reference art). */
-.podium-block {
-  width: 100%;
-  border-radius: 16px 16px 8px 8px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 10px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.9rem;
-  color: #fff;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-.podium-slot.rank-1 .podium-block { height: 100px; background: linear-gradient(180deg, #ffd166, var(--c-gold)); order: -1; }
-.podium-slot.rank-2 .podium-block { height: 72px; background: linear-gradient(180deg, #e7ecef, var(--c-silver)); order: -1; }
-.podium-slot.rank-3 .podium-block { height: 54px; background: linear-gradient(180deg, #e6a877, var(--c-bronze)); order: -1; }
-.podium-slot { order: 1; }
-.podium-slot.rank-1 { order: 2; }
-.podium-slot.rank-2 { order: 1; }
-.podium-slot.rank-3 { order: 3; }
+.podium-name { font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,0.4); }
+.podium-weight { font-family: var(--font-mono); color: rgba(255,255,255,0.85); font-size: 0.82rem; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
 
 /* ---------- Rank 4-10 grid ---------- */
 .rank-grid-section { position: relative; z-index: 2; padding: 0 var(--space-5); }
@@ -169,6 +158,7 @@
 @media (max-width: 720px) {
   .podium { max-width: 380px; gap: var(--space-2); }
   .podium-avatar { width: 60px !important; height: 60px !important; font-size: 1.3rem !important; }
+  .podium-avatar-wrap { height: 100px; }
   .rank-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, auto); }
 }
 @media (max-width: 480px) {
