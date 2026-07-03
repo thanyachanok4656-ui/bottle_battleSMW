@@ -142,6 +142,10 @@ const HistoryPage = (() => {
     const values = labels.map((d) => byDate[d]);
 
     const ctx = document.getElementById('historyChart');
+    if (!isChartJsReady()) {
+      renderChartUnavailable(ctx);
+      return;
+    }
     if (historyChart) historyChart.destroy();
     historyChart = new Chart(ctx, {
       type: 'bar',
