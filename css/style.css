@@ -3,7 +3,6 @@
    Design language: "Eco-Tech Glass" — liquid-fill bottle motif,
    glassmorphism surfaces, emerald/sky gradient accents.
    ============================================================ */
-
 /* ---------- Design Tokens ---------- */
 :root {
   /* Core palette */
@@ -103,12 +102,14 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--bg-body);
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   transition: background var(--transition-base), color var(--transition-base);
   overflow-x: hidden;
+  background:
+    linear-gradient(rgba(7,18,25,0.55), rgba(7,18,25,0.70)),
+    url("../images/school-bg.jpg") center/cover fixed no-repeat;
 }
 
 img { max-width: 100%; display: block; }
@@ -395,8 +396,9 @@ textarea:focus-visible, select:focus-visible {
 }
 
 .hero-section {
-  padding: calc(var(--nav-height) + var(--space-5)) var(--space-4) var(--space-4);
-  background: var(--bg-body);
+  padding: calc(var(--nav-height) + 20px) 24px 24px;
+  background: transparent;
+}
 }
 
 .hero-card-wrap {
@@ -409,12 +411,10 @@ textarea:focus-visible, select:focus-visible {
   display: grid;
   grid-template-columns: 62% 38%;
   min-height: 460px;
-  background: var(--grad-eco-deep);
   border-radius: 24px;
   box-shadow: 0 40px 80px -24px rgba(6, 62, 43, 0.45), var(--shadow-strong);
   overflow: hidden;
 }
-
 .hero-card-media {
   position: relative;
   display: flex;
@@ -422,11 +422,17 @@ textarea:focus-visible, select:focus-visible {
   justify-content: center;
   padding: var(--space-4);
 }
-.hero-card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 16px;
+.hero-card-media{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.hero-card-media .tree-svg{
+    width:100%;
+    max-width:420px;
+    height:auto;
 }
 
 .hero-card-content {
@@ -837,4 +843,355 @@ img, svg { max-width: 100%; }
   .tree-card { grid-template-columns: 1fr; text-align: center; padding: var(--space-4); }
   .tree-card-media { order: -1; }
   .tree-progress-track { max-width: 360px; margin: 0 auto; }
+}
+.home-hero{
+    position: relative;
+    min-height: calc(100vh - var(--nav-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 32px 40px;
+
+    background: url("../images/school-bg.jpg") center/cover no-repeat;
+}
+
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(4, 31, 25, 0.88), rgba(4, 31, 25, 0.48)),
+    linear-gradient(180deg, rgba(7, 18, 25, 0.55), rgba(7, 18, 25, 0.9));
+  z-index: 0;
+}
+
+.home-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1480px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.hero-tree-card{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    align-items: center;
+
+    padding: 48px;
+    gap: 40px;
+
+    margin-top: 24px;
+
+    border-radius: 32px;
+
+    background: rgba(255,255,255,.08);
+
+    backdrop-filter: blur(18px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35),
+        inset 0 1px 1px rgba(255,255,255,.15);
+
+}
+.tree-emoji{
+
+    font-size:12rem;
+
+    filter:drop-shadow(0 30px 40px rgba(0,0,0,.45));
+
+}
+
+@keyframes treePop {
+  from { transform: scale(.55); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.tree-info{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+}
+
+.tree-info h1{
+
+    font-size:3.5rem;
+
+    line-height:1.1;
+
+    margin:
+
+    14px 0
+    24px;
+
+}
+
+.tree-info p{
+
+    font-size:1.2rem;
+
+    color:#d9e7e2;
+
+    margin-bottom:24px;
+
+}
+
+.tree-info strong {
+  color: #fff;
+  font-family: var(--font-mono);
+}
+
+.tree-progress-track{
+
+    height:18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.12);
+
+    overflow:hidden;
+
+}
+
+.tree-progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #12b76a, #0ba5ec);
+  transition: width 1.2s ease;
+}
+
+.tree-progress-pct{
+
+    margin-top:14px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:#6ee7b7;
+
+}
+
+.hero-copy {
+  color: #fff;
+}
+
+.hero-copy h2 {
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  margin: 16px 0 24px;
+}
+
+.hero-copy h2 span {
+  background: linear-gradient(120deg, #6ee7b7, #7dd3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-copy p {
+  max-width: 52ch;
+  color: rgba(255,255,255,.82);
+  font-size: 1.08rem;
+  margin-bottom: 28px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .home-hero {
+    padding: calc(var(--nav-height) + 28px) 16px 40px;
+  }
+
+  .home-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-tree-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 28px;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-tree-card {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
+.home-page {
+  overflow-y: hidden;
+}
+
+.home-page .site-footer {
+  display: none;
+}
+
+.home-page .home-hero {
+  min-height: calc(100vh - var(--nav-height));
+}
+/* ซ่อน Footer เฉพาะหน้า Home */
+.home-page .site-footer {
+    display: none;
+}
+/* HOME HERO - ปรับให้สวยขึ้น */
+.home-hero {
+  min-height: calc(100vh - var(--nav-height));
+  padding: 42px 48px;
+  display: flex;
+  align-items: center;
+  background: url("../images/school-bg.jpg") center/cover no-repeat;
+}
+
+.home-hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(3, 32, 27, .88), rgba(3, 32, 27, .55)),
+    rgba(0,0,0,.25);
+}
+.home-hero-inner {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 54px;
+  align-items: center;
+}
+
+.hero-tree-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 34px;
+  align-items: center;
+
+  padding: 34px;
+  border-radius: 30px;
+
+  background: rgba(7, 35, 31, .58);
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.18);
+  backdrop-filter: blur(16px);
+}
+
+.tree-emoji {
+  font-size: clamp(7rem, 11vw, 10rem);
+  line-height: 1;
+  text-align: center;
+}
+
+.tree-info h1 {
+  font-size: clamp(2rem, 3.2vw, 3.2rem);
+  line-height: 1.08;
+  margin: 10px 0 18px;
+  text-align: left;
+}
+
+.tree-info p {
+  font-size: 1rem;
+  margin-bottom: 14px;
+  color: rgba(255,255,255,.86);
+}
+
+.tree-progress-track {
+  height: 14px;
+  margin-top: 12px;
+}
+
+.tree-progress-pct {
+  font-size: .95rem;
+  margin-top: 8px;
+}
+
+.hero-copy h2 {
+  font-size: clamp(3rem, 5.5vw, 5.2rem);
+  line-height: 1.05;
+}
+
+.hero-copy p {
+  font-size: 1.05rem;
+  max-width: 52ch;
+}
+
+/* มือถือ */
+@media (max-width: 900px) {
+  .home-hero {
+    padding: 24px 16px;
+  }
+
+  .home-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .hero-tree-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .tree-info h1 {
+    text-align: center;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+     .home-hero-inner {
+  width: min(1080px, 100%);
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+}
+
+.hero-tree-card {
+  grid-template-columns: 170px 1fr;
+  max-width: 520px;
+  padding: 28px;
+}
+
+.tree-emoji {
+  font-size: clamp(6rem, 9vw, 8rem);
+}
+
+.tree-info h1 {
+  font-size: clamp(2rem, 2.7vw, 2.7rem);
+  line-height: 1.12;
+}
+
+.hero-copy h2 {
+  font-size: clamp(3rem, 5vw, 4.8rem);
+}
+  }
 }
