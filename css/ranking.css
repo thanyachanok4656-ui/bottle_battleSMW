@@ -82,10 +82,19 @@
   order: 1;
 }
 /* Visual order: 2nd place left, 1st place centered, 3rd place right. */
-.podium-slot.rank-1 { order: 2; }
-.podium-slot.rank-2 { order: 1; }
-.podium-slot.rank-3 { order: 3; }
+.podium {
+  bottom: 80px;
+}.podium-slot.rank-1 {
+  transform: translateY(70px);
+}
 
+.podium-slot.rank-2 {
+  transform: translateY(86px);
+}
+
+.podium-slot.rank-3 {
+  transform: translateY(96px);
+}
 .podium-avatar {
   width: 76px; height: 76px;
   border-radius: 50%;
