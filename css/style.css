@@ -409,10 +409,15 @@ textarea:focus-visible, select:focus-visible {
   display: grid;
   grid-template-columns: 62% 38%;
   min-height: 460px;
-  background: var(--grad-eco-deep);
   border-radius: 24px;
   box-shadow: 0 40px 80px -24px rgba(6, 62, 43, 0.45), var(--shadow-strong);
   overflow: hidden;
+
+  background:
+    linear-gradient(90deg, rgba(6,62,43,0.82), rgba(7,89,133,0.75)),
+    url("../images/school-bg.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-card-media {
