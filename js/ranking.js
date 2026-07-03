@@ -25,6 +25,7 @@ const RankingPage = (() => {
           <div class="podium-avatar">
             ${i === 0 ? '<span class="podium-crown">👑</span>' : ''}
             ${initials(r.classroom)}
+            <span class="podium-rank-badge">${i + 1}</span>
           </div>
         </div>
         <div class="podium-name">${r.classroom}</div>
