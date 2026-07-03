@@ -3,7 +3,6 @@
  * HISTORY.JS — Search, filter, sort, paginate, export, print
  * ============================================================
  */
-
 const HistoryPage = (() => {
   let allRecords = [];
   let filteredRecords = [];
