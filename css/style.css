@@ -845,3 +845,168 @@ img, svg { max-width: 100%; }
   .tree-card-media { order: -1; }
   .tree-progress-track { max-width: 360px; margin: 0 auto; }
 }
+.home-hero {
+  position: relative;
+  min-height: 100vh;
+  padding: calc(var(--nav-height) + 56px) 48px 64px;
+  background: url("../images/school-bg.jpg") center/cover no-repeat;
+  overflow: hidden;
+}
+
+.home-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(4, 31, 25, 0.88), rgba(4, 31, 25, 0.48)),
+    linear-gradient(180deg, rgba(7, 18, 25, 0.55), rgba(7, 18, 25, 0.9));
+  z-index: 0;
+}
+
+.home-hero-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1480px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.hero-tree-card {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 40px;
+  border-radius: 32px;
+  background: rgba(6, 62, 43, 0.48);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  backdrop-filter: blur(12px);
+}
+
+.tree-emoji {
+  font-size: clamp(7rem, 15vw, 13rem);
+  line-height: 1;
+  text-align: center;
+  filter: drop-shadow(0 24px 28px rgba(0,0,0,.4));
+  animation: treePop 1s ease;
+}
+
+@keyframes treePop {
+  from { transform: scale(.55); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.tree-info {
+  color: #fff;
+}
+
+.tree-info h1 {
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  margin: 12px 0 18px;
+}
+
+.tree-info p {
+  color: rgba(255,255,255,.82);
+  margin-bottom: 14px;
+}
+
+.tree-info strong {
+  color: #fff;
+  font-family: var(--font-mono);
+}
+
+.tree-progress-track {
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.15);
+  overflow: hidden;
+}
+
+.tree-progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #12b76a, #0ba5ec);
+  transition: width 1.2s ease;
+}
+
+.tree-progress-pct {
+  display: inline-block;
+  margin-top: 10px;
+  color: #6ee7b7;
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.hero-copy {
+  color: #fff;
+}
+
+.hero-copy h2 {
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  margin: 16px 0 24px;
+}
+
+.hero-copy h2 span {
+  background: linear-gradient(120deg, #6ee7b7, #7dd3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-copy p {
+  max-width: 52ch;
+  color: rgba(255,255,255,.82);
+  font-size: 1.08rem;
+  margin-bottom: 28px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .home-hero {
+    padding: calc(var(--nav-height) + 28px) 16px 40px;
+  }
+
+  .home-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero-tree-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 28px;
+  }
+
+  .hero-copy {
+    text-align: center;
+  }
+
+  .hero-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-tree-card {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
