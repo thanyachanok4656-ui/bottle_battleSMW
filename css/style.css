@@ -399,7 +399,6 @@ textarea:focus-visible, select:focus-visible {
   padding: calc(var(--nav-height) + 20px) 24px 24px;
   background: transparent;
 }
-}
 
 .hero-card-wrap {
   max-width: 1320px;
@@ -844,163 +843,270 @@ img, svg { max-width: 100%; }
   .tree-card-media { order: -1; }
   .tree-progress-track { max-width: 360px; margin: 0 auto; }
 }
-.home-hero{
-    position: relative;
-    min-height: calc(100vh - var(--nav-height));
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
-    padding: 32px 40px;
 
-    background: url("../images/school-bg.jpg") center/cover no-repeat;
+/* ============================================================
+   HOME PAGE HERO — clean final version
+   Use this with <body class="home-page"> in index.html
+   ============================================================ */
+
+body.home-page {
+  overflow-y: hidden;
 }
 
+.home-page .site-footer {
+  display: none !important;
+}
+
+.home-page .navbar {
+  background: rgba(8, 24, 34, 0.72);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+
+.hero-home,
+.home-hero {
+  position: relative;
+  min-height: calc(100vh - var(--nav-height));
+  padding: calc(var(--nav-height) + 34px) 48px 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../images/school-bg.jpg") center/cover no-repeat;
+  overflow: hidden;
+}
+
+.hero-home::before,
 .home-hero-overlay {
+  content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(4, 31, 25, 0.88), rgba(4, 31, 25, 0.48)),
-    linear-gradient(180deg, rgba(7, 18, 25, 0.55), rgba(7, 18, 25, 0.9));
+    linear-gradient(90deg, rgba(3, 22, 20, 0.78), rgba(3, 22, 20, 0.42)),
+    linear-gradient(180deg, rgba(7, 18, 25, 0.35), rgba(7, 18, 25, 0.72));
   z-index: 0;
 }
 
+.hero-container,
 .home-hero-inner {
   position: relative;
   z-index: 1;
-  width: min(1480px, 100%);
+  width: min(1420px, 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 64px;
+  grid-template-columns: minmax(580px, 0.95fr) minmax(420px, 1.05fr);
+  gap: 72px;
   align-items: center;
 }
 
-.hero-tree-card{
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    align-items: center;
-
-    padding: 48px;
-    gap: 40px;
-
-    margin-top: 24px;
-
-    border-radius: 32px;
-
-    background: rgba(255,255,255,.08);
-
-    backdrop-filter: blur(18px);
-
-    border:1px solid rgba(255,255,255,.18);
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.35),
-        inset 0 1px 1px rgba(255,255,255,.15);
-
+/* Tree glass card */
+.tree-card.glass,
+.hero-tree-card {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 34px;
+  align-items: center;
+  min-height: 390px;
+  padding: 36px;
+  border-radius: 32px;
+  background: rgba(8, 43, 35, 0.58);
+  border: 1px solid rgba(110, 231, 183, 0.35);
+  box-shadow:
+    0 32px 90px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(110, 231, 183, 0.10);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
 }
-.tree-emoji{
 
-    font-size:12rem;
+/* Supports both image-tree and emoji-tree markup */
+.tree-image,
+.tree-emoji {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    filter:drop-shadow(0 30px 40px rgba(0,0,0,.45));
+.tree-image img {
+  width: min(100%, 260px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 32px rgba(0, 0, 0, 0.42));
+  animation: treePop 900ms ease both;
+}
 
+.tree-emoji {
+  font-size: clamp(7rem, 12vw, 11rem);
+  line-height: 1;
+  filter: drop-shadow(0 24px 32px rgba(0, 0, 0, 0.42));
+  animation: treePop 900ms ease both;
 }
 
 @keyframes treePop {
-  from { transform: scale(.55); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from { transform: scale(0.72) translateY(10px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
 }
 
-.tree-info{
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-
-}
-
-.tree-info h1{
-
-    font-size:3.5rem;
-
-    line-height:1.1;
-
-    margin:
-
-    14px 0
-    24px;
-
-}
-
-.tree-info p{
-
-    font-size:1.2rem;
-
-    color:#d9e7e2;
-
-    margin-bottom:24px;
-
-}
-
-.tree-info strong {
+.tree-content,
+.tree-info {
   color: #fff;
+  min-width: 0;
+}
+
+.tree-small,
+.tree-info .eyebrow {
+  display: block;
+  color: #39e88a;
   font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
-.tree-progress-track{
-
-    height:18px;
-
-    border-radius:999px;
-
-    background:rgba(255,255,255,.12);
-
-    overflow:hidden;
-
+.tree-content h2,
+.tree-info h1 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.08;
+  margin: 0 0 12px;
+  color: #fff;
 }
 
+.tree-content h2 span {
+  color: #6ee7b7;
+}
+
+.tree-content > p,
+.tree-info > p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1rem;
+  margin-bottom: 18px;
+}
+
+.tree-percent {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 16px 0 16px;
+}
+
+.tree-percent span,
+.tree-progress-pct {
+  display: inline-block;
+  color: #6ee7b7;
+  font-family: var(--font-mono);
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.tree-progress-pct {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.tree-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(18, 183, 106, 0.16);
+  color: #6ee7b7;
+  font-weight: 800;
+  font-size: 0.88rem;
+  border: 1px solid rgba(110, 231, 183, 0.18);
+}
+
+.progress,
+.tree-progress-track {
+  width: 100%;
+  height: 16px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.13);
+  overflow: hidden;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.32);
+}
+
+.progress-fill,
 .tree-progress-fill {
   width: 0%;
   height: 100%;
   border-radius: inherit;
   background: linear-gradient(90deg, #12b76a, #0ba5ec);
-  transition: width 1.2s ease;
+  transition: width 1.1s cubic-bezier(.4, 0, .2, 1);
 }
 
-.tree-progress-pct{
-
-    margin-top:14px;
-
-    font-size:1rem;
-
-    font-weight:700;
-
-    color:#6ee7b7;
-
+.tree-bottom {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 22px;
 }
 
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.info-card span {
+  font-size: 1.45rem;
+}
+
+.info-card small {
+  display: block;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.78rem;
+}
+
+.info-card strong {
+  display: block;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+}
+
+/* Hero copy */
 .hero-copy {
   color: #fff;
+  text-align: left;
+  max-width: 680px;
 }
 
+.hero-copy .eyebrow {
+  color: #39e88a;
+  font-weight: 800;
+}
+
+.hero-copy h1,
 .hero-copy h2 {
-  font-size: clamp(2.8rem, 5vw, 5rem);
-  margin: 16px 0 24px;
+  margin: 14px 0 22px;
+  color: #fff;
+  font-size: clamp(3rem, 5.8vw, 5.7rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
 }
 
+.hero-copy h1 span,
 .hero-copy h2 span {
-  background: linear-gradient(120deg, #6ee7b7, #7dd3fc);
+  display: block;
+  background: linear-gradient(120deg, #6ee7b7 0%, #7dd3fc 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .hero-copy p {
-  max-width: 52ch;
-  color: rgba(255,255,255,.82);
-  font-size: 1.08rem;
-  margin-bottom: 28px;
+  max-width: 60ch;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  line-height: 1.75;
+  margin-bottom: 30px;
 }
 
 .hero-actions {
@@ -1009,24 +1115,51 @@ img, svg { max-width: 100%; }
   flex-wrap: wrap;
 }
 
-@media (max-width: 900px) {
-  .home-hero {
-    padding: calc(var(--nav-height) + 28px) 16px 40px;
+.hero-actions .btn {
+  min-width: 180px;
+  min-height: 52px;
+}
+
+/* Home mobile can scroll so content is not cut off */
+@media (max-width: 1024px) {
+  body.home-page {
+    overflow-y: auto;
   }
 
+  .hero-home,
+  .home-hero {
+    min-height: auto;
+    padding: calc(var(--nav-height) + 24px) 20px 44px;
+  }
+
+  .hero-container,
   .home-hero-inner {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 34px;
+    width: min(720px, 100%);
   }
 
+  .tree-card.glass,
   .hero-tree-card {
     grid-template-columns: 1fr;
     text-align: center;
-    padding: 28px;
+    min-height: auto;
+    padding: 30px;
+  }
+
+  .tree-percent {
+    justify-content: center;
+  }
+
+  .tree-bottom {
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-copy {
     text-align: center;
+    margin: 0 auto;
   }
 
   .hero-copy p {
@@ -1039,159 +1172,25 @@ img, svg { max-width: 100%; }
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
+  .hero-home,
+  .home-hero {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .tree-card.glass,
   .hero-tree-card {
     padding: 22px;
     border-radius: 24px;
+  }
+
+  .tree-bottom {
+    grid-template-columns: 1fr;
   }
 
   .hero-actions .btn {
     width: 100%;
   }
 }
-.home-page {
-  overflow-y: hidden;
-}
 
-.home-page .site-footer {
-  display: none;
-}
-
-.home-page .home-hero {
-  min-height: calc(100vh - var(--nav-height));
-}
-/* ซ่อน Footer เฉพาะหน้า Home */
-.home-page .site-footer {
-    display: none;
-}
-/* HOME HERO - ปรับให้สวยขึ้น */
-.home-hero {
-  min-height: calc(100vh - var(--nav-height));
-  padding: 42px 48px;
-  display: flex;
-  align-items: center;
-  background: url("../images/school-bg.jpg") center/cover no-repeat;
-}
-
-.home-hero-overlay {
-  background:
-    linear-gradient(90deg, rgba(3, 32, 27, .88), rgba(3, 32, 27, .55)),
-    rgba(0,0,0,.25);
-}
-.home-hero-inner {
-  width: min(1180px, 100%);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
-  gap: 54px;
-  align-items: center;
-}
-
-.hero-tree-card {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 34px;
-  align-items: center;
-
-  padding: 34px;
-  border-radius: 30px;
-
-  background: rgba(7, 35, 31, .58);
-  border: 1px solid rgba(255,255,255,.18);
-  box-shadow:
-    0 24px 70px rgba(0,0,0,.35),
-    inset 0 1px 0 rgba(255,255,255,.18);
-  backdrop-filter: blur(16px);
-}
-
-.tree-emoji {
-  font-size: clamp(7rem, 11vw, 10rem);
-  line-height: 1;
-  text-align: center;
-}
-
-.tree-info h1 {
-  font-size: clamp(2rem, 3.2vw, 3.2rem);
-  line-height: 1.08;
-  margin: 10px 0 18px;
-  text-align: left;
-}
-
-.tree-info p {
-  font-size: 1rem;
-  margin-bottom: 14px;
-  color: rgba(255,255,255,.86);
-}
-
-.tree-progress-track {
-  height: 14px;
-  margin-top: 12px;
-}
-
-.tree-progress-pct {
-  font-size: .95rem;
-  margin-top: 8px;
-}
-
-.hero-copy h2 {
-  font-size: clamp(3rem, 5.5vw, 5.2rem);
-  line-height: 1.05;
-}
-
-.hero-copy p {
-  font-size: 1.05rem;
-  max-width: 52ch;
-}
-
-/* มือถือ */
-@media (max-width: 900px) {
-  .home-hero {
-    padding: 24px 16px;
-  }
-
-  .home-hero-inner {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .hero-tree-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .tree-info h1 {
-    text-align: center;
-  }
-
-  .hero-copy {
-    text-align: center;
-  }
-
-  .hero-actions {
-    justify-content: center;
-     .home-hero-inner {
-  width: min(1080px, 100%);
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 48px;
-}
-
-.hero-tree-card {
-  grid-template-columns: 170px 1fr;
-  max-width: 520px;
-  padding: 28px;
-}
-
-.tree-emoji {
-  font-size: clamp(6rem, 9vw, 8rem);
-}
-
-.tree-info h1 {
-  font-size: clamp(2rem, 2.7vw, 2.7rem);
-  line-height: 1.12;
-}
-
-.hero-copy h2 {
-  font-size: clamp(3rem, 5vw, 4.8rem);
-}
-  }
-}
