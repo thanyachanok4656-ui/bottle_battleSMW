@@ -1,279 +1,188 @@
 /* ============================================================
-   RANKING.CSS — Compact ranking card
-   One dark eco-themed card holding the podium, the rank 4–10
-   grid, and a target-gap note — matching the reference widget
-   design (numbered podium blocks, 3-column rank list, sparkle
-   background) rather than a full-width table.
+   RANKING.CSS — Final clean version
    ============================================================ */
-.ranking-main { padding-bottom: var(--space-6); }
-/* ---------- Card shell ---------- */
+
+.ranking-main {
+  padding-bottom: var(--space-6);
+}
+
 .ranking-card {
   position: relative;
   overflow: hidden;
-  background: var(--grad-eco-deep);
-  border-radius: 24px;
-  box-shadow: 0 40px 80px -24px rgba(6, 62, 43, 0.45), var(--shadow-strong);
-  padding: 0 0 var(--space-5);
   color: #fff;
   margin-top: var(--space-4);
+  padding-bottom: var(--space-5);
+  border-radius: 28px;
+  border: 1px solid rgba(119, 255, 210, 0.35);
+  background: #003f3c;
+  box-shadow: 0 40px 80px -24px rgba(6, 62, 43, 0.45), var(--shadow-strong);
 }
 
-/* ---------- Hero strip: background image lives ONLY here (header + podium) ---------- */
+/* ---------- HERO IMAGE ---------- */
+
 .ranking-hero-strip {
   position: relative;
   overflow: hidden;
-  height: 460px;
-  padding: var(--space-5) var(--space-5) 0;
+  height: 540px;
+  padding: 26px 32px 0;
   background-image:
-    linear-gradient(180deg, rgba(6, 62, 43, 0.6) 0%, rgba(6, 62, 43, 0.12) 22%, rgba(6, 62, 43, 0.05) 55%, rgba(6, 62, 43, 0.4) 100%),
+    linear-gradient(
+      180deg,
+      rgba(0, 42, 45, 0.28) 0%,
+      rgba(0, 42, 45, 0.05) 45%,
+      rgba(0, 50, 45, 0.22) 100%
+    ),
     url('../images/ranking-bg.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
 }
 
+/* ---------- HEADER ---------- */
+
 .ranking-card-head {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-}
-.ranking-card-icon {
-  font-size: 1.8rem;
-  width: 52px; height: 52px;
-  flex-shrink: 0;
-  border-radius: var(--radius-md);
-  background: rgba(255,255,255,0.14);
-  backdrop-filter: blur(6px);
-  display: flex; align-items: center; justify-content: center;
-}
-.ranking-card-head h1 { font-size: clamp(1.3rem, 1.6vw + 1rem, 1.7rem); text-shadow: 0 2px 8px rgba(0,0,0,0.35); }
-.ranking-card-head h1 .en { font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.75); }
-.ranking-card-head p { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-top: 4px; text-shadow: 0 1px 4px rgba(0,0,0,0.3); }
-
-/* ---------- Podium ----------
-   Anchored to the BOTTOM of the fixed-height hero-strip with `position:
-   absolute`, so its vertical placement is precise and stable — it no
-   longer depends on (or affects) how tall the strip's content grows,
-   which was the bug: a content-driven strip height fed back into the
-   cover-sized background image's own scale, so growing the avatar box
-   also rescaled the photo and the gap never visibly changed. */
-.podium {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 22px;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: end;
-  gap: var(--space-3);
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0 var(--space-4);
-}
-.podium-slot {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: var(--space-2);
-  text-align: center;
-  order: 1;
-}
-/* Visual order: 2nd place left, 1st place centered, 3rd place right. */
-.podium {
-  bottom: 80px;
-}.podium-slot.rank-1 {
-  transform: translateY(70px);
+  gap: 16px;
 }
 
-.podium-slot.rank-2 {
-  transform: translateY(86px);
-}
-
-.podium-slot.rank-3 {
-  transform: translateY(96px);
-}
-.podium-avatar {
-  width: 76px; height: 76px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: #fff;
-  box-shadow: var(--shadow-strong);
-  border: 4px solid rgba(255,255,255,0.15);
-  position: relative;
-}
-.podium-crown { position: absolute; top: -26px; font-size: 1.6rem; }
-
-/* Bold rank-number badge — clearly shows 1st/2nd/3rd place at a glance,
-   separate from the classroom-initials shown inside the avatar itself. */
-.podium-rank-badge {
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 30px; height: 30px;
-  border-radius: 50%;
+.ranking-card-icon {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  font-size: 1.8rem;
+  background: rgba(0, 145, 125, 0.38);
+  border: 1px solid rgba(144, 255, 225, 0.28);
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-mono);
-  font-weight: 800;
-  font-size: 1rem;
-  color: #fff;
-  border: 3px solid var(--c-navy-900);
-  box-shadow: var(--shadow-soft);
-  z-index: 3;
-}
-.podium-slot.rank-1 .podium-rank-badge { width: 36px; height: 36px; font-size: 1.15rem; bottom: -10px; background: linear-gradient(135deg, #ffd166, var(--c-gold)); }
-.podium-slot.rank-2 .podium-rank-badge { background: linear-gradient(135deg, #e7ecef, var(--c-silver)); }
-.podium-slot.rank-3 .podium-rank-badge { background: linear-gradient(135deg, #e6a877, var(--c-bronze)); }
-
-.podium-slot.rank-1 .podium-avatar { background: linear-gradient(135deg, var(--c-gold), #c98a00); width: 92px; height: 92px; font-size: 2rem; }
-.podium-slot.rank-2 .podium-avatar { background: linear-gradient(135deg, var(--c-silver), #7c8894); }
-.podium-slot.rank-3 .podium-avatar { background: linear-gradient(135deg, var(--c-bronze), #99522c); }
-
-/* ============================================================
-   FIX: Ranking layout ให้ตำแหน่งเหมือนภาพตัวอย่าง
-   ============================================================ */
-
-.ranking-card {
-  border-radius: 28px;
-  border: 1px solid rgba(119, 255, 210, 0.35);
-  background: #003f3c;
-  overflow: hidden;
-}
-
-/* ส่วนภาพบน */
-.ranking-hero-strip {
-  height: 560px;
-  padding: 28px 34px 0;
-  background-image:
-    linear-gradient(
-      180deg,
-      rgba(0, 42, 45, 0.25) 0%,
-      rgba(0, 42, 45, 0.05) 45%,
-      rgba(0, 50, 45, 0.15) 100%
-    ),
-    url('../images/ranking-bg.png');
-  background-size: cover;
-  background-position: center top;
-}
-
-/* หัวข้อซ้ายบน */
-.ranking-card-head {
-  align-items: center;
-  gap: 22px;
-}
-
-.ranking-card-icon {
-  width: 82px;
-  height: 82px;
-  font-size: 2.3rem;
-  border-radius: 18px;
-  background: rgba(0, 145, 125, 0.38);
-  border: 1px solid rgba(144, 255, 225, 0.28);
 }
 
 .ranking-card-head h1 {
-  font-size: clamp(2.2rem, 4vw, 4rem);
-  line-height: 1;
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3.1rem);
+  line-height: 1.05;
   font-weight: 900;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.45);
 }
 
 .ranking-card-head h1 .en {
-  font-size: clamp(1rem, 1.6vw, 1.4rem);
+  font-size: 1rem;
+  font-weight: 700;
   color: #fff;
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 .ranking-card-head p {
-  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
+  margin-top: 8px;
+  font-size: 0.95rem;
   font-weight: 700;
-  margin-top: 12px;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.45);
 }
 
-/* โพเดียม 3 อันดับ */
+/* ---------- PODIUM TEXT ---------- */
+
 .podium {
-  max-width: 860px;
-  bottom: 32px;
-  gap: 18px;
+  position: absolute;
+  left: 50%;
+  bottom: 76px;
+  transform: translateX(-50%);
+  z-index: 8;
+
+  width: min(860px, 92%);
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  align-items: end;
+  gap: 0;
   padding: 0;
+  margin: 0;
 }
 
-/* ซ่อนวงกลม avatar เดิม ถ้าใช้รูปพื้นหลังที่มีตัวการ์ตูน/โพเดียมอยู่แล้ว */
-.podium-avatar {
-  background: transparent !important;
-  box-shadow: none;
-  border: none;
-  width: 1px !important;
-  height: 1px !important;
-  opacity: 0;
+.podium-slot {
+  position: relative;
+  display: block;
+  text-align: center;
+  min-height: 80px;
 }
 
-/* ถ้าไม่อยากโชว์มงกุฎ emoji */
-.podium-crown {
-  display: none;
-}
-
-/* เลขอันดับ */
-.podium-rank-badge {
-  position: static;
-  transform: none;
-  margin-bottom: 10px;
-  width: 58px;
-  height: 58px;
-  font-size: 1.7rem;
-  border: 4px solid rgba(255,255,255,0.45);
-}
-
-.podium-slot.rank-1 .podium-rank-badge {
-  width: 68px;
-  height: 68px;
-  font-size: 2rem;
-}
-
-/* ปรับความสูงแต่ละอันดับให้เหมือนภาพ */
-.podium-slot.rank-1 {
-  transform: translateY(-4px);
-}
-
+/* เรียงซ้าย กลาง ขวา */
 .podium-slot.rank-2 {
-  transform: translateY(28px);
+  order: 1;
+}
+
+.podium-slot.rank-1 {
+  order: 2;
 }
 
 .podium-slot.rank-3 {
-  transform: translateY(38px);
+  order: 3;
 }
 
-/* ข้อความบนแท่น */
+/* ซ่อน avatar / crown / badge เพราะรูปพื้นหลังมีแท่นกับตัวการ์ตูนแล้ว */
+.podium-avatar,
+.podium-crown,
+.podium-rank-badge {
+  display: none !important;
+}
+
+.podium-name,
+.podium-weight {
+  position: relative;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.65);
+}
+
 .podium-name {
-  margin-top: 0;
-  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.5vw, 2.15rem);
   font-weight: 900;
   line-height: 1;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.55);
 }
 
 .podium-weight {
-  margin-top: 10px;
-  font-size: clamp(1.1rem, 2vw, 1.65rem);
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: clamp(1.05rem, 1.7vw, 1.45rem);
   font-weight: 900;
-  color: #fff;
-  text-shadow: 0 4px 10px rgba(0,0,0,0.55);
 }
 
-/* ส่วนอันดับ 4-10 */
+/* M.1/4 ขยับขึ้น */
+.podium-slot.rank-1 .podium-name,
+.podium-slot.rank-1 .podium-weight {
+  transform: translate(0, -52px);
+}
+
+/* M.2/1 ขยับขึ้น + ขวา */
+.podium-slot.rank-2 .podium-name,
+.podium-slot.rank-2 .podium-weight {
+  transform: translate(54px, -42px);
+}
+
+/* M.1/5 ขยับขึ้น + ซ้าย */
+.podium-slot.rank-3 .podium-name,
+.podium-slot.rank-3 .podium-weight {
+  transform: translate(-54px, -42px);
+}
+
+/* ---------- RANK 4-10 ---------- */
+
 .rank-grid-section {
-  padding: 26px 52px 0;
+  position: relative;
+  z-index: 2;
+  padding: 28px 52px 0;
+  background: #003f3c;
 }
 
 .rank-grid-title {
   font-size: 1.45rem;
+  font-weight: 900;
+  color: #fff;
   margin-bottom: 14px;
 }
 
@@ -284,44 +193,68 @@
 }
 
 .rank-grid-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   padding: 14px 0;
   font-size: 1.45rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .rank-grid-item .badge-num {
   width: 44px;
   height: 44px;
-  font-size: 1.35rem;
+  flex-shrink: 0;
+  border-radius: 50%;
   background: rgba(0, 156, 135, 0.65);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .rank-grid-item .cn {
+  flex: 1;
+  color: #fff;
   font-size: 1.55rem;
   font-weight: 900;
 }
 
 .rank-grid-item .wt {
-  font-size: 1.35rem;
   color: #fff;
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
-/* กล่องเป้าหมายล่าง */
+/* ---------- TARGET NOTE ---------- */
+
 .ranking-target-note {
+  position: relative;
+  z-index: 2;
   margin: 28px 52px 0;
   padding: 18px 24px;
   border-radius: 18px;
-  font-size: 1.55rem;
-  font-weight: 900;
   background: rgba(0, 116, 104, 0.38);
   border: 1px solid rgba(91, 255, 211, 0.35);
+  color: #fff;
+  text-align: center;
+  font-size: 1.55rem;
+  font-weight: 900;
 }
 
 .ranking-target-note strong {
-  font-size: 2.4rem;
   color: #68f05c;
+  font-family: var(--font-mono);
+  font-size: 2.4rem;
 }
 
-/* มือถือ */
+/* ---------- RESPONSIVE ---------- */
+
 @media (max-width: 720px) {
   .ranking-hero-strip {
     height: 430px;
@@ -329,40 +262,76 @@
   }
 
   .ranking-card-icon {
-    width: 58px;
-    height: 58px;
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
+  }
+
+  .ranking-card-head h1 {
+    font-size: 2rem;
+  }
+
+  .ranking-card-head h1 .en {
+    display: block;
+    margin-left: 0;
+    margin-top: 4px;
+    font-size: 0.85rem;
+  }
+
+  .ranking-card-head p {
+    font-size: 0.82rem;
   }
 
   .podium {
-    max-width: 440px;
-    bottom: 24px;
-  }
-
-  .podium-rank-badge {
-    width: 42px;
-    height: 42px;
-    font-size: 1.2rem;
-  }
-
-  .podium-slot.rank-1 .podium-rank-badge {
-    width: 50px;
-    height: 50px;
+    bottom: 56px;
+    width: 94%;
   }
 
   .podium-name {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .podium-weight {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+  }
+
+  .podium-slot.rank-1 .podium-name,
+  .podium-slot.rank-1 .podium-weight {
+    transform: translate(0, -28px);
+  }
+
+  .podium-slot.rank-2 .podium-name,
+  .podium-slot.rank-2 .podium-weight {
+    transform: translate(24px, -24px);
+  }
+
+  .podium-slot.rank-3 .podium-name,
+  .podium-slot.rank-3 .podium-weight {
+    transform: translate(-24px, -24px);
+  }
+
+  .rank-grid-section {
+    padding: 22px;
   }
 
   .rank-grid {
     grid-template-columns: 1fr;
   }
 
-  .rank-grid-section {
-    padding: 22px;
+  .rank-grid-title {
+    font-size: 1.1rem;
+  }
+
+  .rank-grid-item {
+    font-size: 1rem;
+  }
+
+  .rank-grid-item .cn {
+    font-size: 1.1rem;
+  }
+
+  .rank-grid-item .wt {
+    font-size: 1rem;
   }
 
   .ranking-target-note {
@@ -374,83 +343,14 @@
     font-size: 1.5rem;
   }
 }
-/* ---------- Rank 4-10 grid ---------- */
-.rank-grid-section { position: relative; z-index: 2; padding: var(--space-4) var(--space-5) 0; }
-.rank-grid-title {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.85);
-  margin-bottom: var(--space-2);
-}
-.rank-grid {
-  display: flex;
-  flex-direction: column;
-}
-.rank-grid-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.95rem;
-  padding: 12px 4px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-.rank-grid-item:last-child { border-bottom: none; }
-.rank-grid-item .badge-num {
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.12);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 0.85rem;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.rank-grid-item .cn { font-weight: 700; color: #fff; flex: 1; }
-.rank-grid-item .wt { font-family: var(--font-mono); color: rgba(255,255,255,0.85); font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
 
-/* ---------- Target note ---------- */
-.ranking-target-note {
-  position: relative;
-  z-index: 2;
-  margin: var(--space-4) var(--space-5) 0;
-  padding: 12px 16px;
-  border-radius: var(--radius-md);
-  background: rgba(255,255,255,0.1);
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.9);
-  text-align: center;
-}
-.ranking-target-note strong { color: var(--c-green-300); font-family: var(--font-mono); }
-
-@media (max-width: 720px) {
-  .ranking-hero-strip { height: 380px; }
-  .podium { max-width: 380px; gap: var(--space-2); bottom: 14px; }
-  .podium-avatar { width: 60px !important; height: 60px !important; font-size: 1.3rem !important; }
-}
 @media (max-width: 480px) {
-  .ranking-card { padding-bottom: var(--space-4); }
-  .ranking-hero-strip { height: 340px; padding: var(--space-4) var(--space-3) 0; }
-  .rank-grid-section { padding: var(--space-3) var(--space-3) 0; }
-  .ranking-target-note { margin: var(--space-3) var(--space-3) 0; }
-  .rank-grid-item { font-size: 0.88rem; }
-}
-/* เลื่อนข้อความใต้เหรียญ podium ลง */
-.podium-name {
-  margin-top: 24px;
-}
+  .ranking-hero-strip {
+    height: 360px;
+    padding: 18px;
+  }
 
-.podium-weight {
-  margin-top: 4px;
-}
-
-/* ถ้ายังลงไม่พอ เพิ่มเลข 24px เป็น 30px หรือ 36px */
-.podium-name {
-  position: relative;
-  top: 28px;
-}
-
-.podium-weight {
-  position: relative;
-  top: 28px;
+  .podium {
+    bottom: 42px;
+  }
 }
