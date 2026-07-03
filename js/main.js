@@ -245,6 +245,31 @@ const Confetti = (() => {
   return { fire };
 })();
 
+/* ---------- Chart.js Availability Guard ---------- */
+/**
+ * Chart.js loads from an external CDN. If the network blocks it (ad-blocker,
+ * restrictive school/office network, offline), `Chart` will be undefined.
+ * Pages that draw charts should check this before calling `new Chart(...)`
+ * so a blocked CDN degrades gracefully instead of throwing and interrupting
+ * the rest of the page's data rendering.
+ */
+function isChartJsReady() {
+  return typeof Chart !== 'undefined';
+}
+
+/**
+ * Replace a <canvas> element's container with a friendly "chart unavailable"
+ * message. Used when Chart.js failed to load from the CDN.
+ */
+function renderChartUnavailable(canvasEl, message = 'ไม่สามารถโหลดกราฟได้ในขณะนี้ (ไลบรารีกราฟไม่พร้อมใช้งาน)') {
+  if (!canvasEl || !canvasEl.parentElement) return;
+  canvasEl.parentElement.innerHTML = `
+    <div style="display:flex;align-items:center;justify-content:center;height:100%;text-align:center;padding:var(--space-3);">
+      <p style="font-size:0.82rem;color:var(--text-muted);">📉 ${message}</p>
+    </div>
+  `;
+}
+
 /* ---------- Footer year ---------- */
 function initFooterYear() {
   document.querySelectorAll('.js-year').forEach((el) => {
