@@ -21,12 +21,10 @@ const RankingPage = (() => {
     }
     podium.innerHTML = top3.map((r, i) => `
       <div class="podium-slot rank-${i + 1}">
-        <div class="podium-avatar-wrap">
-          <div class="podium-avatar">
-            ${i === 0 ? '<span class="podium-crown">👑</span>' : ''}
-            ${initials(r.classroom)}
-            <span class="podium-rank-badge">${i + 1}</span>
-          </div>
+        <div class="podium-avatar">
+          ${i === 0 ? '<span class="podium-crown">👑</span>' : ''}
+          ${initials(r.classroom)}
+          <span class="podium-rank-badge">${i + 1}</span>
         </div>
         <div class="podium-name">${r.classroom}</div>
         <div class="podium-weight">${r.weightKg.toFixed(2)} kg</div>
