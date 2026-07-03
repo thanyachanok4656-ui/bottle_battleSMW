@@ -157,7 +157,6 @@
 .podium-slot.rank-1 .podium-weight {
   transform: translate(0, -52px);
 }
-
 /* M.2/1 ขยับขึ้น + ขวา */
 .podium-slot.rank-2 .podium-name,
 .podium-slot.rank-2 .podium-weight {
