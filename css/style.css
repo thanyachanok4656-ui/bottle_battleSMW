@@ -107,7 +107,6 @@ body {
   -webkit-font-smoothing: antialiased;
   transition: background var(--transition-base), color var(--transition-base);
   overflow-x: hidden;
-overflow-y: hidden;
   background:
     linear-gradient(rgba(7,18,25,0.55), rgba(7,18,25,0.70)),
     url("../images/school-bg.jpg") center/cover fixed no-repeat;
