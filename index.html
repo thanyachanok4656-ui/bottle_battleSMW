@@ -232,6 +232,36 @@
       console.warn('Could not load live summary:', err.message);
     }
   });
-</script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const targetKg = 100;
+
+  try {
+    const summary = await Api.getSummary();
+    const totalKg = Number(summary?.totalWeightKg || 0);
+    const percent = Math.min((totalKg / targetKg) * 100, 100);
+
+    const emoji = document.getElementById('heroTreeEmoji');
+    const kg = document.getElementById('heroTreeKg');
+    const target = document.getElementById('heroTreeTarget');
+    const fill = document.getElementById('heroTreeFill');
+    const pct = document.getElementById('heroTreePercent');
+
+    let tree = '🌱';
+    if (percent >= 80) tree = '🌳✨';
+    else if (percent >= 60) tree = '🌳';
+    else if (percent >= 40) tree = '🌿';
+    else if (percent >= 20) tree = '🌱';
+
+    emoji.textContent = tree;
+    kg.textContent = totalKg.toFixed(2) + ' kg';
+    target.textContent = targetKg + ' kg';
+    fill.style.width = percent + '%';
+    pct.textContent = percent.toFixed(1) + '%';
+  } catch (err) {
+    console.warn('Tree progress load failed:', err);
+  }
+});
+</script>            
 </body>
 </html>
