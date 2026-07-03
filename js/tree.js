@@ -6,7 +6,6 @@
  * skeleton while fetching, and an explicit error state if the
  * backend is unreachable — never a fabricated percentage.
  * ============================================================ */
-
 const TreeProgress = (() => {
   /** Map a 0–100 percentage to one of the 5 named growth stages. */
   function stageForPercent(pct) {
