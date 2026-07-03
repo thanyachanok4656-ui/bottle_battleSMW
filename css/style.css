@@ -899,12 +899,12 @@ img, svg { max-width: 100%; }
         inset 0 1px 1px rgba(255,255,255,.15);
 
 }
-.tree-emoji {
-  font-size: clamp(7rem, 15vw, 13rem);
-  line-height: 1;
-  text-align: center;
-  filter: drop-shadow(0 24px 28px rgba(0,0,0,.4));
-  animation: treePop 1s ease;
+.tree-emoji{
+
+    font-size:12rem;
+
+    filter:drop-shadow(0 30px 40px rgba(0,0,0,.45));
+
 }
 
 @keyframes treePop {
@@ -912,18 +912,35 @@ img, svg { max-width: 100%; }
   to { transform: scale(1); opacity: 1; }
 }
 
-.tree-info {
-  color: #fff;
+.tree-info{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
 }
 
-.tree-info h1 {
-  font-size: clamp(1.8rem, 3vw, 3rem);
-  margin: 12px 0 18px;
+.tree-info h1{
+
+    font-size:3.5rem;
+
+    line-height:1.1;
+
+    margin:
+
+    14px 0
+    24px;
+
 }
 
-.tree-info p {
-  color: rgba(255,255,255,.82);
-  margin-bottom: 14px;
+.tree-info p{
+
+    font-size:1.2rem;
+
+    color:#d9e7e2;
+
+    margin-bottom:24px;
+
 }
 
 .tree-info strong {
@@ -931,11 +948,16 @@ img, svg { max-width: 100%; }
   font-family: var(--font-mono);
 }
 
-.tree-progress-track {
-  height: 16px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.15);
-  overflow: hidden;
+.tree-progress-track{
+
+    height:18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.12);
+
+    overflow:hidden;
+
 }
 
 .tree-progress-fill {
@@ -946,12 +968,16 @@ img, svg { max-width: 100%; }
   transition: width 1.2s ease;
 }
 
-.tree-progress-pct {
-  display: inline-block;
-  margin-top: 10px;
-  color: #6ee7b7;
-  font-family: var(--font-mono);
-  font-weight: 700;
+.tree-progress-pct{
+
+    margin-top:14px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:#6ee7b7;
+
 }
 
 .hero-copy {
