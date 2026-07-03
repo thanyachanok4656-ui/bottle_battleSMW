@@ -1169,5 +1169,29 @@ img, svg { max-width: 100%; }
 
   .hero-actions {
     justify-content: center;
+     .home-hero-inner {
+  width: min(1080px, 100%);
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+}
+
+.hero-tree-card {
+  grid-template-columns: 170px 1fr;
+  max-width: 520px;
+  padding: 28px;
+}
+
+.tree-emoji {
+  font-size: clamp(6rem, 9vw, 8rem);
+}
+
+.tree-info h1 {
+  font-size: clamp(2rem, 2.7vw, 2.7rem);
+  line-height: 1.12;
+}
+
+.hero-copy h2 {
+  font-size: clamp(3rem, 5vw, 4.8rem);
+}
   }
 }
