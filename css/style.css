@@ -1023,3 +1023,14 @@ img, svg { max-width: 100%; }
     width: 100%;
   }
 }
+.home-page {
+  overflow-y: hidden;
+}
+
+.home-page .site-footer {
+  display: none;
+}
+
+.home-page .home-hero {
+  min-height: calc(100vh - var(--nav-height));
+}
