@@ -103,18 +103,14 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--transition-base), color var(--transition-base);
+  overflow-x: hidden;
 
   background:
-    linear-gradient(
-      rgba(6,62,43,0.75),
-      rgba(6,62,43,0.75)
-    ),
-    url("../images/school-bg.jpg");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+    linear-gradient(rgba(7,18,25,0.55), rgba(7,18,25,0.70)),
+    url("../images/school-bg.jpg") center/cover fixed no-repeat;
 }
 
 img { max-width: 100%; display: block; }
