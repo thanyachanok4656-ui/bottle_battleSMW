@@ -29,7 +29,7 @@
     linear-gradient(180deg, rgba(6, 62, 43, 0.45) 0%, rgba(6, 62, 43, 0.55) 55%, rgba(6, 62, 43, 0.88) 100%),
     url('../images/ranking-bg.png');
   background-size: cover;
-  background-position: center 35%;
+  background-position: center top;
   background-repeat: no-repeat;
 }
 
@@ -96,6 +96,31 @@
   position: relative;
 }
 .podium-crown { position: absolute; top: -26px; font-size: 1.6rem; }
+
+/* Bold rank-number badge — clearly shows 1st/2nd/3rd place at a glance,
+   separate from the classroom-initials shown inside the avatar itself. */
+.podium-rank-badge {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+  border: 3px solid var(--c-navy-900);
+  box-shadow: var(--shadow-soft);
+  z-index: 3;
+}
+.podium-slot.rank-1 .podium-rank-badge { width: 36px; height: 36px; font-size: 1.15rem; bottom: -10px; background: linear-gradient(135deg, #ffd166, var(--c-gold)); }
+.podium-slot.rank-2 .podium-rank-badge { background: linear-gradient(135deg, #e7ecef, var(--c-silver)); }
+.podium-slot.rank-3 .podium-rank-badge { background: linear-gradient(135deg, #e6a877, var(--c-bronze)); }
+
 .podium-slot.rank-1 .podium-avatar { background: linear-gradient(135deg, var(--c-gold), #c98a00); width: 92px; height: 92px; font-size: 2rem; }
 .podium-slot.rank-2 .podium-avatar { background: linear-gradient(135deg, var(--c-silver), #7c8894); }
 .podium-slot.rank-3 .podium-avatar { background: linear-gradient(135deg, var(--c-bronze), #99522c); }
