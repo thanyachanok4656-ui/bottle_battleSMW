@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -55,32 +56,39 @@
   </button>
 
   <main id="main" class="dash-main ranking-main">
-  <section class="page-hero" style="border-radius:var(--radius-lg);">
-    <div class="hero-bg-orb orb-1"></div>
-    <div class="hero-bg-orb orb-2"></div>
-    <div class="container">
-      <span class="eyebrow"><span class="live-dot"></span>Season standings</span>
-      <h1>อันดับห้องเรียน · Classroom Ranking</h1>
-      <p>คะแนนคำนวณจากน้ำหนัก PET ที่ส่งเข้าระบบ หากคะแนนเท่ากันจะตัดสินจากผู้ที่ส่งก่อน</p>
-    </div>
-  </section>
-
   <div class="container">
-    <!-- Podium -->
-    <div class="podium" id="podium">
-      <!-- injected by ranking.js -->
-    </div>
+    <div class="ranking-card reveal">
 
-    <!-- Leaderboard -->
-    <section class="leaderboard">
-      <div class="leaderboard-head">
-        <span>#</span><span>Classroom</span><span>Weight</span><span>Points</span><span>Move</span>
+      <!-- Background image lives only in this top strip (header + podium) -->
+      <div class="ranking-hero-strip">
+        <div class="hero-bg-orb orb-1"></div>
+        <div class="hero-bg-orb orb-2"></div>
+
+        <div class="ranking-card-head">
+          <span class="ranking-card-icon">🏆</span>
+          <div>
+            <h1>อันดับห้องเรียน <span class="en">(Battle Ranking)</span></h1>
+            <p>คะแนนคำนวณจากน้ำหนัก PET ที่ส่งเข้าระบบ หากเท่ากันตัดสินจากผู้ที่ส่งก่อน</p>
+          </div>
+        </div>
+
+        <!-- Podium -->
+        <div class="podium podium--card" id="podium">
+          <div class="skeleton" style="height:140px;width:100%;grid-column:1/-1;background:rgba(255,255,255,0.12);"></div>
+        </div>
       </div>
-      <div class="leaderboard-list glass-card" id="leaderboardList" style="padding: var(--space-2);">
-        <div class="skeleton" style="height:56px;width:100%;margin-bottom:8px;"></div>
-        <div class="skeleton" style="height:56px;width:100%;"></div>
+
+      <!-- Rank 4-10 (plain dark background, no image) -->
+      <div class="rank-grid-section">
+        <h3 class="rank-grid-title">อันดับ 4 - 10</h3>
+        <div class="rank-grid" id="rankGrid">
+          <div class="skeleton" style="height:80px;width:100%;grid-column:1/-1;background:rgba(255,255,255,0.08);"></div>
+        </div>
       </div>
-    </section>
+
+      <!-- Target note -->
+      <div class="ranking-target-note" id="targetNote">🎯 เป้าหมายทั้งห้องเรียน: เก็บเพิ่มอีก <strong id="targetGapKg">–</strong> จะติดอันดับ 4</div>
+    </div>
   </div>
   </main>
 </div>
