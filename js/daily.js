@@ -42,6 +42,10 @@ const DailyPage = (() => {
     });
 
     const ctx = document.getElementById('dailyChart');
+    if (!isChartJsReady()) {
+      renderChartUnavailable(ctx);
+      return;
+    }
     if (chart) chart.destroy();
     chart = new Chart(ctx, {
       type: 'line',
