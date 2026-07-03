@@ -194,3 +194,22 @@
   .ranking-target-note { margin: var(--space-3) var(--space-3) 0; }
   .rank-grid-item { font-size: 0.88rem; }
 }
+/* เลื่อนข้อความใต้เหรียญ podium ลง */
+.podium-name {
+  margin-top: 24px;
+}
+
+.podium-weight {
+  margin-top: 4px;
+}
+
+/* ถ้ายังลงไม่พอ เพิ่มเลข 24px เป็น 30px หรือ 36px */
+.podium-name {
+  position: relative;
+  top: 28px;
+}
+
+.podium-weight {
+  position: relative;
+  top: 28px;
+}
