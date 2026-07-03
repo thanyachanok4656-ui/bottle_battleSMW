@@ -63,7 +63,7 @@
   position: relative;
   z-index: 2;
   max-width: 640px;
-  margin: 0 auto var(--space-5);
+  margin: 0 auto var(--space-6);
 }
 .podium-slot {
   display: flex;
@@ -78,11 +78,15 @@
    The extra height also carries the text down over the photo's own
    illustrated podium stands instead of sitting right under the avatar. */
 .podium-avatar-wrap {
-  height: 150px;
+  height: 190px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
 }
+
+/* Classic podium stagger: 1st place sits higher than 2nd/3rd (both of which
+   share the same bottom baseline via .podium's align-items:end). */
+.podium-slot.rank-1 { margin-bottom: 44px; }
 .podium-avatar {
   width: 76px; height: 76px;
   border-radius: 50%;
@@ -183,7 +187,8 @@
 @media (max-width: 720px) {
   .podium { max-width: 380px; gap: var(--space-2); }
   .podium-avatar { width: 60px !important; height: 60px !important; font-size: 1.3rem !important; }
-  .podium-avatar-wrap { height: 100px; }
+  .podium-avatar-wrap { height: 120px; }
+  .podium-slot.rank-1 { margin-bottom: 24px; }
   .rank-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, auto); }
 }
 @media (max-width: 480px) {
