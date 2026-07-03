@@ -219,7 +219,7 @@
 /* ============================================================
    KPI ROW (horizontal icon-left cards)
    ============================================================ */
-.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
 .kpi-card-h {
   padding: var(--space-3) var(--space-4);
   display: flex;
