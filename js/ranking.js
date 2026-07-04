@@ -46,18 +46,6 @@ const RankingPage = (() => {
       </div>
     `).join('');
   }
-
-  /** Gap between 4th and 5th place — the closest challenger to enter the top 4. */
-  function renderTargetNote(sorted) {
-    const el = document.getElementById('targetGapKg');
-    if (sorted.length > 4) {
-      const gap = sorted[3].weightKg - sorted[4].weightKg;
-      el.textContent = `${Math.max(gap, 0).toFixed(2)} kg`;
-    } else {
-      el.textContent = '–';
-    }
-  }
-
   /** Compare the new #1 classroom against the last known leader and fire confetti on change. */
   function checkLeaderChange(sorted) {
     if (!sorted.length) return;
