@@ -58,11 +58,7 @@ const CONFIG = Object.freeze({
    * a per-point field is added to the COLLECTIONS sheet.
    */
   COLLECTION_POINTS: [
-    { name: 'อาคาร 1', x: 30, y: 24 },
-    { name: 'อาคาร 2', x: 30, y: 46 },
-    { name: 'อาคาร 4', x: 72, y: 30 },
-    { name: 'อาคาร 5', x: 22, y: 66 },
-    { name: 'โรงอาหาร', x: 52, y: 62 }
+    { name: 'หน้าอาคาร 3', x: 30, y: 24 },
   ],
 
   /** Gallery placeholders — replace with real activity photo URLs once available. */
