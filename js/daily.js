@@ -75,15 +75,26 @@ const DailyPage = (() => {
   }
 
   async function init() {
-    try {
-      const daily = await Api.getDailyOverview();
-      render(daily || {});
-    } catch (err) {
-      Toast.error(`โหลดข้อมูลภาพรวมรายวันไม่สำเร็จ: ${err.message}`);
-    }
+
+  const dailyDate = document.getElementById("dailyDate");
+  const dailyLoadBtn = document.getElementById("dailyLoadBtn");
+
+  const today = new Date().toISOString().slice(0,10);
+
+  if (dailyDate) {
+    dailyDate.value = today;
+
+    // โหลดอัตโนมัติเมื่อเปลี่ยนวันที่
+    dailyDate.addEventListener("change", () => {
+      loadByDate(dailyDate.value);
+    });
   }
 
-  return { init };
-})();
+  if (dailyLoadBtn) {
+    dailyLoadBtn.addEventListener("click", () => {
+      loadByDate(dailyDate.value);
+    });
+  }
 
-document.addEventListener('DOMContentLoaded', DailyPage.init);
+  loadByDate(today);
+}
