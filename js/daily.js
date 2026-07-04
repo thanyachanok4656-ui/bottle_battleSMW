@@ -73,7 +73,14 @@ const DailyPage = (() => {
       }
     });
   }
-
+async function loadByDate(date) {
+  try {
+    const daily = await Api.getDailyOverview(date);
+    render(daily || {});
+  } catch (err) {
+    Toast.error(`โหลดข้อมูลภาพรวมรายวันไม่สำเร็จ: ${err.message}`);
+  }
+}
   async function init() {
 
   const dailyDate = document.getElementById("dailyDate");
