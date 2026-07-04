@@ -215,16 +215,20 @@
 <script src="js/config.js"></script>
 <script src="js/api.js"></script>
 <script src="js/main.js"></script>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
   const targetKg = 100;
 
   try {
-    const summary = await Api.getSummary();
+    const summary = await API.getSummary();
     const data = summary?.data || summary;
 
-    const totalKg = Number(data?.totalWeightKg || 0);
+    const totalKg = Number(data.totalWeightKg || 0);
     const percent = Math.min((totalKg / targetKg) * 100, 100);
 
     const treeImage = document.getElementById('treeImage');
@@ -238,19 +242,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     else if (percent >= 40) stage = 3;
     else if (percent >= 20) stage = 2;
 
-    treeImage.src = `images/tree/tree-stage${stage}.png`;
+    treeImage.src = `images/tree/tree-stage-${stage}.png`;
     treePercent.textContent = percent.toFixed(1) + '%';
     treeProgress.style.width = percent + '%';
     treeWeight.textContent = totalKg.toFixed(1) + ' kg';
 
   } catch (err) {
-    console.warn('Tree progress load failed:', err);
+    console.error('Tree progress load failed:', err);
   }
 });
-<script src="js/config.js"></script>
-<script src="js/api.js"></script>
-<script src="js/main.js"></script>
-<script src="js/home.js"></script>
 </script>
 </body>
 </html>
