@@ -69,140 +69,49 @@
 
 <main id="main">
 
-  <section class="hero-home">
+ <section class="world-hero">
+  <div class="world-hero-left">
+    <div class="world-card">
+      <div class="world-info">
+        <span class="world-level">🌍 Bottle Battle World</span>
+        <h1 id="worldStageName">เกาะแห่งชีวิต</h1>
+        <p>ทุกขวดที่เก็บได้ ช่วยสร้างโลกใบใหม่</p>
 
-    <div class="hero-overlay"></div>
-
-    <div class="hero-container">
-
-        <!-- LEFT -->
-        <div class="tree-card glass">
-
-            <div class="tree-image">
-                <img id="treeImage"
-                     src="images/tree/tree-stage-1.png"
-                     alt="Growing Tree">
-            </div>
-
-            <div class="tree-content">
-
-                <span class="tree-small">
-                    ต้นไม้แห่งเป้าหมาย
-                </span>
-
-                <h2>
-                    ต้นไม้แห่ง<span>เป้าหมาย</span>
-                </h2>
-
-                <p>
-                    ยิ่งเก็บขวดได้มาก
-                    ต้นไม้ยิ่งเติบโต
-                </p>
-
-                <div class="tree-percent">
-                    <span id="treePercent">0%</span>
-
-                    <div class="tree-status">
-                        🌿 กำลังเติบโต
-                    </div>
-                </div>
-
-                <div class="progress">
-                    <div class="progress-fill"
-                         id="treeProgress">
-                    </div>
-                </div>
-
-                <div class="tree-bottom">
-
-                    <div class="info-card">
-                        <span>🍼</span>
-
-                        <div>
-
-                            <small>เก็บได้แล้ว</small>
-
-                            <strong id="treeWeight">
-                                0 kg
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                    <div class="info-card">
-                        <span>🎯</span>
-
-                        <div>
-
-                            <small>เป้าหมาย</small>
-
-                            <strong>
-                                100 kg
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+        <div class="world-progress-number" id="worldProgressPct">33.5%</div>
+        <div class="world-progress-bar">
+          <div id="worldProgressFill" style="width:33.5%"></div>
         </div>
+      </div>
 
+      <div class="world-image-wrap">
+        <img id="worldStageImage" src="images/world-stage-2.png" alt="Bottle Battle World">
+      </div>
 
-        <!-- RIGHT -->
-
-        <div class="hero-copy">
-
-            <span class="eyebrow">
-                โรงเรียนไทรโยคมณีกาญจน์วิทยา · SEASON 2026
-            </span>
-
-            <h1>
-
-                Bottle Battle
-
-                <span>to Carbon Goal</span>
-
-            </h1>
-
-            <p>
-
-                ร่วมกันคัดแยกขวดพลาสติก
-                ลดขยะ ลดโลกร้อน
-
-                ทุกขวดที่ห้องเรียนเก็บได้
-                กลายเป็นคะแนนและการลดคาร์บอนแบบเรียลไทม์
-
-            </p>
-
-            <div class="hero-actions">
-
-                <a class="btn btn-primary"
-                   href="submit.html">
-
-                    Submit Collection
-
-                </a>
-
-                <a class="btn btn-ghost"
-                   href="ranking.html">
-
-                    View Ranking
-
-                </a>
-
-            </div>
-
+      <div class="world-stats">
+        <div>
+          <span>เก็บแล้ว</span>
+          <strong id="worldCurrentKg">33.5 kg</strong>
         </div>
-
+        <div>
+          <span>เป้าหมาย</span>
+          <strong id="worldTargetKg">100 kg</strong>
+        </div>
+      </div>
     </div>
+  </div>
 
+  <div class="world-hero-right">
+    <span class="hero-eyebrow">โรงเรียนไทรโยคมณีกาญจน์วิทยา · SEASON 2026</span>
+    <h2>Bottle Battle<br><span>to Carbon Goal</span></h2>
+    <p>ร่วมกันคัดแยกขวดพลาสติก ลดขยะ ลดโลกร้อน ทุกขวดที่ห้องเรียนเก็บได้ กลายเป็นคะแนนและการลดคาร์บอนแบบเรียลไทม์</p>
+
+    <div class="hero-actions">
+      <a href="submit.html" class="btn btn-primary">Submit Collection</a>
+      <a href="ranking.html" class="btn btn-ghost">View Ranking</a>
+    </div>
+  </div>
 </section>
-
-</main>
+  </main>
 
 <footer class="site-footer">
   <div class="container">
