@@ -103,5 +103,12 @@ async function loadByDate(date) {
     });
   }
 
+
+    
+
   loadByDate(today);
 }
+  return { init };
+})();
+
+document.addEventListener('DOMContentLoaded', DailyPage.init);
