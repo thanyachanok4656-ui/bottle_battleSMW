@@ -94,9 +94,9 @@ const Api = (() => {
     },
 
     /** Today's totals, a short daily trend, and the top classroom of the day. */
-    getDailyOverview() {
-      return get('getDailyOverview');
-    },
+  getDailyOverview(date) {
+  return get('getDailyOverview', { date });
+},
 
     /**
      * Paginated / filterable collection history.
