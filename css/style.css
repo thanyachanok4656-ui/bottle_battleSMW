@@ -1198,3 +1198,169 @@ body.home-page {
   background: transparent;
   mix-blend-mode: multiply;
 }
+.world-hero {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 32px;
+  padding: 32px;
+  align-items: center;
+}
+
+.world-hero-left,
+.world-hero-right {
+  position: relative;
+  z-index: 2;
+}
+
+.world-card {
+  min-height: 640px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 24px;
+  padding: 30px;
+  border-radius: 34px;
+  background: rgba(0, 46, 38, 0.82);
+  border: 1px solid rgba(94, 255, 198, 0.45);
+  box-shadow: 0 0 45px rgba(34, 197, 94, 0.25);
+  overflow: hidden;
+}
+
+.world-info {
+  grid-column: 1 / 2;
+}
+
+.world-level {
+  color: #75f7b1;
+  font-weight: 900;
+  letter-spacing: .06em;
+}
+
+.world-info h1 {
+  margin: 14px 0 10px;
+  font-size: clamp(2rem, 4vw, 4.2rem);
+  line-height: 1.05;
+  color: #fff;
+}
+
+.world-info p {
+  color: rgba(255,255,255,.8);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.world-progress-number {
+  margin-top: 32px;
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 900;
+  color: #69f5a5;
+  font-family: var(--font-mono);
+}
+
+.world-progress-bar {
+  height: 18px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.13);
+  overflow: hidden;
+}
+
+.world-progress-bar div {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #22c55e, #06b6d4);
+}
+
+.world-image-wrap {
+  grid-column: 2 / 3;
+  grid-row: 1 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.world-image-wrap img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+  border-radius: 28px;
+  filter: drop-shadow(0 30px 55px rgba(0,0,0,.45));
+}
+
+.world-stats {
+  grid-column: 1 / 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.world-stats div {
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  text-align: center;
+}
+
+.world-stats span {
+  display: block;
+  color: rgba(255,255,255,.72);
+  font-weight: 700;
+}
+
+.world-stats strong {
+  display: block;
+  margin-top: 6px;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.world-hero-right {
+  color: #fff;
+}
+
+.hero-eyebrow {
+  color: #6ee7b7;
+  font-weight: 900;
+  letter-spacing: .08em;
+  font-size: .82rem;
+}
+
+.world-hero-right h2 {
+  margin: 18px 0;
+  font-size: clamp(3rem, 5vw, 5.6rem);
+  line-height: .95;
+  font-weight: 900;
+}
+
+.world-hero-right h2 span {
+  color: #67e8f9;
+}
+
+.world-hero-right p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-weight: 700;
+  color: rgba(255,255,255,.86);
+}
+
+@media (max-width: 980px) {
+  .world-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .world-card {
+    grid-template-columns: 1fr;
+  }
+
+  .world-image-wrap {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .world-stats {
+    grid-column: 1;
+  }
+}
