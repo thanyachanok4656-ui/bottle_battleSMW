@@ -1,3 +1,4 @@
+console.log("TREE.JS LOADED");
 const TreeProgress = (() => {
   function getTreeStage(percent) {
     if (percent >= 100) return 6;
