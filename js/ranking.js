@@ -64,7 +64,6 @@ const RankingPage = (() => {
       const sorted = (ranking || []).slice().sort((a, b) => a.rank - b.rank);
       renderPodium(sorted.slice(0, 3));
       renderRankGrid(sorted.slice(3, 10));
-      renderTargetNote(sorted);
       checkLeaderChange(sorted);
     } catch (err) {
       Toast.error(`Could not load ranking: ${err.message}`);
