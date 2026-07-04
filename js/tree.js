@@ -8,13 +8,33 @@
  * ============================================================ */
 const TreeProgress = (() => {
   /** Map a 0–100 percentage to one of the 5 named growth stages. */
-  function stageForPercent(pct) {
-    if (pct <= 20) return 1;   // seed
-    if (pct <= 40) return 2;   // sprout
-    if (pct <= 60) return 3;   // small tree
-    if (pct <= 80) return 4;   // big tree
-    return 5;                  // full eco tree
+ function getTreeStage(percent) {
+  if (percent >= 100) return 6;
+  if (percent >= 80) return 5;
+  if (percent >= 60) return 4;
+  if (percent >= 40) return 3;
+  if (percent >= 20) return 2;
+  return 1;
+}
+
+function updateTree(totalWeightKg, targetKg) {
+  const percent = targetKg > 0
+    ? Math.min((totalWeightKg / targetKg) * 100, 100)
+    : 0;
+
+  const stage = getTreeStage(percent);
+
+  const treeImg = document.querySelector("#growingTree");
+  if (treeImg) {
+    treeImg.src = `images/tree-stage-${stage}.png`;
   }
+
+  const percentText = document.querySelector("#treePercent");
+  if (percentText) {
+    percentText.textContent = `${Math.round(percent)}%`;
+  }
+}
+  
 
   function showState(state) {
     document.getElementById('treeLoading').style.display = state === 'loading' ? 'block' : 'none';
