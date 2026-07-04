@@ -225,38 +225,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     const summary = await Api.getSummary();
     const data = summary?.data || summary;
 
-    const totalKg = Number(
-      data?.totalWeightKg ||
-      data?.totalWeight ||
-      data?.weightKg ||
-      data?.totalKg ||
-      0
-    );
-
+    const totalKg = Number(data?.totalWeightKg || 0);
     const percent = Math.min((totalKg / targetKg) * 100, 100);
 
-    const emoji = document.getElementById('heroTreeEmoji');
-    const kg = document.getElementById('heroTreeKg');
-    const target = document.getElementById('heroTreeTarget');
-    const fill = document.getElementById('heroTreeFill');
-    const pct = document.getElementById('heroTreePercent');
+    const treeImage = document.getElementById('treeImage');
+    const treePercent = document.getElementById('treePercent');
+    const treeProgress = document.getElementById('treeProgress');
+    const treeWeight = document.getElementById('treeWeight');
 
-    let tree = '🌱';
-    if (percent >= 80) tree = '🌳✨';
-    else if (percent >= 60) tree = '🌳';
-    else if (percent >= 40) tree = '🌿';
-    else if (percent >= 20) tree = '🌱';
+    let stage = 1;
+    if (percent >= 80) stage = 5;
+    else if (percent >= 60) stage = 4;
+    else if (percent >= 40) stage = 3;
+    else if (percent >= 20) stage = 2;
 
-    emoji.textContent = tree;
-    kg.textContent = totalKg.toFixed(2) + ' kg';
-    target.textContent = targetKg + ' kg';
-    fill.style.width = percent + '%';
-    pct.textContent = percent.toFixed(1) + '%';
+    treeImage.src = `images/tree/tree-stage${stage}.png`;
+    treePercent.textContent = percent.toFixed(1) + '%';
+    treeProgress.style.width = percent + '%';
+    treeWeight.textContent = totalKg.toFixed(1) + ' kg';
 
   } catch (err) {
     console.warn('Tree progress load failed:', err);
   }
 });
+</script>
 <script src="js/config.js"></script>
 <script src="js/api.js"></script>
 <script src="js/main.js"></script>
