@@ -3,21 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bottle Battle World | Bottle Battle</title>
-<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Thai:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/home-v2.css"><link rel="stylesheet" href="css/home-v2.css?v=1">
+<title>Bottle Battle World</title>
+
+<link rel="stylesheet" href="css/home-v2.css">
 </head>
 
 <body>
-<header class="home-v2-nav">
-  <a href="index-v2.html" class="home-v2-brand">
-    <span class="brand-icon">♻️</span>
-    <span>Bottle<span>Battle</span></span>
-  </a>
 
+<header class="bb-nav">
+  <div class="bb-brand">♻️ Bottle<span>Battle</span></div>
   <nav>
     <a class="active" href="index-v2.html">หน้าหลัก</a>
     <a href="dashboard.html">Dashboard</a>
@@ -27,83 +21,71 @@
   </nav>
 </header>
 
-<main class="home-v2-page">
-  <section class="home-v2-hero">
+<main class="bb-home">
 
-    <!-- LEFT 75% -->
-    <div class="world-panel">
-      <div class="world-overlay"></div>
+  <!-- ซ้าย 75% -->
+  <section class="world-hero">
+    <div class="world-info">
+      <div class="stage-pill" id="worldStageBadge">STAGE 2</div>
+      <h1 id="worldStageTitle">โลกเริ่มมีชีวิต</h1>
+      <p>ทุกขวดที่เก็บได้ ช่วยสร้างโลกใบใหม่</p>
 
-      <div class="world-content">
-        <div class="world-text">
-          <span class="world-badge" id="worldStageBadge">STAGE 2</span>
-          <h1 id="worldStageTitle">โลกเริ่มมีชีวิต</h1>
-          <p id="worldStageDesc">ทุกขวดที่เก็บได้ ช่วยสร้างโลกใบใหม่</p>
+      <div class="range" id="worldStageRange">20 - 40%</div>
 
-          <div class="world-range" id="worldStageRange">20 - 40%</div>
+      <div class="progress-label">
+        <span>ความคืบหน้า</span>
+        <strong id="worldProgressText">33.5%</strong>
+      </div>
 
-          <div class="world-progress">
-            <div>
-              <span>ความคืบหน้า</span>
-              <strong id="worldProgressText">33.5%</strong>
-            </div>
-            <div class="world-progress-track">
-              <div id="worldProgressFill"></div>
-            </div>
-          </div>
+      <div class="progress-bar">
+        <div id="worldProgressFill"></div>
+      </div>
 
-          <div class="world-stat-grid">
-            <div class="world-stat">
-              <span>เก็บแล้ว</span>
-              <strong id="worldCurrentKg">33.5</strong>
-              <small>kg</small>
-            </div>
-            <div class="world-stat">
-              <span>เป้าหมาย</span>
-              <strong id="worldTargetKg">100</strong>
-              <small>kg</small>
-            </div>
-          </div>
+      <div class="stat-row">
+        <div class="stat-card">
+          <span>เก็บแล้ว</span>
+          <strong id="worldCurrentKg">33.5</strong>
+          <small>kg</small>
         </div>
 
-        <div class="world-image-box">
-          <img id="worldStageImage" src="images/world-stage-2.png" alt="Bottle Battle World">
+        <div class="stat-card">
+          <span>เป้าหมาย</span>
+          <strong id="worldTargetKg">100</strong>
+          <small>kg</small>
         </div>
       </div>
     </div>
 
-    <!-- RIGHT 25% -->
-    <aside class="hero-side">
-      <span class="hero-season">โรงเรียนไทรโยคมณีกาญจน์วิทยา · SEASON 2026</span>
-
-      <h2>
-        Bottle Battle
-        <span>to Carbon Goal</span>
-      </h2>
-
-      <p>
-        ร่วมกันคัดแยกขวดพลาสติก ลดขยะ ลดโลกร้อน
-        ทุกขวดที่ห้องเรียนเก็บได้ กลายเป็นคะแนนและการลดคาร์บอนแบบเรียลไทม์
-      </p>
-
-      <div class="hero-actions-v2">
-        <a href="submit.html" class="hero-btn primary">Submit Collection</a>
-        <a href="ranking.html" class="hero-btn ghost">View Ranking</a>
-      </div>
-
-      <div class="mini-impact">
-        <span>🌳 ต้นไม้ที่เทียบเท่า</span>
-        <strong id="worldTrees">0</strong>
-        <small>ต้น</small>
-      </div>
-    </aside>
-
+    <div class="world-image">
+      <img id="worldStageImage" src="images/world-stage-2.png" alt="Bottle Battle World">
+    </div>
   </section>
+
+  <!-- ขวา 25% -->
+  <aside class="side-hero">
+    <div class="school">โรงเรียนไทรโยคมณีกาญจน์วิทยา · SEASON 2026</div>
+
+    <h2>Bottle Battle <span>to Carbon Goal</span></h2>
+
+    <p>
+      ร่วมกันคัดแยกขวดพลาสติก ลดขยะ ลดโลกร้อน
+      ทุกขวดที่ห้องเรียนเก็บได้ กลายเป็นคะแนนและการลดคาร์บอนแบบเรียลไทม์
+    </p>
+
+    <a class="main-btn" href="submit.html">Submit Collection →</a>
+    <a class="outline-btn" href="ranking.html">🏆 View Ranking →</a>
+
+    <div class="tree-box">
+      <span>🌳 ต้นไม้ที่เทียบเท่า</span>
+      <strong id="worldTrees">0</strong>
+      <small>ต้น</small>
+    </div>
+  </aside>
+
 </main>
 
 <script src="js/config.js"></script>
 <script src="js/api.js"></script>
-<script src="js/main.js"></script>
 <script src="js/home-v2.js"></script>
 </body>
 </html>
