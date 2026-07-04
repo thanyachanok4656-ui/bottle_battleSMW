@@ -1,0 +1,15 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const dailyDate = document.getElementById('dailyDate');
+  const dailyLoadBtn = document.getElementById('dailyLoadBtn');
+
+  if (!dailyDate || !dailyLoadBtn) return;
+
+  const today = new Date().toISOString().slice(0, 10);
+  dailyDate.value = today;
+
+  dailyLoadBtn.addEventListener('click', () => {
+    loadDailyOverview(dailyDate.value);
+  });
+
+  loadDailyOverview(today);
+});
