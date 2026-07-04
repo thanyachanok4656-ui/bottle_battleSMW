@@ -267,7 +267,6 @@ textarea:focus-visible, select:focus-visible {
 .nav-links a:hover::after, .nav-links a.is-active::after { width: 100%; }
 
 .nav-actions { display: flex; align-items: center; gap: var(--space-3); }
-
 .theme-toggle {
   width: 42px; height: 42px;
   border-radius: 50%;
