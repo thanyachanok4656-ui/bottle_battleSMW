@@ -1193,3 +1193,7 @@ body.home-page {
     width: 100%;
   }
 }
+.tree-image img {
+  background: transparent;
+  mix-blend-mode: multiply;
+}
