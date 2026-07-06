@@ -1553,3 +1553,85 @@ font-size:24px;
 color:white;
 
 }
+/* ===== FINAL HOME FIX: desktop + mobile ===== */
+
+.home-page .bb-hero {
+  min-height: calc(100vh - var(--nav-height)) !important;
+  padding: calc(var(--nav-height) + 28px) 34px 36px !important;
+  overflow: hidden !important;
+}
+
+.home-page .bb-hero-inner {
+  display: grid !important;
+  grid-template-columns: 46% 54% !important;
+  align-items: center !important;
+  gap: 18px !important;
+}
+
+.home-page .bb-hero-copy {
+  max-width: 720px !important;
+  transform: translateY(-35px) !important;
+  z-index: 5 !important;
+}
+
+.home-page .bb-world-card {
+  display: block !important;
+  position: relative !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.home-page .bb-world-image {
+  min-height: 520px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+.home-page .bb-world-image img {
+  width: min(100%, 720px) !important;
+  max-height: 540px !important;
+  object-fit: contain !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* มือถือ */
+@media (max-width: 768px) {
+  .home-page .bb-hero {
+    min-height: auto !important;
+    padding: calc(var(--nav-height) + 18px) 16px 36px !important;
+  }
+
+  .home-page .bb-hero-inner {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    gap: 22px !important;
+  }
+
+  .home-page .bb-hero-copy {
+    transform: none !important;
+    text-align: center !important;
+  }
+
+  .home-page .bb-world-image {
+    min-height: auto !important;
+    justify-content: center !important;
+  }
+
+  .home-page .bb-world-image img {
+    width: 100% !important;
+    max-width: 420px !important;
+    max-height: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+
+  .home-page .hero-progress-card {
+    width: 100% !important;
+    margin-top: 20px !important;
+  }
+}
