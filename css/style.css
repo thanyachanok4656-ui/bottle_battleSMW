@@ -1503,3 +1503,108 @@ body.home-page {
     grid-template-columns: 1fr !important;
   }
 }
+.bottle-bank-section {
+  padding: 28px;
+}
+
+.bottle-bank-card {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 28px;
+  padding: 28px;
+  border-radius: 28px;
+  background: rgba(3, 42, 39, 0.72);
+  border: 1px solid rgba(111, 255, 210, 0.25);
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  backdrop-filter: blur(16px);
+}
+
+.bank-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  min-height: 420px;
+}
+
+.bank-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bank-status {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #10b981;
+  color: #fff;
+  font-weight: 800;
+}
+
+.bank-info {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bank-label {
+  color: #6dffcf;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.bank-info h2 {
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+}
+
+.bank-info p {
+  color: rgba(255,255,255,.78);
+  line-height: 1.7;
+}
+
+.bank-detail {
+  display: grid;
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.bank-detail div {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.bank-detail strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.bank-detail span {
+  color: rgba(255,255,255,.75);
+}
+
+.bank-submit-btn {
+  display: inline-flex;
+  justify-content: center;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #10b981, #0ea5e9);
+  color: #fff;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .bottle-bank-card {
+    grid-template-columns: 1fr;
+  }
+
+  .bank-photo {
+    min-height: 280px;
+  }
+}
