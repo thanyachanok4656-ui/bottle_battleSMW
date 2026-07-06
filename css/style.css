@@ -998,15 +998,14 @@ body.home-page {
   display: none !important;
 }
 
-.bb-hero-inner{
-    width:min(1450px,100%);
-    margin:auto;
+<div class="bb-hero-inner">
 
-    display:grid;
-    grid-template-columns:47% 53%;
-    align-items:center;
-    gap:10px;
-}
+    <div class="bb-hero-copy">
+
+        ...
+
+    </div>
+
 
 .bb-hero-copy{
     transform:translateY(15px);
@@ -1092,29 +1091,7 @@ body.home-page {
   font-size: clamp(1.3rem, 2vw, 2rem);
 }
 
-.bb-world-card {
-  position: relative;
-  padding: 28px;
-  border-radius: 36px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06)),
-    rgba(5, 45, 38, 0.70);
-  border: 1px solid rgba(110, 231, 183, 0.35);
-  box-shadow:
-    0 40px 100px rgba(0,0,0,0.42),
-    inset 0 1px 0 rgba(255,255,255,0.2);
-  backdrop-filter: blur(20px) saturate(150%);
-  overflow: hidden;
-}
 
-.bb-world-card::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background:
-    radial-gradient(circle, rgba(110,231,183,0.18), transparent 42%);
-  animation: bbGlow 7s ease-in-out infinite;
-}
 
 @keyframes bbGlow {
   0%, 100% { transform: translate(-4%, -4%) scale(1); }
@@ -1216,9 +1193,13 @@ black 100%
 @media (max-width: 1100px) {
  .bb-hero{
 
-background:
+    position:relative;
 
-linear-gradient(
+    overflow:hidden;
+
+    background:#052d26;
+
+}
 
 90deg,
 
@@ -1277,11 +1258,6 @@ no-repeat;
     grid-template-columns: 1fr;
   }
 
-  .bb-world-card {
-    padding: 20px;
-    border-radius: 26px;
-  }
-
   .bb-world-top {
     flex-direction: column;
     align-items: flex-start;
@@ -1297,18 +1273,7 @@ no-repeat;
 }
 /* ===== HERO IMAGE BLEND / ละลายรูปไปกับพื้นหลัง ===== */
 
-.bb-world-card {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  padding: 0 !important;
-  overflow: visible !important;
-}
 
-.bb-world-card::before {
-  display: none !important;
-}
 
 .bb-world-top,
 .bb-progress {
@@ -1694,4 +1659,133 @@ color:white;
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+/* ============================================================
+   FINAL HOME HERO FIX
+   เอากล่องรูปด้านขวาออก และใช้รูปเป็นพื้นหลังฝั่งขวาแทน
+   ============================================================ */
+
+.home-page .bb-hero {
+  position: relative !important;
+  min-height: 100vh !important;
+  padding: calc(var(--nav-height) + 45px) 34px 42px !important;
+  display: flex !important;
+  align-items: center !important;
+  overflow: hidden !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 18, 18, 0.96) 0%,
+      rgba(3, 32, 28, 0.88) 36%,
+      rgba(3, 32, 28, 0.55) 52%,
+      rgba(3, 18, 18, 0.18) 72%,
+      rgba(3, 18, 18, 0.08) 100%
+    ),
+    url("../images/school-bg.jpg") center/cover no-repeat !important;
+}
+
+/* เอารูป Stage ไปเป็นพื้นหลังขวา */
+.home-page .bb-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 58%;
+  height: 100%;
+
+  background: var(--hero-stage-image, url("../images/tree-stage-2.png"))
+    center right / contain no-repeat;
+
+  z-index: 1;
+  pointer-events: none;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 10%,
+    black 24%,
+    black 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 10%,
+    black 24%,
+    black 100%
+  );
+}
+
+/* ให้เนื้อหาฝั่งซ้ายอยู่บนรูป */
+.home-page .bb-hero-inner {
+  position: relative !important;
+  z-index: 5 !important;
+  width: min(1450px, 100%) !important;
+  margin: auto !important;
+  display: block !important;
+}
+
+.home-page .bb-hero-copy {
+  width: min(680px, 100%) !important;
+  max-width: 680px !important;
+  position: relative !important;
+  z-index: 6 !important;
+  transform: none !important;
+}
+
+/* ซ่อนกล่องรูปด้านขวาออกทั้งหมด */
+.home-page .bb-world-card,
+.home-page .bb-world-image,
+.home-page .bb-world-top,
+.home-page .bb-progress {
+  display: none !important;
+}
+
+/* Progress card ให้ไม่ล้น */
+.home-page .hero-progress-card {
+  width: min(520px, 100%) !important;
+}
+
+/* มือถือ */
+@media (max-width: 768px) {
+  .home-page .bb-hero {
+    padding: calc(var(--nav-height) + 25px) 18px 36px !important;
+    align-items: flex-start !important;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3, 18, 18, 0.96) 0%,
+        rgba(3, 32, 28, 0.86) 55%,
+        rgba(3, 18, 18, 0.72) 100%
+      ),
+      url("../images/school-bg.jpg") center/cover no-repeat !important;
+  }
+
+  .home-page .bb-hero::after {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 280px;
+    margin-top: 20px;
+    background-position: center;
+    background-size: contain;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .home-page .bb-hero-copy {
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+
+  .home-page .bb-hero-actions {
+    justify-content: center !important;
+  }
+
+  .home-page .bb-kpi-row {
+    grid-template-columns: 1fr !important;
+    margin: 0 auto !important;
+  }
 }
