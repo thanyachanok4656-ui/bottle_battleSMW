@@ -22,13 +22,11 @@
   --c-gold: #ffb800;
   --c-silver: #b8c4ce;
   --c-bronze: #d98255;
-
   /* Semantic */
   --c-success: #12b76a;
   --c-warning: #f5a524;
   --c-danger: #ef4444;
   --c-info: #0ba5ec;
-
   /* Surfaces (light theme default) */
   --bg-body: var(--c-mint-50);
   --bg-elevated: #ffffff;
