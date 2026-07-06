@@ -1013,7 +1013,7 @@ body.home-page {
 
 .bb-hero-copy{
 
-    transform:translateY(-70px);
+    transform:translateY(50px);
 
     position:relative;
     z-index:5;
