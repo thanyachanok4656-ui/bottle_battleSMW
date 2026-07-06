@@ -1635,3 +1635,24 @@ color:white;
     margin-top: 20px !important;
   }
 }
+.gallery-grid.masonry {
+  column-count: 3;
+  column-gap: 18px;
+}
+
+.school-gallery-card {
+  break-inside: avoid;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 900px) {
+  .gallery-grid.masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-grid.masonry {
+    column-count: 1;
+  }
+}
