@@ -624,3 +624,137 @@
     flex-direction: column;
   }
 }
+/* ===== BOTTLE BANK SECTION FIX ===== */
+
+.bottle-bank-section {
+  padding: 64px 24px;
+  background: #061519;
+}
+
+.bottle-bank-card {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  padding: 28px;
+  border-radius: 32px;
+  background: rgba(8, 43, 35, 0.78);
+  border: 1px solid rgba(110, 231, 183, 0.28);
+  box-shadow: 0 30px 80px rgba(0,0,0,.38);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+.bank-photo {
+  position: relative;
+  min-height: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.bank-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bank-status {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #12b76a, #0ba5ec);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.bank-info {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 20px;
+}
+
+.bank-label {
+  color: #6ee7b7;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.bank-info h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin-bottom: 16px;
+}
+
+.bank-info p {
+  color: rgba(255,255,255,.78);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.bank-detail {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.bank-detail div {
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.bank-detail strong {
+  display: block;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.bank-detail span {
+  color: rgba(255,255,255,.72);
+}
+
+.bank-submit-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #12b76a, #0ba5ec);
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 14px 34px rgba(18,183,106,.28);
+}
+
+/* มือถือ */
+@media (max-width: 768px) {
+  .bottle-bank-section {
+    padding: 36px 14px;
+  }
+
+  .bottle-bank-card {
+    grid-template-columns: 1fr;
+    padding: 18px;
+    border-radius: 24px;
+  }
+
+  .bank-photo {
+    min-height: 260px;
+  }
+
+  .bank-info {
+    text-align: center;
+    padding: 10px 4px 14px;
+  }
+
+  .bank-submit-btn {
+    width: 100%;
+  }
+}
