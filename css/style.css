@@ -1465,3 +1465,42 @@ body.home-page {
     max-height: none;
   }
 }
+/* FIX HOME TOP SPACING + HERO LAYOUT */
+.bb-home {
+  padding-top: calc(var(--nav-height) + 34px) !important;
+  padding-left: 34px !important;
+  padding-right: 34px !important;
+  min-height: 100vh;
+  display: grid !important;
+  grid-template-columns: 72% 28% !important;
+  gap: 28px !important;
+  align-items: stretch !important;
+}
+
+.world-hero {
+  min-height: 680px !important;
+  display: grid !important;
+  grid-template-columns: 42% 58% !important;
+  gap: 28px !important;
+  padding: 34px !important;
+  border-radius: 34px !important;
+}
+
+.world-image img {
+  width: 100% !important;
+  max-height: 560px !important;
+  object-fit: contain !important;
+  border-radius: 28px !important;
+}
+
+.side-hero {
+  min-height: 680px !important;
+  padding: 42px 32px !important;
+  border-radius: 34px !important;
+}
+
+@media (max-width: 1100px) {
+  .bb-home {
+    grid-template-columns: 1fr !important;
+  }
+}
