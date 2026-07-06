@@ -40,7 +40,32 @@ document.addEventListener("DOMContentLoaded", async () => {
       stage = 5;
       stageName = "โลกสมบูรณ์";
     }
+function updateHomeStage(totalWeightKg) {
+  const targetKg = 100;
+  const percent = Math.min((totalWeightKg / targetKg) * 100, 100);
 
+  let stage = 1;
+  let title = "โลกเริ่มต้น";
+
+  if (percent >= 20 && percent < 40) {
+    stage = 2;
+    title = "โลกเริ่มมีชีวิต";
+  } else if (percent >= 40 && percent < 60) {
+    stage = 3;
+    title = "ธรรมชาติกำลังฟื้นตัว";
+  } else if (percent >= 60 && percent < 80) {
+    stage = 4;
+    title = "โลกกลับมาเขียวขจี";
+  } else if (percent >= 80) {
+    stage = 5;
+    title = "เกาะแห่งชีวิต";
+  }
+
+  document.getElementById("heroStage").textContent = `STAGE ${stage}`;
+  document.getElementById("heroTitle").textContent = title;
+  document.getElementById("heroPercent").textContent = `${percent.toFixed(1)}%`;
+  document.getElementById("heroStageImage").src = `images/tree-stage-${stage}.png`;
+}
     if (imageEl) imageEl.src = `images/world-stage-${stage}.png`;
     if (nameEl) nameEl.textContent = stageName;
 
