@@ -971,3 +971,300 @@ img, svg { max-width: 100%; }
 @media (max-width: 560px) {
   .world-stats-row { grid-template-columns: 1fr; }
 }
+/* ============================================================
+   HOME PHASE 1 — Premium Bottle Battle Hero
+   ============================================================ */
+
+body.home-page {
+  background:
+    linear-gradient(rgba(4, 20, 18, 0.62), rgba(4, 20, 18, 0.75)),
+    url("../images/school-bg.jpg") center/cover fixed no-repeat;
+}
+
+.home-page .site-footer {
+  display: none;
+}
+
+.bb-home-main {
+  min-height: 100vh;
+}
+
+.bb-hero {
+  position: relative;
+  min-height: 100vh;
+  padding: calc(var(--nav-height) + 42px) 34px 42px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bb-hero::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  left: -160px;
+  top: 80px;
+  border-radius: 50%;
+  background: rgba(18, 183, 106, 0.32);
+  filter: blur(70px);
+}
+
+.bb-hero::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -120px;
+  bottom: -100px;
+  border-radius: 50%;
+  background: rgba(11, 165, 236, 0.28);
+  filter: blur(80px);
+}
+
+.bb-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: min(1380px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  gap: 46px;
+  align-items: center;
+}
+
+.bb-hero-copy {
+  color: #fff;
+}
+
+.bb-eyebrow {
+  display: inline-flex;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: rgba(18, 183, 106, 0.16);
+  border: 1px solid rgba(110, 231, 183, 0.32);
+  color: #7dffc4;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.bb-hero-copy h1 {
+  margin: 24px 0 22px;
+  font-size: clamp(3.4rem, 7vw, 7.2rem);
+  line-height: 0.95;
+  color: #fff;
+  letter-spacing: -0.06em;
+}
+
+.bb-hero-copy h1 span {
+  display: block;
+  background: linear-gradient(120deg, #6ee7b7, #7dd3fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bb-hero-copy p {
+  max-width: 650px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1rem, 1.2vw, 1.22rem);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.bb-hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.bb-hero-actions .btn {
+  min-width: 180px;
+  min-height: 54px;
+}
+
+.bb-kpi-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 680px;
+}
+
+.bb-kpi {
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(14px);
+}
+
+.bb-kpi small {
+  display: block;
+  color: rgba(255, 255, 255, 0.64);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.bb-kpi strong {
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: clamp(1.3rem, 2vw, 2rem);
+}
+
+.bb-world-card {
+  position: relative;
+  padding: 28px;
+  border-radius: 36px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06)),
+    rgba(5, 45, 38, 0.70);
+  border: 1px solid rgba(110, 231, 183, 0.35);
+  box-shadow:
+    0 40px 100px rgba(0,0,0,0.42),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  backdrop-filter: blur(20px) saturate(150%);
+  overflow: hidden;
+}
+
+.bb-world-card::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle, rgba(110,231,183,0.18), transparent 42%);
+  animation: bbGlow 7s ease-in-out infinite;
+}
+
+@keyframes bbGlow {
+  0%, 100% { transform: translate(-4%, -4%) scale(1); }
+  50% { transform: translate(4%, 4%) scale(1.08); }
+}
+
+.bb-world-top,
+.bb-world-image,
+.bb-progress {
+  position: relative;
+  z-index: 1;
+}
+
+.bb-world-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.bb-world-top span {
+  color: #7dffc4;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.bb-world-top strong {
+  font-size: 1.15rem;
+}
+
+.bb-world-image {
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bb-world-image img {
+  width: min(100%, 620px);
+  max-height: 520px;
+  object-fit: contain;
+  border-radius: 28px;
+  filter: drop-shadow(0 30px 40px rgba(0,0,0,0.45));
+  animation: bbFloat 4.5s ease-in-out infinite;
+}
+
+@keyframes bbFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+.bb-progress {
+  height: 16px;
+  margin-top: 22px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.bb-progress div {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #22c55e, #06b6d4);
+  box-shadow: 0 0 28px rgba(34, 197, 94, 0.7);
+  transition: width 1s ease;
+}
+
+@media (max-width: 1100px) {
+  .bb-hero {
+    padding: calc(var(--nav-height) + 30px) 20px 34px;
+  }
+
+  .bb-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .bb-hero-copy {
+    text-align: center;
+  }
+
+  .bb-hero-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bb-hero-actions {
+    justify-content: center;
+  }
+
+  .bb-kpi-row {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .bb-hero {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .bb-hero-copy h1 {
+    font-size: clamp(2.6rem, 14vw, 4.2rem);
+  }
+
+  .bb-kpi-row {
+    grid-template-columns: 1fr;
+  }
+
+  .bb-world-card {
+    padding: 20px;
+    border-radius: 26px;
+  }
+
+  .bb-world-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bb-world-image {
+    min-height: 280px;
+  }
+
+  .bb-hero-actions .btn {
+    width: 100%;
+  }
+}
