@@ -54,32 +54,49 @@
   </button>
 
   <main class="dash-main" id="main">
-    <section class="widgets-row cols-2">
-      <div class="glass-card widget-panel reveal">
-        <div class="widget-title">
-          <span class="widget-title-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
-          แผนที่จุดรับขวดในโรงเรียน <span class="en">· Bottle Map</span>
+    <section class="bottle-bank-section">
+
+  <div class="bottle-bank-card">
+
+    <div class="bank-photo">
+      <img id="bankImage" src="images/bottle-bank.jpg" alt="ธนาคารขยะ">
+      <span class="bank-status">เปิดให้บริการ</span>
+    </div>
+
+    <div class="bank-info">
+      <span class="bank-label">Collection Point</span>
+
+      <h2>🏦 ธนาคารขยะ</h2>
+
+      <p>
+        จุดรับขวด PET ของโรงเรียน สำหรับส่งขวดเข้าระบบ Bottle Battle
+      </p>
+
+      <div class="bank-detail">
+        <div>
+          <strong>📍 สถานที่</strong>
+          <span>จุดรับขวดของโรงเรียน</span>
         </div>
-        <div class="map-widget-body" style="min-height:340px;">
-          <svg class="map-svg" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
-            <rect x="70" y="30" width="70" height="50" rx="6" fill="rgba(18,183,106,0.18)" stroke="var(--c-green-500)" stroke-width="1.5"/>
-            <rect x="70" y="95" width="70" height="45" rx="6" fill="rgba(18,183,106,0.18)" stroke="var(--c-green-500)" stroke-width="1.5"/>
-            <rect x="255" y="45" width="80" height="50" rx="6" fill="rgba(11,165,236,0.18)" stroke="var(--c-blue-500)" stroke-width="1.5"/>
-            <rect x="45" y="150" width="70" height="45" rx="6" fill="rgba(18,183,106,0.18)" stroke="var(--c-green-500)" stroke-width="1.5"/>
-            <rect x="170" y="140" width="90" height="45" rx="6" fill="rgba(245,165,36,0.18)" stroke="var(--c-warning)" stroke-width="1.5"/>
-            <path d="M20 20 C 120 5, 280 5, 380 25 C 390 100, 380 180, 300 210 C 180 220, 60 210, 20 170 Z" fill="none" stroke="rgba(128,128,128,0.25)" stroke-dasharray="4 4"/>
-          </svg>
-          <div id="mapPins"><!-- injected by map.js --></div>
+
+        <div>
+          <strong>⏰ เวลาเปิดรับ</strong>
+          <span>07:30 - 16:30 น.</span>
         </div>
-        <div class="map-total">จุดรับขวดทั้งหมด (วันนี้) <strong id="mapTotal">0 kg</strong></div>
+
+        <div>
+          <strong>♻️ หมายเหตุ</strong>
+          <span>ล้างขวดให้สะอาดก่อนนำมาส่ง</span>
+        </div>
       </div>
 
-      <div class="glass-card widget-panel reveal">
-        <div class="widget-title">รายการจุดรับขวด <span class="en">· Collection Points</span></div>
-        <div class="action-list" id="mapPointList"><!-- injected by map.js --></div>
-        <p style="margin-top:var(--space-3);font-size:0.76rem;color:var(--text-muted);">ตำแหน่งจุดรับขวดแก้ไขได้ที่ <code>CONFIG.COLLECTION_POINTS</code> ใน <code>js/config.js</code></p>
-      </div>
-    </section>
+      <a href="submit.html" class="bank-submit-btn">
+        + ส่งข้อมูลขวด
+      </a>
+    </div>
+
+  </div>
+
+</section>
   </main>
 </div>
 
