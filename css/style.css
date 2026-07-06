@@ -1553,17 +1553,3 @@ font-size:24px;
 color:white;
 
 }
-/* ซ่อนรูป Stage ที่หลุดลงล่าง */
-.home-page .bb-world-card {
-  display: none !important;
-}
-
-/* ให้ฝั่งข้อความเต็มพื้นที่แบบสวย ๆ */
-.home-page .bb-hero-inner {
-  grid-template-columns: 1fr !important;
-}
-
-.home-page .bb-hero-copy {
-  max-width: 720px !important;
-  transform: translateY(-40px) !important;
-}
