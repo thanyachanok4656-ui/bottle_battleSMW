@@ -1345,32 +1345,33 @@ no-repeat;
 }
 
 .bb-world-image img {
-  position: relative;
-  z-index: 1;
   width: min(100%, 720px);
-  max-height: 570px;
+  max-height: 560px;
   object-fit: contain;
   border-radius: 0 !important;
   box-shadow: none !important;
-  filter:
-    drop-shadow(0 35px 45px rgba(0,0,0,0.45))
-    saturate(1.12)
-    contrast(1.04);
+  filter: saturate(1.08) contrast(1.03);
+  animation: bbFloat 4.5s ease-in-out infinite;
 
-  -webkit-mask-image:
-    radial-gradient(circle at center,
-      black 0%,
-      black 58%,
-      rgba(0,0,0,0.75) 72%,
-      rgba(0,0,0,0.25) 86%,
-      transparent 100%);
-  mask-image:
-    radial-gradient(circle at center,
-      black 0%,
-      black 58%,
-      rgba(0,0,0,0.75) 72%,
-      rgba(0,0,0,0.25) 86%,
-      transparent 100%);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,0.05) 10%,
+    rgba(0,0,0,0.18) 20%,
+    rgba(0,0,0,0.45) 32%,
+    rgba(0,0,0,0.75) 45%,
+    #000 60%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,0.05) 10%,
+    rgba(0,0,0,0.18) 20%,
+    rgba(0,0,0,0.45) 32%,
+    rgba(0,0,0,0.75) 45%,
+    #000 60%
+  );
 }
 
 /* ขยับ Hero ให้ใกล้ตัวอย่าง */
@@ -1554,4 +1555,14 @@ font-size:24px;
 
 color:white;
 
+}
+.bb-world-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.bb-world-image {
+  overflow: visible;
 }
