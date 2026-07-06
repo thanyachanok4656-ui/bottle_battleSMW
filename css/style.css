@@ -38,7 +38,6 @@
   --text-muted: #7c8f88;
   --shadow-soft: 0 8px 30px rgba(10, 24, 38, 0.08);
   --shadow-strong: 0 20px 50px rgba(10, 24, 38, 0.16);
-
   /* Gradients */
   --grad-eco: linear-gradient(135deg, var(--c-green-500) 0%, var(--c-blue-500) 100%);
   --grad-eco-deep: linear-gradient(135deg, var(--c-green-900) 0%, var(--c-blue-700) 100%);
