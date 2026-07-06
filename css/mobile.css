@@ -1,0 +1,50 @@
+@media (max-width: 768px) {
+  .bb-hero {
+    min-height: auto;
+    padding: calc(var(--nav-height) + 18px) 18px 40px;
+  }
+
+  .bb-hero-inner {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 28px;
+  }
+
+  .bb-world-card {
+    display: block !important;
+    width: 100%;
+  }
+
+  .bb-world-image img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    object-fit: contain;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .bb-hero-copy {
+    text-align: center;
+    transform: none;
+    max-width: 100%;
+  }
+
+  .bb-hero-copy h1 {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+  }
+
+  .bb-hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .bb-hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-progress-card {
+    width: 100%;
+  }
+}
