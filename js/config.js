@@ -57,9 +57,17 @@ const CONFIG = Object.freeze({
    * Edit to match your campus layout — weights are illustrative until
    * a per-point field is added to the COLLECTIONS sheet.
    */
-  COLLECTION_POINTS: [
-    { name: 'หน้าอาคาร 3', x: 30, y: 24 },
-  ],
+COLLECTION_POINTS: [
+{
+    name: "ธนาคารขยะ",
+    image: "images/bank.jpg",
+    x: 50,
+    y: 50,
+    open: "07:30 - 16:30",
+    location: "หน้าอาคาร3",
+    status: "เปิดให้บริการ"
+}
+],
 
   /** Gallery placeholders — replace with real activity photo URLs once available. */
   GALLERY_ITEMS: [
