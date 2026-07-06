@@ -58,15 +58,14 @@ const CONFIG = Object.freeze({
    * a per-point field is added to the COLLECTIONS sheet.
    */
 COLLECTION_POINTS: [
-{
-    name: "ธนาคารขยะ",
-    image: "images/bank.jpg",
-    x: 50,
-    y: 50,
-    open: "07:30 - 16:30",
-    location: "หน้าอาคาร3",
-    status: "เปิดให้บริการ"
-}
+  {
+    name: 'ธนาคารขยะ',
+    image: 'images/bottle-bank.jpg',
+    location: 'จุดรับขวดของโรงเรียน',
+    open: 'เปิดรับทุกวัน เวลา 07:30 - 16:30 น.',
+    status: 'เปิดให้บริการ',
+    note: 'นำขวด PET ที่ล้างสะอาด บีบขวดเรียบร้อยแล้วมาส่งได้ที่ธนาคารขยะ'
+  }
 ],
 
   /** Gallery placeholders — replace with real activity photo URLs once available. */
