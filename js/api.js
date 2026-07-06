@@ -162,4 +162,5 @@ setGalleryFeatured(galleryId, isFeatured) {
     isFeatured
   });
 }
-   
+   };
+})();
