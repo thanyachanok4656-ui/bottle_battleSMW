@@ -973,7 +973,7 @@ img, svg { max-width: 100%; }
 body.home-page {
   background:
     linear-gradient(rgba(4, 20, 18, 0.62), rgba(4, 20, 18, 0.75)),
-    url("../images/school-bg.jpg") center/cover fixed no-repeat;
+    url("../images/world-stage-1.png") center/cover fixed no-repeat;
 }
 
 .home-page .site-footer {
