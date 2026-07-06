@@ -8,33 +8,50 @@ const MapPage = (() => {
   const PIN_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2h6v4l3 4v9a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-9l3-4V2z"/></svg>';
 
   function renderPins() {
-  const pinLayer = document.getElementById("mapPins");
+    const pinLayer = document.getElementById("mapPins");
+    if (!pinLayer) return;
 
-  if (!pinLayer) {
-    return;
+    pinLayer.innerHTML = "";
+
+    if (!CONFIG.COLLECTION_POINTS) return;
+
+    pinLayer.innerHTML = CONFIG.COLLECTION_POINTS.map((p) => `
+      <button
+        class="map-pin"
+        style="left:${p.x || 50}%; top:${p.y || 50}%"
+        type="button"
+        title="${p.name || ''}">
+        ${PIN_ICON}
+      </button>
+    `).join("");
   }
 
-  pinLayer.innerHTML = "";
-
-  // โค้ดเดิมที่สร้าง pin ให้วางต่อจากตรงนี้
-}
-
   function renderList() {
-    const list = document.getElementById('mapPointList');
+    const list = document.getElementById("mapPointList");
+    if (!list) return;
+
+    if (!CONFIG.COLLECTION_POINTS) {
+      list.innerHTML = "";
+      return;
+    }
+
     list.innerHTML = CONFIG.COLLECTION_POINTS.map((p) => `
       <div class="action-item is-note">
         <span class="ico">${PIN_ICON}</span>
-        ${p.name}
+        ${p.name || "Collection Point"}
       </div>
-    `).join('');
+    `).join("");
   }
 
   async function loadToday() {
+    const total = document.getElementById("mapTotal");
+    if (!total) return;
+
     try {
       const daily = await Api.getDailyOverview();
-      document.getElementById('mapTotal').textContent = `${(daily.todayWeightKg || 0).toFixed(2)} kg`;
+      total.textContent = `${(daily.todayWeightKg || 0).toFixed(2)} kg`;
     } catch (err) {
-      Toast.error(`โหลดยอดวันนี้ไม่สำเร็จ: ${err.message}`);
+      console.error("Map daily error:", err);
     }
   }
 
@@ -47,4 +64,4 @@ const MapPage = (() => {
   return { init };
 })();
 
-document.addEventListener('DOMContentLoaded', MapPage.init);
+document.addEventListener("DOMContentLoaded", MapPage.init);
