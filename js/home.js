@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       stage = 5;
       stageName = "โลกสมบูรณ์";
     }
-function updateHomeStage(totalWeightKg) {
+function updateHomeStage(35) {
   const targetKg = 100;
   const percent = Math.min((totalWeightKg / targetKg) * 100, 100);
 
