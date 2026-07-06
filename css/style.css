@@ -1268,3 +1268,108 @@ body.home-page {
     width: 100%;
   }
 }
+/* ===== HERO IMAGE BLEND / ละลายรูปไปกับพื้นหลัง ===== */
+
+.bb-world-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
+.bb-world-card::before {
+  display: none !important;
+}
+
+.bb-world-top,
+.bb-progress {
+  display: none !important;
+}
+
+.bb-world-image {
+  position: relative;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bb-world-image::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background:
+    radial-gradient(circle at center,
+      rgba(255,255,255,0.08) 0%,
+      rgba(6,45,40,0.18) 38%,
+      rgba(3,18,18,0.72) 78%,
+      rgba(3,18,18,0.96) 100%);
+  filter: blur(18px);
+  z-index: 0;
+}
+
+.bb-world-image img {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 720px);
+  max-height: 570px;
+  object-fit: contain;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter:
+    drop-shadow(0 35px 45px rgba(0,0,0,0.45))
+    saturate(1.12)
+    contrast(1.04);
+
+  -webkit-mask-image:
+    radial-gradient(circle at center,
+      black 0%,
+      black 58%,
+      rgba(0,0,0,0.75) 72%,
+      rgba(0,0,0,0.25) 86%,
+      transparent 100%);
+  mask-image:
+    radial-gradient(circle at center,
+      black 0%,
+      black 58%,
+      rgba(0,0,0,0.75) 72%,
+      rgba(0,0,0,0.25) 86%,
+      transparent 100%);
+}
+
+/* ขยับ Hero ให้ใกล้ตัวอย่าง */
+.bb-hero-inner {
+  grid-template-columns: 46% 54% !important;
+  gap: 20px !important;
+}
+
+.bb-hero-copy h1 {
+  font-size: clamp(3.4rem, 5.8vw, 6.2rem) !important;
+}
+
+/* พื้นหลังให้ละมุนขึ้น */
+.bb-hero {
+  background:
+    linear-gradient(90deg,
+      rgba(3,18,18,0.96) 0%,
+      rgba(3,32,28,0.82) 34%,
+      rgba(3,32,28,0.35) 62%,
+      rgba(3,18,18,0.60) 100%),
+    url("../images/school-bg.jpg") center/cover no-repeat !important;
+}
+
+@media (max-width: 1100px) {
+  .bb-hero-inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  .bb-world-image {
+    min-height: 360px;
+  }
+
+  .bb-world-image img {
+    width: min(100%, 560px);
+  }
+}
