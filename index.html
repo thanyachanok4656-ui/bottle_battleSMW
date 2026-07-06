@@ -58,98 +58,64 @@
   </div>
 </header>
 
-<main id="main">
-  <!-- World Hero -->
-  <section class="world-hero">
-    <div class="container world-hero-inner">
-      <div class="world-hero-copy reveal is-visible">
-        <span class="eyebrow">ไทรโยคมณีกาญจน์วิทยา · SEASON 2026</span>
-        <h1 class="world-title"><span class="accent">เกาะแห่งชีวิต</span> สู่ Carbon Goal</h1>
-        <p class="world-subtitle">ร่วมกันคัดแยกขวดพลาสติก ลดขยะ ลดโลกร้อน ทุกขวดที่ห้องเรียนเก็บได้ กลายเป็นคะแนนและการลดคาร์บอนแบบเรียลไทม์</p>
-        <div class="hero-actions">
+<main id="main" class="bb-home-main">
+
+  <section class="bb-hero">
+    <div class="bb-hero-bg"></div>
+
+    <div class="bb-hero-inner">
+
+      <div class="bb-hero-copy">
+        <span class="bb-eyebrow">โรงเรียนไทรโยคมณีกาญจน์วิทยา · SEASON 2026</span>
+
+        <h1>
+          Bottle Battle
+          <span>to Carbon Goal</span>
+        </h1>
+
+        <p>
+          ทุกขวดที่เก็บได้ ช่วยลดขยะ ลดคาร์บอน และเปลี่ยนเป็นคะแนนการแข่งขันของแต่ละห้องเรียนแบบเรียลไทม์
+        </p>
+
+        <div class="bb-hero-actions">
           <a href="submit.html" class="btn btn-primary">Submit Collection</a>
           <a href="ranking.html" class="btn btn-ghost">View Ranking</a>
         </div>
-      </div>
 
-      <div class="world-hero-visual reveal is-visible">
-        <div class="world-image-frame">
-          <span class="world-stage-tag" id="worldStageTag">–</span>
-          <img id="worldStageImage" src="images/world-stage-1.png" alt="เกาะแห่งชีวิต — ภาพความคืบหน้าตามน้ำหนักขวดที่เก็บได้">
-          <div class="world-caption">
-            <span class="world-caption-name" id="worldStageName">กำลังโหลดข้อมูล…</span>
-            <span class="world-caption-range" id="worldStageRange">–</span>
+        <div class="bb-kpi-row">
+          <div class="bb-kpi">
+            <small>เก็บแล้ว</small>
+            <strong id="worldCurrentKg">0 kg</strong>
           </div>
-        </div>
-        <div class="world-progress">
-          <div class="world-progress-track">
-            <div class="world-progress-fill" id="worldProgressFill" style="width:0%;"></div>
+          <div class="bb-kpi">
+            <small>เป้าหมาย</small>
+            <strong id="worldTargetKg">100 kg</strong>
           </div>
-          <div class="world-progress-labels">
-            <span id="worldCurrentKg">เก็บได้แล้ว 0 kg</span>
-            <span id="worldProgressPct">0%</span>
-            <span id="worldTargetKg">เป้าหมาย 0 kg</span>
+          <div class="bb-kpi">
+            <small>ความคืบหน้า</small>
+            <strong id="worldProgressPct">0%</strong>
           </div>
         </div>
       </div>
+
+      <div class="bb-world-card">
+        <div class="bb-world-top">
+          <span>🌍 Bottle Battle World</span>
+          <strong id="worldStageName">เกาะแห่งชีวิต</strong>
+        </div>
+
+        <div class="bb-world-image">
+          <img id="worldStageImage" src="images/world-stage-2.png" alt="Bottle Battle World">
+        </div>
+
+        <div class="bb-progress">
+          <div id="worldProgressFill"></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- World stats -->
-  <section class="world-stats-section">
-    <div class="container">
-      <div class="world-stats-row" id="worldStatsRow">
-        <div class="glass-card world-stat-card reveal">
-          <span class="world-stat-icon">🧴</span>
-          <div class="world-stat-value" id="statWeight">–</div>
-          <div class="world-stat-label">น้ำหนักขวด (kg)</div>
-        </div>
-        <div class="glass-card world-stat-card reveal">
-          <span class="world-stat-icon">🌫️</span>
-          <div class="world-stat-value" id="statCo2">–</div>
-          <div class="world-stat-label">ลดคาร์บอน (kgCO₂e)</div>
-        </div>
-        <div class="glass-card world-stat-card reveal">
-          <span class="world-stat-icon">🌳</span>
-          <div class="world-stat-value" id="statTrees">–</div>
-          <div class="world-stat-label">ต้นไม้ที่ปลูกได้</div>
-        </div>
-        <div class="glass-card world-stat-card reveal">
-          <span class="world-stat-icon">🏫</span>
-          <div class="world-stat-value" id="statClassrooms">–</div>
-          <div class="world-stat-label">ห้องเรียนที่เข้าร่วม</div>
-        </div>
-      </div>
-      <p class="world-stats-error" id="worldStatsError" style="display:none;">⚠️ ไม่สามารถโหลดข้อมูลได้ในขณะนี้ กรุณาลองใหม่อีกครั้ง</p>
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">How it works</span>
-        <h2 class="section-title">From bin to leaderboard</h2>
-      </div>
-      <div class="process-strip">
-        <div class="glass-card process-step reveal">
-          <span class="step-mark">COLLECT</span>
-          <h3>Classrooms gather bottles</h3>
-          <p>Homerooms collect and weigh PET bottles throughout the week.</p>
-        </div>
-        <div class="glass-card process-step reveal">
-          <span class="step-mark">SUBMIT</span>
-          <h3>Log it in Bottle Battle</h3>
-          <p>A student rep submits the weight and a photo through the Submit page.</p>
-        </div>
-        <div class="glass-card process-step reveal">
-          <span class="step-mark">COMPETE</span>
-          <h3>Watch the ranking move</h3>
-          <p>Points, CO₂ savings, and the podium update automatically for everyone to see.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <!-- Footer -->
