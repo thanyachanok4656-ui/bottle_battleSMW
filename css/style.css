@@ -68,7 +68,6 @@
   --container-max: 1240px;
   --transition-base: 0.35s cubic-bezier(.4,0,.2,1);
 }
-
 /* Dark theme overrides */
 [data-theme='dark'] {
   --bg-body: #071219;
