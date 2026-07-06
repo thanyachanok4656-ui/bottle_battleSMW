@@ -118,8 +118,48 @@ const Api = (() => {
      * Upload an evidence image (base64) to Drive; returns { imageId, imageUrl }.
      * @param {Object} file { fileName, mimeType, base64 }
      */
-    uploadImage(file) {
-      return post('uploadImage', { file });
-    }
-  };
-})();
+   /**
+ * Upload an evidence image (base64) to Drive.
+ */
+uploadImage(file) {
+  return post('uploadImage', { file });
+},
+
+/**
+ * โหลดคลังกิจกรรม
+ */
+getGallery(filters = {}) {
+  return get('getGallery', filters);
+},
+
+/**
+ * อัปโหลดรูปกิจกรรมหลายรูป
+ */
+uploadGalleryImages(payload) {
+  return post('uploadGalleryImages', payload);
+},
+
+/**
+ * แก้ไขข้อมูลรูปกิจกรรม
+ */
+updateGalleryItem(item) {
+  return post('updateGalleryItem', { item });
+},
+
+/**
+ * ลบรูปกิจกรรม
+ */
+deleteGalleryItem(galleryId) {
+  return post('deleteGalleryItem', { galleryId });
+},
+
+/**
+ * ปักหมุด/ยกเลิกปักหมุดรูปเด่น
+ */
+setGalleryFeatured(galleryId, isFeatured) {
+  return post('setGalleryFeatured', {
+    galleryId,
+    isFeatured
+  });
+}
+   
