@@ -31,7 +31,7 @@ const CONFIG = Object.freeze({
   ],
 
   /** Environmental conversion factors (used for display; source of truth is backend). */
-  CO2_PER_KG_PET: 1.5,       // kg CO2e avoided per kg PET recycled
+  CO2_PER_KG_PET: 3.96,       // kg CO2e avoided per kg PET recycled
   KG_PET_PER_TREE: 20,       // kg PET equivalent to planting one tree (approximation)
   POINTS_PER_KG: 10,         // competition points earned per kg submitted
 
