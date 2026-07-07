@@ -620,7 +620,6 @@ img, svg { max-width: 100%; }
 .world-hero {
   position: relative;
   overflow: hidden;
-  min-height: 560px;
   padding: calc(var(--nav-height) + 16px) 0 var(--space-4) var(--space-4);
   background-image:
     linear-gradient(135deg, rgba(4,29,21,0.9) 0%, rgba(5,46,58,0.88) 100%),
@@ -736,59 +735,11 @@ img, svg { max-width: 100%; }
 }
 .progress-bottom strong { display: block; margin-top: 2px; font-family: var(--font-mono); font-size: 1.05rem; color: #fff; }
 
-.world-stats-section {
-  padding: 0 var(--space-4) var(--space-6);
-  background-image:
-    linear-gradient(135deg, rgba(4,29,21,0.9) 0%, rgba(5,46,58,0.88) 100%),
-    url('../images/school-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-top: -1px;
-}
-.world-stats-row {
-  max-width: 1320px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-3);
-}
-.world-stat-card {
-  padding: var(--space-4);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-}
-/* These cards also carry the shared .glass-card class for its hover/reveal
-   behavior — reset its background/border/shadow/sheen here so they render
-   with no visible frame at all, just floating text over the section bg. */
-.world-stat-card.glass-card {
-  background: none;
-  border: none;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-}
-.world-stat-card.glass-card::before { display: none; }
-.world-stat-card.glass-card:hover { transform: none; box-shadow: none; }
-.world-stat-icon { font-size: 1.6rem; }
-.world-stat-value { font-family: var(--font-mono); font-weight: 700; font-size: 1.5rem; color: #fff; }
-.world-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
-.world-stats-error {
-  text-align: center;
-  margin-top: var(--space-3);
-  color: #ffd7d7;
-  font-size: 0.85rem;
-}
-
 @media (max-width: 1000px) {
-  .world-hero { min-height: 0; padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4); }
+  .world-hero { padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4); }
   .world-hero-visual {
     position: relative;
     top: auto; right: auto; bottom: auto;
-    width: 100%;
     height: 260px;
     margin: 0 calc(-1 * var(--space-4)) var(--space-4);
     width: calc(100% + var(--space-4) * 2);
@@ -800,10 +751,6 @@ img, svg { max-width: 100%; }
   .world-hero-copy .hero-actions { justify-content: center; }
   .world-subtitle { margin-left: auto; margin-right: auto; }
   .hero-progress-card { margin-left: auto; margin-right: auto; }
-  .world-stats-row { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 560px) {
-  .world-stats-row { grid-template-columns: 1fr; }
 }
 
 /* ============================================================
