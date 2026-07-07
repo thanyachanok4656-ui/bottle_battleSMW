@@ -1799,18 +1799,30 @@ color:white;
     linear-gradient(135deg, #061519 0%, #062a28 55%, #071b26 100%);
 }
 
-.bottle-bank-card {
-  max-width: 1180px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.12fr .88fr;
-  gap: 30px;
-  padding: 26px;
-  border-radius: 32px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(110,231,183,.24);
-  box-shadow: 0 30px 90px rgba(0,0,0,.42);
-  backdrop-filter: blur(18px);
+.bottle-bank-card{
+    max-width:1200px;
+    margin:0 auto;
+
+    display:grid;
+    grid-template-columns:58% 42%;
+
+    gap:40px;
+
+    align-items:center;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:32px;
+
+    overflow:hidden;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+
+    padding:32px;
 }
 
 .bank-photo {
@@ -1821,10 +1833,24 @@ color:white;
   border-radius: 26px;
 }
 
-.bank-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.bank-photo{
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    height:520px;
+
+}
+
+.bank-photo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
 }
 
 .bank-status {
@@ -1839,13 +1865,18 @@ color:white;
   box-shadow: 0 12px 28px rgba(0,0,0,.28);
 }
 
-.bank-info {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 18px 10px;
-  text-align: center;
+.bank-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    color:white;
+
+    text-align:left;
+
 }
 
 .bank-label {
@@ -1870,18 +1901,28 @@ color:white;
   margin-bottom: 22px;
 }
 
-.bank-detail {
-  display: grid;
-  gap: 14px;
-  margin: 4px 0 24px;
-  text-align: left;
+.bank-detail{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    margin:28px 0;
+
 }
 
-.bank-detail div {
-  padding: 16px 18px;
-  border-radius: 18px;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12);
+.bank-detail div{
+
+    padding:0;
+
+    background:none;
+
+    border:none;
+
+    font-size:1.08rem;
+
 }
 
 .bank-detail strong {
@@ -1908,9 +1949,14 @@ color:white;
   transition: .25s ease;
 }
 
-.bank-submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 22px 46px rgba(18,183,106,.36);
+.bank-submit-btn{
+
+    width:240px;
+
+    height:56px;
+
+    border-radius:999px;
+
 }
 
 @media (max-width: 900px) {
