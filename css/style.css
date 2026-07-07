@@ -373,137 +373,6 @@ textarea:focus-visible, select:focus-visible {
 .glass-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-strong); }
 
 /* ============================================================
-   HERO — featured card composition
-   A bounded, rounded "hero card" (not a full-viewport section)
-   with the banner image on the left (object-fit: contain, never
-   cropped or stretched) and copy vertically centered on the
-   right. Stat chips sit below the card as their own row.
-   ============================================================ */
-.hero-bg-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.5;
-  animation: floatOrb 12s ease-in-out infinite;
-}
-.hero-bg-orb.orb-1 { width: 420px; height: 420px; background: var(--c-green-500); top: -120px; left: -100px; }
-.hero-bg-orb.orb-2 { width: 320px; height: 320px; background: var(--c-blue-500); bottom: -80px; right: -60px; animation-delay: -4s; }
-.hero-bg-orb.orb-3 { width: 240px; height: 240px; background: var(--c-green-300); top: 40%; right: 15%; animation-delay: -8s; opacity: 0.25; }
-@keyframes floatOrb {
-  0%, 100% { transform: translate(0,0) scale(1); }
-  50% { transform: translate(30px, -30px) scale(1.08); }
-}
-
-.hero-section {
-  padding: calc(var(--nav-height) + var(--space-5)) var(--space-4) var(--space-4);
-  background: var(--bg-body);
-}
-
-.hero-card-wrap {
-  max-width: 1320px;
-  margin: 0 auto;
-}
-
-.hero-card {
-  position: relative;
-  display: grid;
-  grid-template-columns: 62% 38%;
-  min-height: 460px;
-  background: var(--grad-eco-deep);
-  border-radius: 24px;
-  box-shadow: 0 40px 80px -24px rgba(6, 62, 43, 0.45), var(--shadow-strong);
-  overflow: hidden;
-}
-
-.hero-card-media {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-4);
-}
-.hero-card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 16px;
-}
-
-.hero-card-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: var(--space-5) var(--space-5) var(--space-5) var(--space-2);
-  min-width: 0;
-  color: #fff;
-}
-.hero-card-content .eyebrow { color: var(--c-green-300); }
-.hero-card-content .hero-title {
-  font-size: clamp(1.9rem, 1.2vw + 1.5rem, 2.6rem);
-  line-height: 1.15;
-  margin: var(--space-2) 0 var(--space-3);
-}
-.hero-card-content .hero-title .accent {
-  background: linear-gradient(120deg, var(--c-green-300), var(--c-blue-300));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.hero-card-content .hero-subtitle {
-  color: rgba(255,255,255,0.78);
-  font-size: 0.96rem;
-  max-width: 40ch;
-  margin-bottom: var(--space-4);
-}
-.hero-card-content .hero-actions { display: flex; gap: var(--space-2); flex-wrap: wrap; margin-bottom: 0; }
-
-/* ---------- Stat row (moved below the hero card) ---------- */
-.hero-stats-row {
-  max-width: 1320px;
-  margin: var(--space-4) auto 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-3);
-  padding: 0 var(--space-4);
-}
-.hero-stat-card {
-  padding: var(--space-3) var(--space-4);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.hero-stat-card .hero-stat-value {
-  font-family: var(--font-mono);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--c-green-700);
-}
-.hero-stat-card .hero-stat-label {
-  font-size: 0.76rem;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-@media (max-width: 1024px) {
-  .hero-card { grid-template-columns: 1fr; min-height: auto; }
-  .hero-card-media { padding: var(--space-4) var(--space-4) 0; height: 260px; }
-  .hero-card-content { padding: var(--space-4); text-align: center; align-items: center; }
-  .hero-card-content .hero-actions { justify-content: center; }
-  .hero-card-content .hero-subtitle { margin-left: auto; margin-right: auto; }
-  .hero-stats-row { grid-template-columns: 1fr; padding: 0 var(--space-4); }
-}
-@media (max-width: 640px) {
-  .hero-section { padding-left: var(--space-3); padding-right: var(--space-3); }
-  .hero-card { border-radius: 18px; }
-  .hero-card-media { height: 200px; padding: var(--space-3) var(--space-3) 0; }
-  .hero-card-content { padding: var(--space-4) var(--space-3); }
-  .hero-stats-row { padding: 0 var(--space-3); }
-}
-
-/* ============================================================
    REVEAL ON SCROLL
    ============================================================ */
 .reveal {
@@ -737,10 +606,6 @@ textarea:focus-visible, select:focus-visible {
 
 /* ============================================================
    OVERFLOW SAFETY NET
-   Prevents any grid/flex column from being forced wider than its
-   track by long unbreakable text or oversized children (classic
-   CSS Grid/Flexbox "blowout" bug) — keeps the page from ever
-   requiring the user to zoom out to see full-width content.
    ============================================================ */
 .widgets-row > *, .footer-grid > *, .kpi-row > *,
 .quick-link-grid > *, .feature-grid > *, .process-strip > * {
@@ -750,101 +615,7 @@ h1, h2, h3, p { overflow-wrap: break-word; word-break: break-word; }
 img, svg { max-width: 100%; }
 
 /* ============================================================
-   GROWING TREE PROGRESS (home page)
-   A dark eco-themed card showing a 5-stage tree that grows with
-   totalWeightKg / seasonTargetKg from the live Google Sheets API.
-   ============================================================ */
-.tree-card {
-  display: grid;
-  grid-template-columns: 38% 62%;
-  align-items: center;
-  gap: var(--space-5);
-  padding: var(--space-5);
-  background: var(--grad-eco-deep);
-  border-radius: 24px;
-  box-shadow: 0 40px 80px -24px rgba(6, 62, 43, 0.45), var(--shadow-strong);
-  color: #fff;
-  overflow: hidden;
-  position: relative;
-}
-
-.tree-card-media {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.tree-svg { width: 100%; max-width: 220px; height: auto; }
-
-/* Only the active stage is visible; switching stages animates a soft grow-in. */
-.tree-stage {
-  opacity: 0;
-  transform: scale(0.55);
-  transform-origin: 100px 200px;
-  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(.34, 1.56, .64, 1);
-}
-.tree-stage.is-active { opacity: 1; transform: scale(1); }
-
-.tree-card-body { min-width: 0; }
-.tree-card-body .eyebrow { color: var(--c-green-300); }
-.tree-title {
-  font-size: clamp(1.3rem, 1.5vw + 1rem, 1.7rem);
-  margin: var(--space-2) 0 var(--space-4);
-  line-height: 1.3;
-}
-
-.tree-state-error p {
-  color: #ffd7d7;
-  font-size: 0.9rem;
-  background: rgba(239, 68, 68, 0.18);
-  border: 1px solid rgba(239, 68, 68, 0.35);
-  padding: 10px 14px;
-  border-radius: var(--radius-md);
-}
-
-.tree-progress-text {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: var(--space-2);
-}
-.tree-progress-text strong {
-  font-family: var(--font-mono);
-  color: #fff;
-  font-size: 1.05rem;
-}
-.tree-progress-track {
-  height: 14px;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.12);
-  overflow: hidden;
-}
-.tree-progress-fill {
-  height: 100%;
-  border-radius: var(--radius-pill);
-  background: linear-gradient(90deg, var(--c-green-500), var(--c-blue-500));
-  width: 0%;
-  transition: width 1.2s cubic-bezier(.4, 0, .2, 1);
-}
-.tree-progress-pct {
-  display: inline-block;
-  margin-top: 8px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--c-green-300);
-}
-
-@media (max-width: 800px) {
-  .tree-card { grid-template-columns: 1fr; text-align: center; padding: var(--space-4); }
-  .tree-card-media { order: -1; }
-  .tree-progress-track { max-width: 360px; margin: 0 auto; }
-}
-
-/* ============================================================
    WORLD HERO — "เกาะแห่งชีวิต" (home page)
-   Two-column hero: campaign copy + CTAs on the left, an
-   AI-illustrated island that visually grows through 5 stages on
-   the right (images/world-stage-1.png … world-stage-5.png,
-   swapped by js/home.js based on totalWeightKg / seasonTargetKg).
    ============================================================ */
 .world-hero {
   padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4);
@@ -900,9 +671,6 @@ img, svg { max-width: 100%; }
   height: 100%;
   min-height: 420px;
 }
-/* Fade the image's left edge to transparent so it dissolves into the
-   section's own dark-green background instead of showing a hard box
-   edge — the two sides read as one continuous surface. */
 .world-image-frame img {
   width: 100%;
   height: 100%;
@@ -912,7 +680,6 @@ img, svg { max-width: 100%; }
   mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 22%, black 48%);
 }
 
-/* ---------- Progress card (glass panel in the copy column) ---------- */
 .hero-progress-card {
   margin-top: var(--space-4);
   padding: var(--space-4);
@@ -954,7 +721,6 @@ img, svg { max-width: 100%; }
 }
 .progress-bottom strong { display: block; margin-top: 2px; font-family: var(--font-mono); font-size: 1.05rem; color: #fff; }
 
-/* ---------- World stats row ---------- */
 .world-stats-section {
   padding: 0 var(--space-4) var(--space-6);
   background-image:
@@ -1009,151 +775,9 @@ img, svg { max-width: 100%; }
 
 /* ============================================================
    BOTTLE BANK — featured collection-point spotlight card
-   A photo + info split card (58/42) for highlighting a specific
-   bottle bank / collection point. Not yet wired into any page's
-   HTML — add markup using the classes below (.bottle-bank-section
-   > .bottle-bank-card > .bank-photo + .bank-info) wherever needed.
+   (latest revision: wider card, larger photo, optional sidebar
+   shell via .bank-shell for a dashboard-style layout)
    ============================================================ */
-.bottle-bank-section {
-  min-height: calc(100vh - var(--nav-height));
-  padding: calc(var(--nav-height) + 36px) 24px 50px;
-  background:
-    radial-gradient(circle at 20% 10%, rgba(18,183,106,.18), transparent 32%),
-    linear-gradient(135deg, #061519 0%, #06342f 55%, #071b26 100%);
-}
-
-.bottle-bank-card {
-  width: min(1180px, 100%);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 58% 42%;
-  gap: 34px;
-  align-items: center;
-  padding: 28px;
-  border-radius: 32px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(110,231,183,.22);
-  box-shadow: 0 30px 90px rgba(0,0,0,.42);
-  backdrop-filter: blur(18px);
-  overflow: hidden;
-}
-
-.bank-photo {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  border-radius: 26px;
-  overflow: hidden;
-}
-.bank-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-.bank-status {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #12b76a, #0ba5ec);
-  color: #fff;
-  font-weight: 900;
-  font-size: .95rem;
-  box-shadow: 0 12px 28px rgba(0,0,0,.28);
-}
-
-.bank-info {
-  color: #fff;
-  text-align: left;
-  padding: 18px 8px;
-}
-.bank-label {
-  display: inline-flex;
-  margin-bottom: 14px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  background: rgba(18,183,106,.14);
-  border: 1px solid rgba(110,231,183,.24);
-  color: #6ee7b7;
-  font-family: var(--font-mono);
-  font-size: .78rem;
-  font-weight: 900;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-.bank-info h2 {
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 1.05;
-  margin-bottom: 18px;
-}
-.bank-info p {
-  color: rgba(255,255,255,.78);
-  font-size: 1.08rem;
-  line-height: 1.8;
-  margin-bottom: 26px;
-}
-
-.bank-detail {
-  display: grid;
-  gap: 18px;
-  margin-bottom: 30px;
-}
-.bank-detail div {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 14px;
-  align-items: start;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255,255,255,.12);
-}
-.bank-detail strong { color: #fff; font-weight: 900; }
-.bank-detail span { color: rgba(255,255,255,.76); line-height: 1.6; }
-
-.bank-submit-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 230px;
-  height: 56px;
-  padding: 0 28px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #12b76a, #0ba5ec);
-  color: #fff;
-  font-weight: 900;
-  box-shadow: 0 16px 36px rgba(18,183,106,.28);
-  transition: .25s ease;
-}
-.bank-submit-btn:hover { transform: translateY(-3px); box-shadow: 0 22px 46px rgba(18,183,106,.38); }
-
-@media (max-width: 900px) {
-  .bottle-bank-section { padding: calc(var(--nav-height) + 24px) 14px 36px; }
-  .bottle-bank-card { grid-template-columns: 1fr; gap: 22px; padding: 18px; border-radius: 24px; }
-  .bank-photo { height: 320px; border-radius: 20px; }
-  .bank-info { text-align: center; padding: 8px 4px 14px; }
-  .bank-detail div { grid-template-columns: 1fr; gap: 4px; text-align: center; }
-  .bank-submit-btn { width: 100%; }
-}
-
-/* ============================================================
-   GALLERY MASONRY — Pinterest-style variable-height grid
-   Optional alternative to the default 4-up gallery grid; add
-   class="masonry" alongside .gallery-grid to enable.
-   ============================================================ */
-.gallery-grid.masonry {
-  column-count: 3;
-  column-gap: 18px;
-}
-.gallery-grid.masonry .gallery-tile { break-inside: avoid; margin-bottom: 18px; }
-.school-gallery-card { break-inside: avoid; margin-bottom: 18px; }
-
-@media (max-width: 900px) {
-  .gallery-grid.masonry { column-count: 2; }
-}
-@media (max-width: 600px) {
-  .gallery-grid.masonry { column-count: 1; }
-}
 .bank-main {
   width: 100%;
   max-width: none;
@@ -1193,14 +817,12 @@ img, svg { max-width: 100%; }
   border-radius: 28px;
   overflow: hidden;
 }
-
 .bank-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-
 .bank-status {
   position: absolute;
   top: 20px;
@@ -1216,7 +838,6 @@ img, svg { max-width: 100%; }
   color: #fff;
   text-align: left;
 }
-
 .bank-label {
   display: inline-flex;
   margin-bottom: 16px;
@@ -1231,13 +852,11 @@ img, svg { max-width: 100%; }
   letter-spacing: .08em;
   text-transform: uppercase;
 }
-
 .bank-info h2 {
   font-size: clamp(2.8rem, 5vw, 5rem);
   line-height: 1.05;
   margin-bottom: 20px;
 }
-
 .bank-info p {
   color: rgba(255,255,255,.78);
   font-size: 1.12rem;
@@ -1250,7 +869,6 @@ img, svg { max-width: 100%; }
   gap: 18px;
   margin-bottom: 34px;
 }
-
 .bank-detail div {
   display: grid;
   grid-template-columns: 150px 1fr;
@@ -1258,15 +876,8 @@ img, svg { max-width: 100%; }
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(255,255,255,.12);
 }
-
-.bank-detail strong {
-  color: #fff;
-  font-weight: 900;
-}
-
-.bank-detail span {
-  color: rgba(255,255,255,.76);
-}
+.bank-detail strong { color: #fff; font-weight: 900; }
+.bank-detail span { color: rgba(255,255,255,.76); }
 
 .bank-submit-btn {
   display: inline-flex;
@@ -1281,101 +892,43 @@ img, svg { max-width: 100%; }
 }
 
 @media (max-width: 900px) {
-  .bottle-bank-section {
-    padding: calc(var(--nav-height) + 24px) 14px 36px;
-  }
-
-  .bottle-bank-card {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 18px;
-    border-radius: 24px;
-  }
-
-  .bank-photo {
-    height: 320px;
-  }
-
-  .bank-info {
-    text-align: center;
-  }
-
-  .bank-detail div {
-    grid-template-columns: 1fr;
-    gap: 4px;
-    text-align: center;
-  }
-
-  .bank-submit-btn {
-    width: 100%;
-  }
+  .bottle-bank-section { padding: calc(var(--nav-height) + 24px) 14px 36px; }
+  .bottle-bank-card { grid-template-columns: 1fr; gap: 24px; padding: 18px; border-radius: 24px; }
+  .bank-photo { height: 320px; }
+  .bank-info { text-align: center; }
+  .bank-detail div { grid-template-columns: 1fr; gap: 4px; text-align: center; }
+  .bank-submit-btn { width: 100%; }
 }
+
+/* Optional dashboard-style shell (sidebar + Bottle Bank main content) */
 .bank-shell {
   display: grid;
   grid-template-columns: 260px minmax(0, 1fr);
   min-height: 100vh;
 }
-
-.bank-shell .dash-sidebar {
-  display: block;
-}
-
-.bank-shell .bank-main {
-  width: 100%;
-  max-width: none;
-  padding: 0;
-  margin: 0;
-}
-
-.bank-shell .bottle-bank-section {
-  padding: calc(var(--nav-height) + 36px) 28px 48px;
-}
-
-.bank-shell .bottle-bank-card {
-  width: 100%;
-  max-width: none;
-}
+.bank-shell .dash-sidebar { display: block; }
+.bank-shell .bank-main { width: 100%; max-width: none; padding: 0; margin: 0; }
+.bank-shell .bottle-bank-section { padding: calc(var(--nav-height) + 36px) 28px 48px; }
+.bank-shell .bottle-bank-card { width: 100%; max-width: none; }
 
 @media (max-width: 900px) {
-  .bank-shell {
-    grid-template-columns: 1fr;
-  }
-
-  .bank-shell .dash-sidebar {
-    display: none;
-  }
-}
-/* ===== FIX SIDEBAR POSITION ===== */
-
-.bank-shell {
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  align-items: stretch;
-  min-height: calc(100vh - var(--nav-height));
-  padding-top: var(--nav-height);
-  background: #061519;
+  .bank-shell { grid-template-columns: 1fr; }
+  .bank-shell .dash-sidebar { display: none; }
 }
 
-.bank-shell .dash-sidebar {
-  position: sticky;
-  top: var(--nav-height);
-  align-self: start;
-  height: calc(100vh - var(--nav-height));
+/* ============================================================
+   GALLERY MASONRY — Pinterest-style variable-height grid
+   ============================================================ */
+.gallery-grid.masonry {
+  column-count: 3;
+  column-gap: 18px;
 }
+.gallery-grid.masonry .gallery-tile { break-inside: avoid; margin-bottom: 18px; }
+.school-gallery-card { break-inside: avoid; margin-bottom: 18px; }
 
-.bank-shell .bank-main {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 0;
+@media (max-width: 900px) {
+  .gallery-grid.masonry { column-count: 2; }
 }
-
-.bank-shell .bottle-bank-section {
-  min-height: calc(100vh - var(--nav-height));
-  padding: 28px;
-}
-
-.bank-shell .bottle-bank-card {
-  width: 100%;
-  max-width: none;
+@media (max-width: 600px) {
+  .gallery-grid.masonry { column-count: 1; }
 }
