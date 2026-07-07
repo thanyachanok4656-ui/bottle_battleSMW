@@ -1173,3 +1173,23 @@ img, svg { max-width: 100%; }
 @media (max-width: 600px) {
   .gallery-grid.masonry { column-count: 1; }
 }
+.world-hero {
+  padding-right: 0;
+}
+
+.world-hero .container {
+  max-width: none;
+  padding-right: 0;
+}
+
+.world-hero-inner {
+  gap: 0;
+}
+
+.world-hero-visual {
+  margin-right: 0;
+}
+
+.world-image-frame img {
+  object-position: right center;
+}
