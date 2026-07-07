@@ -847,7 +847,7 @@ img, svg { max-width: 100%; }
    swapped by js/home.js based on totalWeightKg / seasonTargetKg).
    ============================================================ */
 .world-hero {
-  padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4);
+  padding: calc(var(--nav-height) + 0px) var(--space-4) var(--space-4);
   background: linear-gradient(135deg, #041d15 0%, #052e3a 100%);
 }
 .world-hero-inner {
