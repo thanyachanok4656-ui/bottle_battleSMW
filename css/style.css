@@ -631,14 +631,18 @@ img, svg { max-width: 100%; }
 .world-hero-inner {
   position: relative;
   z-index: 2;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding-right: var(--space-4);
+  max-width: 620px;
+  margin: 0;
 }
 .world-hero-copy {
   width: min(560px, 100%);
   padding-top: var(--space-3);
-  padding-bottom: var(--space-4);
+  padding-bottom: var(--space-5);
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .world-hero-copy .eyebrow {
   display: inline-flex;
@@ -706,7 +710,7 @@ img, svg { max-width: 100%; }
    viewport, independent of the centered copy column. */
 .world-hero-visual {
   position: absolute;
-  top: 75px;
+  top: 84px;
   right: 0;
   bottom: 0;
   width: 58%;
@@ -726,47 +730,6 @@ img, svg { max-width: 100%; }
   mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 22%, black 48%);
 }
 
-.hero-progress-card {
-  margin-top: var(--space-4);
-  padding: var(--space-4);
-  border-radius: 20px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.14);
-  backdrop-filter: blur(14px);
-  max-width: 480px;
-}
-.progress-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--space-3);
-  gap: var(--space-2);
-}
-.progress-top span { color: var(--c-green-300); font-weight: 700; font-size: 0.9rem; }
-.progress-top strong { font-family: var(--font-mono); font-size: 1.7rem; color: #fff; }
-.progress-bar {
-  height: 14px;
-  border-radius: var(--radius-pill);
-  background: rgba(255,255,255,0.14);
-  overflow: hidden;
-}
-.progress-bar div {
-  height: 100%;
-  width: 0%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--c-green-500), var(--c-blue-500));
-  transition: width 1.2s cubic-bezier(.4,0,.2,1);
-}
-.progress-bottom {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-3);
-  margin-top: var(--space-3);
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.7);
-}
-.progress-bottom strong { display: block; margin-top: 2px; font-family: var(--font-mono); font-size: 1.05rem; color: #fff; }
-
 @media (max-width: 1000px) {
   .world-hero { padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4); }
   .world-hero-visual {
@@ -779,10 +742,7 @@ img, svg { max-width: 100%; }
   .world-image-frame { height: 100%; border-radius: 0; overflow: hidden; }
   .world-image-frame img { -webkit-mask-image: none; mask-image: none; }
   .world-hero-inner { padding-right: 0; }
-  .world-hero-copy { width: 100%; text-align: center; margin: 0 auto; }
-  .world-hero-copy .hero-actions { justify-content: center; }
   .world-subtitle { margin-left: auto; margin-right: auto; }
-  .hero-progress-card { margin-left: auto; margin-right: auto; }
 }
 
 /* ============================================================
