@@ -35,6 +35,12 @@ const HomeWorldHero = (() => {
     if (el) el.textContent = value;
   }
 
+  /** Safely set an element's style property; no-ops if the element doesn't exist. */
+  function setStyle(id, prop, value) {
+    const el = document.getElementById(id);
+    if (el) el.style[prop] = value;
+  }
+
   function showStatus(message) {
     const el = document.getElementById('worldStatus');
     if (!el) return;
@@ -57,8 +63,14 @@ const HomeWorldHero = (() => {
 
     const rawPct = Math.max(0, (currentKg / targetKg) * 100);
     const stage = stageForPercent(rawPct);
+
     setSrc('worldStageImage', `images/world-stage-${stage}.png`);
     setText('worldProgressPct', `${rawPct.toFixed(1)}%`);
+    setText('worldCurrentKg', `${currentKg.toLocaleString('th-TH', { maximumFractionDigits: 1 })} kg`);
+    setText('worldTargetKg', `${targetKg.toLocaleString('th-TH', { maximumFractionDigits: 0 })} kg`);
+
+    const barPct = Math.min(rawPct, 100);
+    requestAnimationFrame(() => setStyle('worldProgressFill', 'width', `${barPct}%`));
   }
 
   async function init() {
