@@ -10,21 +10,18 @@
  * ============================================================ */
 
 const HomeWorldHero = (() => {
-  /** Stage number + display name — matches the thresholds/names supplied for the campaign. */
-  const STAGES = [
-    { max: 20, name: 'เกาะเริ่มต้น' },
-    { max: 40, name: 'เกาะแห่งชีวิต' },
-    { max: 60, name: 'เกาะสีเขียว' },
-    { max: 80, name: 'เกาะคาร์บอนต่ำ' },
-    { max: 100, name: 'โลกสมบูรณ์' },
-    { max: Infinity, name: 'เกาะแห่งชีวิตอุดมสมบูรณ์' }
-  ];
+  /** Stage number thresholds — the display name for each stage is illustrated
+      directly inside each world-stage-N.png artwork (and previously shown in
+      the H1; the H1 is now a static "Bottle Battle to Carbon Goal" title).
+      1: เกาะเริ่มต้น · 2: เกาะแห่งชีวิต · 3: เกาะสีเขียว ·
+      4: เกาะคาร์บอนต่ำ · 5: โลกสมบูรณ์ · 6: เกาะแห่งชีวิตอุดมสมบูรณ์ (>100%) */
+  const STAGE_MAX = [20, 40, 60, 80, 100, Infinity];
 
   function stageForPercent(pct) {
-    for (let i = 0; i < STAGES.length; i++) {
-      if (pct <= STAGES[i].max) return i + 1;
+    for (let i = 0; i < STAGE_MAX.length; i++) {
+      if (pct <= STAGE_MAX[i]) return i + 1;
     }
-    return STAGES.length;
+    return STAGE_MAX.length;
   }
 
   function showStatus(message) {
@@ -50,9 +47,8 @@ const HomeWorldHero = (() => {
     const stage = stageForPercent(rawPct);
 
     document.getElementById('worldStageImage').src = `images/world-stage-${stage}.png`;
-    document.getElementById('worldStageNameText').textContent = STAGES[stage - 1].name;
-    document.getElementById('worldCurrentKg').textContent = `เก็บได้แล้ว ${currentKg.toLocaleString('th-TH', { maximumFractionDigits: 1 })} kg`;
-    document.getElementById('worldTargetKg').textContent = `เป้าหมาย ${targetKg.toLocaleString('th-TH', { maximumFractionDigits: 0 })} kg`;
+    document.getElementById('worldCurrentKg').textContent = `${currentKg.toLocaleString('th-TH', { maximumFractionDigits: 1 })} kg`;
+    document.getElementById('worldTargetKg').textContent = `${targetKg.toLocaleString('th-TH', { maximumFractionDigits: 0 })} kg`;
     document.getElementById('worldProgressPct').textContent = `${rawPct.toFixed(1)}%`;
 
     const barPct = Math.min(rawPct, 100);
