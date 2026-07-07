@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
+
 <a class="skip-link" href="#main">Skip to content</a>
 
 <div class="loading-screen" role="status" aria-label="Loading">
@@ -59,7 +60,8 @@
       <div class="dash-hero-scrim"></div>
       <div class="dash-hero-copy">
         <span class="eyebrow"><span class="live-dot"></span>Live · <span id="heroDateLabel">–</span></span>
-
+        <h1>ศึกขวดใส สู่เป้าหมายลดคาร์บอนต่ำ</h1>
+        <p>โรงเรียนไทรโยคมณีกาญจน์วิทยา — ภาพรวมการแข่งขันเก็บขวด PET แบบเรียลไทม์</p>
       </div>
     </section>
 
@@ -89,6 +91,14 @@
           <div class="kpi-label">เทียบเท่าต้นไม้ที่ปลูก</div>
         </div>
       </div>
+      <div class="glass-card kpi-card-h reveal">
+        <span class="kpi-icon" style="background:linear-gradient(135deg,var(--c-blue-300),var(--c-green-500));display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1"/><circle cx="18" cy="9" r="2.5"/><path d="M16 21v-1a5 5 0 0 1 5-5"/></svg></span>
+        <div class="kpi-body">
+          <div class="kpi-value js-counter" id="kpiParticipants" data-target="0" data-decimals="0">0</div>
+          <div class="kpi-sub" id="kpiParticipantsPct">0%</div>
+          <div class="kpi-label">นักเรียนที่มีส่วนร่วม</div>
+        </div>
+      </div>
     </section>
 
     <!-- Top ranking teaser -->
@@ -102,12 +112,6 @@
         <a href="ranking.html" class="btn btn-primary btn-sm">ไปหน้าอันดับห้องเรียน</a>
       </div>
       <div class="mini-podium" id="miniPodium"><div class="skeleton" style="height:80px;width:100%;grid-column:1/-1;"></div></div>
-    </section>
-
-    <!-- Quick links to every section -->
-    <section>
-      <div class="widget-title"><span class="widget-title-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>สำรวจแดชบอร์ด <span class="en">· Explore</span></div>
-      <div class="quick-link-grid" id="quickLinkGrid"><!-- injected by dashboard.js --></div>
     </section>
   </main>
 </div>
