@@ -78,31 +78,13 @@ const HomeWorldHero = (() => {
     requestAnimationFrame(() => setStyle('worldProgressFill', 'width', `${barPct}%`));
   }
 
-  function renderStats(summary) {
-    setText('statWeight', (Number(summary.totalWeightKg) || 0).toLocaleString('th-TH', { maximumFractionDigits: 1 }));
-    setText('statCo2', (Number(summary.totalCo2Kg) || 0).toLocaleString('th-TH', { maximumFractionDigits: 1 }));
-    setText('statTrees', (Number(summary.totalTrees) || 0).toLocaleString('th-TH'));
-    setText('statClassrooms', (Number(summary.activeClassrooms) || 0).toLocaleString('th-TH'));
-  }
-
-  function showStatsError(message) {
-    const errEl = document.getElementById('worldStatsError');
-    if (errEl) {
-      errEl.textContent = `⚠️ ${message}`;
-      errEl.style.display = 'block';
-    }
-    ['statWeight', 'statCo2', 'statTrees', 'statClassrooms'].forEach((id) => setText(id, '–'));
-  }
-
   async function init() {
     try {
       const summary = await Api.getSummary();
       if (!summary) throw new Error('ไม่ได้รับข้อมูลสรุปจากเซิร์ฟเวอร์');
       renderWorldHero(summary);
-      renderStats(summary);
     } catch (err) {
       showStatus(`ไม่สามารถโหลดข้อมูลได้ในขณะนี้ (${err.message})`);
-      showStatsError(`ไม่สามารถโหลดข้อมูลได้ในขณะนี้ (${err.message})`);
     }
   }
 
