@@ -1,17 +1,12 @@
 /**
  * ============================================================
- * HOME.JS — "เกาะแห่งชีวิต" World Hero + KPI stats (index.html)
+ * HOME.JS — "เกาะแห่งชีวิต" World Hero (index.html)
  * ------------------------------------------------------------
- * Drives the world-stage image/progress bar and the four stat
- * cards below it, all from the live getSummary() API. No fake
- * data: shows a loading state while fetching, and an explicit
- * error state (not a fabricated 0%) if the backend is unreachable
- * or no season target is configured.
- *
- * Every DOM write goes through setText()/setSrc(), which safely
- * no-ops if the element isn't present on the page — so a missing
- * element (e.g. an out-of-sync deploy) can never throw and abort
- * the rest of the render.
+ * Picks which world-stage-N.png to show based on
+ * totalWeightKg / seasonTargetKg from the live getSummary() API.
+ * No fake data: shows an explicit error message (not a fabricated
+ * stage) if the backend is unreachable or no season target is
+ * configured.
  * ============================================================ */
 
 const HomeWorldHero = (() => {
@@ -28,22 +23,10 @@ const HomeWorldHero = (() => {
     return STAGE_MAX.length;
   }
 
-  /** Safely set an element's text content; no-ops if the element doesn't exist. */
-  function setText(id, value) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = value;
-  }
-
   /** Safely set an element's image src; no-ops if the element doesn't exist. */
   function setSrc(id, value) {
     const el = document.getElementById(id);
     if (el) el.src = value;
-  }
-
-  /** Safely set an element's style property; no-ops if the element doesn't exist. */
-  function setStyle(id, prop, value) {
-    const el = document.getElementById(id);
-    if (el) el.style[prop] = value;
   }
 
   function showStatus(message) {
@@ -68,14 +51,7 @@ const HomeWorldHero = (() => {
 
     const rawPct = Math.max(0, (currentKg / targetKg) * 100);
     const stage = stageForPercent(rawPct);
-
     setSrc('worldStageImage', `images/world-stage-${stage}.png`);
-    setText('worldCurrentKg', `${currentKg.toLocaleString('th-TH', { maximumFractionDigits: 1 })} kg`);
-    setText('worldTargetKg', `${targetKg.toLocaleString('th-TH', { maximumFractionDigits: 0 })} kg`);
-    setText('worldProgressPct', `${rawPct.toFixed(1)}%`);
-
-    const barPct = Math.min(rawPct, 100);
-    requestAnimationFrame(() => setStyle('worldProgressFill', 'width', `${barPct}%`));
   }
 
   async function init() {
