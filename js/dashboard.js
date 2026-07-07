@@ -15,8 +15,7 @@ const Dashboard = (() => {
     { href: 'map.html', th: 'แผนที่จุดรับขวด', en: 'Bottle Map', desc: 'จุดรับขวดทั่วโรงเรียน', icon: '<path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/>' },
     { href: 'gallery.html', th: 'คลังกิจกรรม', en: 'Gallery', desc: 'ภาพกิจกรรมล่าสุด', icon: '<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/>' },
     { href: 'history.html', th: 'หลักฐานและรายงาน', en: 'Evidence & Report', desc: 'ค้นหา กรอง ส่งออกข้อมูล', icon: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15l2 2 4-4"/>' },
-    { href: 'admin.html', th: 'ผู้ดูแลระบบ', en: 'Admin', desc: 'จัดการค่าตั้งต้นของระบบ', icon: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9"/>' }
-  ];
+    ];
 
   function renderQuickLinks() {
     const grid = document.getElementById('quickLinkGrid');
