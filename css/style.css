@@ -1024,20 +1024,36 @@ img, svg { max-width: 100%; }
     radial-gradient(circle at 20% 10%, rgba(18,183,106,.18), transparent 32%),
     linear-gradient(135deg, #061519 0%, #06342f 55%, #071b26 100%);
 }
-
+.bottle-bank-card{
+    width: calc(100% - 40px);
+    max-width: none;
+    margin: 0 auto;
+}
 .bottle-bank-card {
-  width: min(1180px, 100%);
+  width: 100%;
+  max-width: none;
+
   margin: 0 auto;
+
   display: grid;
-  grid-template-columns: 58% 42%;
-  gap: 34px;
+  grid-template-columns: 60% 40%;
+
+  gap: 40px;
+
   align-items: center;
-  padding: 28px;
+
+  padding: 32px;
+
   border-radius: 32px;
+
   background: rgba(255,255,255,.07);
+
   border: 1px solid rgba(110,231,183,.22);
+
   box-shadow: 0 30px 90px rgba(0,0,0,.42);
+
   backdrop-filter: blur(18px);
+
   overflow: hidden;
 }
 
