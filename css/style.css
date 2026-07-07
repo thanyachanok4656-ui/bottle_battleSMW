@@ -618,7 +618,10 @@ img, svg { max-width: 100%; }
    WORLD HERO — "เกาะแห่งชีวิต" (home page)
    ============================================================ */
 .world-hero {
-  padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4);
+  position: relative;
+  overflow: hidden;
+  min-height: 560px;
+  padding: calc(var(--nav-height) + 16px) 0 var(--space-4) var(--space-4);
   background-image:
     linear-gradient(135deg, rgba(4,29,21,0.9) 0%, rgba(5,46,58,0.88) 100%),
     url('../images/school-bg.jpg');
@@ -627,14 +630,17 @@ img, svg { max-width: 100%; }
   background-repeat: no-repeat;
 }
 .world-hero-inner {
+  position: relative;
+  z-index: 2;
   max-width: 1320px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: var(--space-6);
-  align-items: stretch;
+  padding-right: var(--space-4);
 }
-.world-hero-copy { padding-top: var(--space-3); }
+.world-hero-copy {
+  width: min(560px, 100%);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-4);
+}
 .world-hero-copy .eyebrow { color: var(--c-green-300); }
 .world-title {
   font-size: clamp(1.9rem, 2vw + 1.2rem, 2.8rem);
@@ -665,11 +671,19 @@ img, svg { max-width: 100%; }
   font-size: 0.85rem;
 }
 
-.world-hero-visual { position: relative; }
+/* Image bleeds all the way to the true top and right edges of the
+   viewport, independent of the centered copy column. */
+.world-hero-visual {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 58%;
+  z-index: 1;
+}
 .world-image-frame {
   position: relative;
   height: 100%;
-  min-height: 420px;
 }
 .world-image-frame img {
   width: 100%;
@@ -760,14 +774,23 @@ img, svg { max-width: 100%; }
 }
 
 @media (max-width: 1000px) {
-  .world-hero-inner { grid-template-columns: 1fr; }
-  .world-hero-copy { text-align: center; }
+  .world-hero { min-height: 0; padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4); }
+  .world-hero-visual {
+    position: relative;
+    top: auto; right: auto; bottom: auto;
+    width: 100%;
+    height: 260px;
+    margin: 0 calc(-1 * var(--space-4)) var(--space-4);
+    width: calc(100% + var(--space-4) * 2);
+  }
+  .world-image-frame { height: 100%; border-radius: 0; overflow: hidden; }
+  .world-image-frame img { -webkit-mask-image: none; mask-image: none; }
+  .world-hero-inner { padding-right: 0; }
+  .world-hero-copy { width: 100%; text-align: center; margin: 0 auto; }
   .world-hero-copy .hero-actions { justify-content: center; }
   .world-subtitle { margin-left: auto; margin-right: auto; }
   .hero-progress-card { margin-left: auto; margin-right: auto; }
   .world-stats-row { grid-template-columns: repeat(2, 1fr); }
-  .world-image-frame { height: 320px; min-height: 0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-strong); }
-  .world-image-frame img { -webkit-mask-image: none; mask-image: none; }
 }
 @media (max-width: 560px) {
   .world-stats-row { grid-template-columns: 1fr; }
