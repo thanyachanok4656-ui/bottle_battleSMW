@@ -847,8 +847,8 @@ img, svg { max-width: 100%; }
    swapped by js/home.js based on totalWeightKg / seasonTargetKg).
    ============================================================ */
 .world-hero {
-  padding: calc(var(--nav-height) + var(--space-5)) var(--space-4) var(--space-4);
-  background: var(--grad-eco-deep);
+  padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4);
+  background: linear-gradient(135deg, #041d15 0%, #052e3a 100%);
 }
 .world-hero-inner {
   max-width: 1320px;
@@ -858,6 +858,7 @@ img, svg { max-width: 100%; }
   gap: var(--space-6);
   align-items: stretch;
 }
+.world-hero-copy { padding-top: var(--space-3); }
 .world-hero-copy .eyebrow { color: var(--c-green-300); }
 .world-title {
   font-size: clamp(1.9rem, 2vw + 1.2rem, 2.8rem);
@@ -951,7 +952,7 @@ img, svg { max-width: 100%; }
 /* ---------- World stats row ---------- */
 .world-stats-section {
   padding: 0 var(--space-4) var(--space-6);
-  background: var(--grad-eco-deep);
+  background: linear-gradient(135deg, #041d15 0%, #052e3a 100%);
   margin-top: -1px;
 }
 .world-stats-row {
