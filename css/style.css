@@ -497,7 +497,7 @@ textarea:focus-visible, select:focus-visible {
 }
 @media (max-width: 640px) {
   .hero-section { padding-left: var(--space-3); padding-right: var(--space-3); }
-  .hero-card { border-radius: 0px; }
+  .hero-card { border-radius: 18px; }
   .hero-card-media { height: 200px; padding: var(--space-3) var(--space-3) 0; }
   .hero-card-content { padding: var(--space-4) var(--space-3); }
   .hero-stats-row { padding: 0 var(--space-3); }
@@ -847,8 +847,13 @@ img, svg { max-width: 100%; }
    swapped by js/home.js based on totalWeightKg / seasonTargetKg).
    ============================================================ */
 .world-hero {
-  padding: calc(var(--nav-height) + 0px) var(--space-4) var(--space-4);
-  background: linear-gradient(135deg, #041d15 0%, #052e3a 100%);
+  padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4);
+  background-image:
+    linear-gradient(135deg, rgba(4,29,21,0.9) 0%, rgba(5,46,58,0.88) 100%),
+    url('../images/school-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .world-hero-inner {
   max-width: 1320px;
@@ -899,25 +904,12 @@ img, svg { max-width: 100%; }
    section's own dark-green background instead of showing a hard box
    edge — the two sides read as one continuous surface. */
 .world-image-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: right center;   /* ชิดขวา */
-    display: block;
-
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(0,0,0,.5) 22%,
-        black 48%
-    );
-
-    mask-image: linear-gradient(
-        to right,
-        transparent 0%,
-        rgba(0,0,0,.5) 22%,
-        black 48%
-    );
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 22%, black 48%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 22%, black 48%);
 }
 
 /* ---------- Progress card (glass panel in the copy column) ---------- */
@@ -965,7 +957,12 @@ img, svg { max-width: 100%; }
 /* ---------- World stats row ---------- */
 .world-stats-section {
   padding: 0 var(--space-4) var(--space-6);
-  background: linear-gradient(135deg, #041d15 0%, #052e3a 100%);
+  background-image:
+    linear-gradient(135deg, rgba(4,29,21,0.9) 0%, rgba(5,46,58,0.88) 100%),
+    url('../images/school-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   margin-top: -1px;
 }
 .world-stats-row {
@@ -1024,36 +1021,20 @@ img, svg { max-width: 100%; }
     radial-gradient(circle at 20% 10%, rgba(18,183,106,.18), transparent 32%),
     linear-gradient(135deg, #061519 0%, #06342f 55%, #071b26 100%);
 }
-.bottle-bank-card{
-    width: calc(100% - 40px);
-    max-width: none;
-    margin: 0 auto;
-}
+
 .bottle-bank-card {
-  width: 100%;
-  max-width: none;
-
+  width: min(1180px, 100%);
   margin: 0 auto;
-
   display: grid;
-  grid-template-columns: 60% 40%;
-
-  gap: 40px;
-
+  grid-template-columns: 58% 42%;
+  gap: 34px;
   align-items: center;
-
-  padding: 32px;
-
+  padding: 28px;
   border-radius: 32px;
-
   background: rgba(255,255,255,.07);
-
   border: 1px solid rgba(110,231,183,.22);
-
   box-shadow: 0 30px 90px rgba(0,0,0,.42);
-
   backdrop-filter: blur(18px);
-
   overflow: hidden;
 }
 
@@ -1172,24 +1153,4 @@ img, svg { max-width: 100%; }
 }
 @media (max-width: 600px) {
   .gallery-grid.masonry { column-count: 1; }
-}
-.world-hero {
-  padding-right: 0;
-}
-
-.world-hero .container {
-  max-width: none;
-  padding-right: 0;
-}
-
-.world-hero-inner {
-  gap: 0;
-}
-
-.world-hero-visual {
-  margin-right: 0;
-}
-
-.world-image-frame img {
-  object-position: right center;
 }
