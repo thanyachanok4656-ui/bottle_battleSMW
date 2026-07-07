@@ -3,6 +3,7 @@
    Design language: "Eco-Tech Glass" — liquid-fill bottle motif,
    glassmorphism surfaces, emerald/sky gradient accents.
    ============================================================ */
+
 /* ---------- Design Tokens ---------- */
 :root {
   /* Core palette */
@@ -22,11 +23,13 @@
   --c-gold: #ffb800;
   --c-silver: #b8c4ce;
   --c-bronze: #d98255;
+
   /* Semantic */
   --c-success: #12b76a;
   --c-warning: #f5a524;
   --c-danger: #ef4444;
   --c-info: #0ba5ec;
+
   /* Surfaces (light theme default) */
   --bg-body: var(--c-mint-50);
   --bg-elevated: #ffffff;
@@ -38,6 +41,7 @@
   --text-muted: #7c8f88;
   --shadow-soft: 0 8px 30px rgba(10, 24, 38, 0.08);
   --shadow-strong: 0 20px 50px rgba(10, 24, 38, 0.16);
+
   /* Gradients */
   --grad-eco: linear-gradient(135deg, var(--c-green-500) 0%, var(--c-blue-500) 100%);
   --grad-eco-deep: linear-gradient(135deg, var(--c-green-900) 0%, var(--c-blue-700) 100%);
@@ -65,6 +69,7 @@
   --container-max: 1240px;
   --transition-base: 0.35s cubic-bezier(.4,0,.2,1);
 }
+
 /* Dark theme overrides */
 [data-theme='dark'] {
   --bg-body: #071219;
@@ -843,7 +848,7 @@ img, svg { max-width: 100%; }
    ============================================================ */
 .world-hero {
   padding: calc(var(--nav-height) + var(--space-5)) var(--space-4) var(--space-4);
-  background: var(--bg-body);
+  background: var(--grad-eco-deep);
 }
 .world-hero-inner {
   max-width: 1320px;
@@ -853,84 +858,101 @@ img, svg { max-width: 100%; }
   gap: var(--space-6);
   align-items: center;
 }
-.world-hero-copy .eyebrow { color: var(--c-green-700); }
+.world-hero-copy .eyebrow { color: var(--c-green-300); }
 .world-title {
   font-size: clamp(1.9rem, 2vw + 1.2rem, 2.8rem);
   margin: var(--space-2) 0 var(--space-3);
   line-height: 1.2;
+  color: #fff;
 }
-.world-title .accent { color: var(--c-green-500); }
+.world-title .accent { color: var(--c-green-300); }
 .world-subtitle {
-  color: var(--text-secondary);
+  color: rgba(255,255,255,0.8);
   font-size: 1rem;
   max-width: 48ch;
   margin-bottom: var(--space-4);
 }
 .world-hero-copy .hero-actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.world-hero-copy .btn-ghost {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border-color: rgba(255,255,255,0.22);
+}
+.world-status {
+  margin-top: var(--space-2);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: rgba(239, 68, 68, 0.16);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #ffd7d7;
+  font-size: 0.85rem;
+}
 
 .world-hero-visual { position: relative; }
 .world-image-frame {
   position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--shadow-strong);
   aspect-ratio: 4 / 3;
 }
-.world-image-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.world-stage-tag {
-  position: absolute;
-  top: 16px; right: 16px;
-  z-index: 2;
-  background: rgba(6, 62, 43, 0.85);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-}
-.world-caption {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  z-index: 2;
-  padding: 40px 20px 16px;
-  background: linear-gradient(180deg, transparent, rgba(6, 62, 43, 0.85) 70%);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.world-caption-name { color: #fff; font-weight: 700; font-size: 1.1rem; }
-.world-caption-range { color: rgba(255,255,255,0.8); font-family: var(--font-mono); font-size: 0.8rem; }
-
-.world-progress { margin-top: var(--space-3); }
-.world-progress-track {
-  height: 12px;
-  border-radius: var(--radius-pill);
-  background: rgba(0,0,0,0.08);
-  overflow: hidden;
-}
-[data-theme='dark'] .world-progress-track { background: rgba(255,255,255,0.1); }
-.world-progress-fill {
+/* Fade the image's left edge to transparent so it dissolves into the
+   section's own dark-green background instead of showing a hard box
+   edge — the two sides read as one continuous surface. */
+.world-image-frame img {
+  width: 100%;
   height: 100%;
-  border-radius: var(--radius-pill);
-  background: var(--grad-eco);
-  width: 0%;
-  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+  object-fit: cover;
+  display: block;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 22%, black 48%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 22%, black 48%);
 }
-.world-progress-labels {
+
+/* ---------- Progress card (glass panel in the copy column) ---------- */
+.hero-progress-card {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border-radius: 20px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(14px);
+  max-width: 480px;
+}
+.progress-top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
   gap: var(--space-2);
-  margin-top: 8px;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  flex-wrap: wrap;
 }
-.world-progress-labels #worldProgressPct { font-family: var(--font-mono); font-weight: 700; color: var(--c-green-700); }
+.progress-top span { color: var(--c-green-300); font-weight: 700; font-size: 0.9rem; }
+.progress-top strong { font-family: var(--font-mono); font-size: 1.7rem; color: #fff; }
+.progress-bar {
+  height: 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.14);
+  overflow: hidden;
+}
+.progress-bar div {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--c-green-500), var(--c-blue-500));
+  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+}
+.progress-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+.progress-bottom strong { display: block; margin-top: 2px; font-family: var(--font-mono); font-size: 1.05rem; color: #fff; }
 
 /* ---------- World stats row ---------- */
-.world-stats-section { padding: 0 var(--space-4) var(--space-6); }
+.world-stats-section {
+  padding: 0 var(--space-4) var(--space-6);
+  background: var(--grad-eco-deep);
+  margin-top: -1px;
+}
 .world-stats-row {
   max-width: 1320px;
   margin: 0 auto;
@@ -945,14 +967,17 @@ img, svg { max-width: 100%; }
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
 }
 .world-stat-icon { font-size: 1.6rem; }
-.world-stat-value { font-family: var(--font-mono); font-weight: 700; font-size: 1.5rem; color: var(--c-green-700); }
-.world-stat-label { font-size: 0.8rem; color: var(--text-secondary); }
+.world-stat-value { font-family: var(--font-mono); font-weight: 700; font-size: 1.5rem; color: #fff; }
+.world-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
 .world-stats-error {
   text-align: center;
   margin-top: var(--space-3);
-  color: var(--c-danger);
+  color: #ffd7d7;
   font-size: 0.85rem;
 }
 
@@ -961,1030 +986,22 @@ img, svg { max-width: 100%; }
   .world-hero-copy { text-align: center; }
   .world-hero-copy .hero-actions { justify-content: center; }
   .world-subtitle { margin-left: auto; margin-right: auto; }
+  .hero-progress-card { margin-left: auto; margin-right: auto; }
   .world-stats-row { grid-template-columns: repeat(2, 1fr); }
+  .world-image-frame { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-strong); }
+  .world-image-frame img { -webkit-mask-image: none; mask-image: none; }
 }
 @media (max-width: 560px) {
   .world-stats-row { grid-template-columns: 1fr; }
 }
+
 /* ============================================================
-   HOME PHASE 1 — Premium Bottle Battle Hero
+   BOTTLE BANK — featured collection-point spotlight card
+   A photo + info split card (58/42) for highlighting a specific
+   bottle bank / collection point. Not yet wired into any page's
+   HTML — add markup using the classes below (.bottle-bank-section
+   > .bottle-bank-card > .bank-photo + .bank-info) wherever needed.
    ============================================================ */
-
-body.home-page {
-  background:
-    linear-gradient(rgba(4, 20, 18, 0.62), rgba(4, 20, 18, 0.75)),
-    url("../images/world-stage-1.png") center/cover fixed no-repeat;
-}
-
-.home-page .site-footer {
-  display: none;
-}
-
-.bb-home-main {
-  min-height: 100vh;
-}
-
-.bb-hero {
-  position: relative;
-  min-height: 100vh;
-  padding: calc(var(--nav-height) + 42px) 34px 42px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-.bb-hero::before,
-.bb-hero::after {
-  display: none !important;
-}
-
-<div class="bb-hero-inner">
-
-    <div class="bb-hero-copy">
-
-        ...
-
-    </div>
-
-
-.bb-hero-copy{
-    transform:translateY(15px);
-    position:relative;
-    z-index:5;
-
-}
-
-.bb-eyebrow {
-  display: inline-flex;
-  padding: 9px 16px;
-  border-radius: 999px;
-  background: rgba(18, 183, 106, 0.16);
-  border: 1px solid rgba(110, 231, 183, 0.32);
-  color: #7dffc4;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
-
-.bb-hero-copy h1 {
-  margin: 24px 0 22px;
-  font-size: clamp(3.4rem, 7vw, 7.2rem);
-  line-height: 0.95;
-  color: #fff;
-  letter-spacing: -0.06em;
-}
-
-.bb-hero-copy h1 span {
-  display: block;
-  background: linear-gradient(120deg, #6ee7b7, #7dd3fc);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.bb-hero-copy p {
-  max-width: 650px;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: clamp(1rem, 1.2vw, 1.22rem);
-  line-height: 1.8;
-  margin-bottom: 30px;
-}
-
-.bb-hero-actions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 30px;
-}
-
-.bb-hero-actions .btn {
-  min-width: 180px;
-  min-height: 54px;
-}
-
-.bb-kpi-row {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  max-width: 680px;
-}
-
-.bb-kpi {
-  padding: 18px 20px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(14px);
-}
-
-.bb-kpi small {
-  display: block;
-  color: rgba(255, 255, 255, 0.64);
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.bb-kpi strong {
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: clamp(1.3rem, 2vw, 2rem);
-}
-
-
-
-@keyframes bbGlow {
-  0%, 100% { transform: translate(-4%, -4%) scale(1); }
-  50% { transform: translate(4%, 4%) scale(1.08); }
-}
-
-.bb-world-top,
-.bb-world-image,
-.bb-progress {
-  position: relative;
-  z-index: 1;
-}
-
-.bb-world-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 20px;
-  color: #fff;
-}
-
-.bb-world-top span {
-  color: #7dffc4;
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  font-weight: 800;
-}
-
-.bb-world-top strong {
-  font-size: 1.15rem;
-}
-
-.bb-world-image {
-  min-height: 430px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bb-world-image img {
-  width: min(100%, 620px);
-  max-height: 520px;
-  object-fit: contain;
-  border-radius: 28px;
-  filter: drop-shadow(0 30px 40px rgba(0,0,0,0.45));
-  animation: bbFloat 4.5s ease-in-out infinite;
-   -webkit-mask-image:
-linear-gradient(
-to right,
-
-rgba(0,0,0,.08) 0%,
-
-rgba(0,0,0,.45) 5%,
-
-black 12%,
-
-black 100%
-
-);
-
-mask-image:
-linear-gradient(
-to right,
-
-rgba(0,0,0,.08) 0%,
-
-rgba(0,0,0,.45) 5%,
-
-black 12%,
-
-black 100%
-
-);
-}
-
-@keyframes bbFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-}
-
-.bb-progress {
-  height: 16px;
-  margin-top: 22px;
-  border-radius: 999px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.bb-progress div {
-  height: 100%;
-  width: 0%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #22c55e, #06b6d4);
-  box-shadow: 0 0 28px rgba(34, 197, 94, 0.7);
-  transition: width 1s ease;
-}
-
-@media (max-width: 1100px) {
- .bb-hero{
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:#052d26;
-
-}
-
-90deg,
-
-rgba(4,18,18,.92) 0%,
-
-rgba(4,22,20,.70) 35%,
-
-rgba(4,22,20,.18) 58%,
-
-rgba(4,22,20,0) 70%
-
-),
-
-url("../images/school-bg.jpg")
-center
-center
-/cover
-no-repeat;
-
-}
-
-  .bb-hero-inner {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .bb-hero-copy {
-    text-align: center;
-  }
-
-  .bb-hero-copy p {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .bb-hero-actions {
-    justify-content: center;
-  }
-
-  .bb-kpi-row {
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 640px) {
-  .bb-hero {
-    padding-left: 14px;
-    padding-right: 14px;
-  }
-
-  .bb-hero-copy h1 {
-    font-size: clamp(2.6rem, 14vw, 4.2rem);
-  }
-
-  .bb-kpi-row {
-    grid-template-columns: 1fr;
-  }
-
-  .bb-world-top {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .bb-world-image {
-    min-height: 280px;
-  }
-
-  .bb-hero-actions .btn {
-    width: 100%;
-  }
-}
-/* ===== HERO IMAGE BLEND / ละลายรูปไปกับพื้นหลัง ===== */
-
-
-
-.bb-world-top,
-.bb-progress {
-  display: none !important;
-}
-
-.bb-world-image {
-  position: relative;
-  min-height: 560px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bb-world-image::before {
-  content: "";
-  position: absolute;
-  inset: -40px;
-  background:
-    radial-gradient(circle at center,
-      rgba(255,255,255,0.08) 0%,
-      rgba(6,45,40,0.18) 38%,
-      rgba(3,18,18,0.72) 78%,
-      rgba(3,18,18,0.96) 100%);
-  filter: blur(18px);
-  z-index: 0;
-}
-
-.bb-world-image img {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 720px);
-  max-height: 570px;
-  object-fit: contain;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  filter:
-    drop-shadow(0 35px 45px rgba(0,0,0,0.45))
-    saturate(1.12)
-    contrast(1.04);
-
-  -webkit-mask-image:
-    radial-gradient(circle at center,
-      black 0%,
-      black 58%,
-      rgba(0,0,0,0.75) 72%,
-      rgba(0,0,0,0.25) 86%,
-      transparent 100%);
-  mask-image:
-    radial-gradient(circle at center,
-      black 0%,
-      black 58%,
-      rgba(0,0,0,0.75) 72%,
-      rgba(0,0,0,0.25) 86%,
-      transparent 100%);
-}
-
-/* ขยับ Hero ให้ใกล้ตัวอย่าง */
-.bb-hero-inner {
-  grid-template-columns: 46% 54% !important;
-  gap: 20px !important;
-}
-
-.bb-hero-copy h1 {
-  font-size: clamp(3.4rem, 5.8vw, 6.2rem) !important;
-}
-
-/* พื้นหลังให้ละมุนขึ้น */
-.bb-hero {
-  background:
-    linear-gradient(90deg,
-      rgba(3,18,18,0.96) 0%,
-      rgba(3,32,28,0.82) 34%,
-      rgba(3,32,28,0.35) 62%,
-      rgba(3,18,18,0.60) 100%),
-    url("../images/school-bg.jpg") center/cover no-repeat !important;
-}
-
-@media (max-width: 1100px) {
-  .bb-hero-inner {
-    grid-template-columns: 1fr !important;
-  }
-
-  .bb-world-image {
-    min-height: 360px;
-  }
-
-  .bb-world-image img {
-    width: min(100%, 560px);
-  }
-}
-.bb-hero {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(3, 18, 18, 0.92) 0%,
-      rgba(3, 32, 28, 0.72) 36%,
-      rgba(3, 32, 28, 0.28) 58%,
-      rgba(3, 18, 18, 0.12) 100%
-    ),
-    url("../images/school-bg.jpg") center/cover no-repeat !important;
-}
-.bb-world-image::before {
-  display: none !important;
-}
-
-.bb-world-image img {
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0,0,0,0.35) 8%,
-    #000 18%,
-    #000 100%
-  );
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0,0,0,0.35) 8%,
-    #000 18%,
-    #000 100%
-  );
-}
-.hero-progress-card{
-
-margin-top:35px;
-
-padding:24px;
-
-border-radius:24px;
-
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,.12);
-
-width:520px;
-
-}
-
-.progress-top{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:18px;
-
-}
-
-.progress-top span{
-
-color:#c6fff0;
-
-font-weight:700;
-
-}
-
-.progress-top strong{
-
-font-size:34px;
-
-color:#6EE7B7;
-
-}
-
-.progress-bar{
-
-height:18px;
-
-background:rgba(255,255,255,.10);
-
-border-radius:100px;
-
-overflow:hidden;
-
-}
-
-.progress-bar div{
-
-height:100%;
-
-width:33.5%;
-
-border-radius:100px;
-
-background:
-
-linear-gradient(
-
-90deg,
-
-#12b76a,
-
-#29b6ff
-
-);
-
-box-shadow:
-
-0 0 20px
-
-rgba(18,183,106,.65);
-
-transition:1s;
-
-}
-
-.progress-bottom{
-
-display:flex;
-
-justify-content:space-between;
-
-margin-top:18px;
-
-}
-
-.progress-bottom span{
-
-display:flex;
-
-flex-direction:column;
-
-color:#bde9d8;
-
-}
-
-.progress-bottom strong{
-
-margin-top:4px;
-
-font-size:24px;
-
-color:white;
-
-}
-/* ===== FINAL HOME FIX: desktop + mobile ===== */
-
-.home-page .bb-hero {
-  min-height: calc(100vh - var(--nav-height)) !important;
-  padding: calc(var(--nav-height) + 28px) 34px 36px !important;
-  overflow: hidden !important;
-}
-
-.home-page .bb-hero-inner {
-  display: grid !important;
-  grid-template-columns: 46% 54% !important;
-  align-items: center !important;
-  gap: 18px !important;
-}
-
-.home-page .bb-hero-copy {
-  max-width: 720px !important;
-  transform: translateY(-35px) !important;
-  z-index: 5 !important;
-}
-
-.home-page .bb-world-card {
-  display: block !important;
-  position: relative !important;
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  overflow: visible !important;
-}
-
-.home-page .bb-world-image {
-  min-height: 520px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-}
-
-.home-page .bb-world-image img {
-  width: min(100%, 720px) !important;
-  max-height: 540px !important;
-  object-fit: contain !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
-/* มือถือ */
-@media (max-width: 768px) {
-  .home-page .bb-hero {
-    min-height: auto !important;
-    padding: calc(var(--nav-height) + 18px) 16px 36px !important;
-  }
-
-  .home-page .bb-hero-inner {
-    display: flex !important;
-    flex-direction: column-reverse !important;
-    gap: 22px !important;
-  }
-
-  .home-page .bb-hero-copy {
-    transform: none !important;
-    text-align: center !important;
-  }
-
-  .home-page .bb-world-image {
-    min-height: auto !important;
-    justify-content: center !important;
-  }
-
-  .home-page .bb-world-image img {
-    width: 100% !important;
-    max-width: 420px !important;
-    max-height: none !important;
-    -webkit-mask-image: none !important;
-    mask-image: none !important;
-  }
-
-  .home-page .hero-progress-card {
-    width: 100% !important;
-    margin-top: 20px !important;
-  }
-}
-.gallery-grid.masonry {
-  column-count: 3;
-  column-gap: 18px;
-}
-
-.school-gallery-card {
-  break-inside: avoid;
-  margin-bottom: 18px;
-}
-
-@media (max-width: 900px) {
-  .gallery-grid.masonry {
-    column-count: 2;
-  }
-}
-
-@media (max-width: 600px) {
-  .gallery-grid.masonry {
-    column-count: 1;
-  }
-}
-.home-hero {
-  min-height: 520px;
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  background: #073b32;
-}
-
-.hero-left {
-  width: 45%;
-  padding: 90px 60px;
-  color: white;
-  position: relative;
-  z-index: 3;
-}
-
-.hero-right {
-  width: 55%;
-  position: relative;
-}
-
-.hero-right::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 260px;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    #073b32 0%,
-    rgba(7, 59, 50, 0.9) 30%,
-    rgba(7, 59, 50, 0.45) 70%,
-    transparent 100%
-  );
-  backdrop-filter: blur(16px);
-  z-index: 2;
-}
-
-.hero-right img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-/* ============================================================
-   FINAL HOME HERO FIX
-   เอากล่องรูปด้านขวาออก และใช้รูปเป็นพื้นหลังฝั่งขวาแทน
-   ============================================================ */
-
-.home-page .bb-hero {
-  position: relative !important;
-  min-height: 100vh !important;
-  padding: calc(var(--nav-height) + 45px) 34px 42px !important;
-  display: flex !important;
-  align-items: center !important;
-  overflow: hidden !important;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(3, 18, 18, 0.96) 0%,
-      rgba(3, 32, 28, 0.88) 36%,
-      rgba(3, 32, 28, 0.55) 52%,
-      rgba(3, 18, 18, 0.18) 72%,
-      rgba(3, 18, 18, 0.08) 100%
-    ),
-    url("../images/school-bg.jpg") center/cover no-repeat !important;
-}
-
-/* เอารูป Stage ไปเป็นพื้นหลังขวา */
-.home-page .bb-hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 58%;
-  height: 100%;
-
-  background: var(--hero-stage-image, url("../images/tree-stage-2.png"))
-    center right / contain no-repeat;
-
-  z-index: 1;
-  pointer-events: none;
-
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 0, 0, 0.35) 10%,
-    black 24%,
-    black 100%
-  );
-
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 0, 0, 0.35) 10%,
-    black 24%,
-    black 100%
-  );
-}
-
-/* ให้เนื้อหาฝั่งซ้ายอยู่บนรูป */
-.home-page .bb-hero-inner {
-  position: relative !important;
-  z-index: 5 !important;
-  width: min(1450px, 100%) !important;
-  margin: auto !important;
-  display: block !important;
-}
-
-.home-page .bb-hero-copy {
-  width: min(680px, 100%) !important;
-  max-width: 680px !important;
-  position: relative !important;
-  z-index: 6 !important;
-  transform: none !important;
-}
-
-/* ซ่อนกล่องรูปด้านขวาออกทั้งหมด */
-.home-page .bb-world-card,
-.home-page .bb-world-image,
-.home-page .bb-world-top,
-.home-page .bb-progress {
-  display: none !important;
-}
-
-/* Progress card ให้ไม่ล้น */
-.home-page .hero-progress-card {
-  width: min(520px, 100%) !important;
-}
-
-/* มือถือ */
-@media (max-width: 768px) {
-  .home-page .bb-hero {
-    padding: calc(var(--nav-height) + 25px) 18px 36px !important;
-    align-items: flex-start !important;
-
-    background:
-      linear-gradient(
-        180deg,
-        rgba(3, 18, 18, 0.96) 0%,
-        rgba(3, 32, 28, 0.86) 55%,
-        rgba(3, 18, 18, 0.72) 100%
-      ),
-      url("../images/school-bg.jpg") center/cover no-repeat !important;
-  }
-
-  .home-page .bb-hero::after {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 280px;
-    margin-top: 20px;
-    background-position: center;
-    background-size: contain;
-    mask-image: none;
-    -webkit-mask-image: none;
-  }
-
-  .home-page .bb-hero-copy {
-    text-align: center !important;
-    margin: 0 auto !important;
-  }
-
-  .home-page .bb-hero-actions {
-    justify-content: center !important;
-  }
-
-  .home-page .bb-kpi-row {
-    grid-template-columns: 1fr !important;
-    margin: 0 auto !important;
-  }
-}
-/* ===== BOTTLE BANK FINAL ===== */
-
-.bottle-bank-section {
-  min-height: calc(100vh - var(--nav-height));
-  padding: calc(var(--nav-height) + 36px) 28px 48px;
-  background:
-    radial-gradient(circle at top left, rgba(18,183,106,.18), transparent 38%),
-    linear-gradient(135deg, #061519 0%, #062a28 55%, #071b26 100%);
-}
-
-.bottle-bank-card{
-    max-width:1200px;
-    margin:0 auto;
-
-    display:grid;
-    grid-template-columns:58% 42%;
-
-    gap:40px;
-
-    align-items:center;
-
-    background:rgba(255,255,255,.06);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:32px;
-
-    overflow:hidden;
-
-    backdrop-filter:blur(18px);
-
-    box-shadow:0 30px 80px rgba(0,0,0,.35);
-
-    padding:32px;
-}
-
-.bank-photo {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  min-height: 360px;
-  overflow: hidden;
-  border-radius: 26px;
-}
-
-.bank-photo{
-
-    border-radius:24px;
-
-    overflow:hidden;
-
-    height:520px;
-
-}
-
-.bank-photo img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-.bank-status {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  padding: 9px 18px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #12b76a, #0ba5ec);
-  color: white;
-  font-weight: 900;
-  box-shadow: 0 12px 28px rgba(0,0,0,.28);
-}
-
-.bank-info{
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    color:white;
-
-    text-align:left;
-
-}
-
-.bank-label {
-  color: #6ee7b7;
-  font-family: var(--font-mono);
-  font-size: .82rem;
-  font-weight: 900;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.bank-info h2 {
-  font-size: clamp(2.1rem, 4vw, 3.4rem);
-  margin-bottom: 14px;
-}
-
-.bank-info p {
-  color: rgba(255,255,255,.78);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  margin-bottom: 22px;
-}
-
-.bank-detail{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:18px;
-
-    margin:28px 0;
-
-}
-
-.bank-detail div{
-
-    padding:0;
-
-    background:none;
-
-    border:none;
-
-    font-size:1.08rem;
-
-}
-
-.bank-detail strong {
-  display: block;
-  color: #ffffff;
-  margin-bottom: 5px;
-}
-
-.bank-detail span {
-  color: rgba(255,255,255,.76);
-}
-
-.bank-submit-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  padding: 15px 30px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #12b76a, #0ba5ec);
-  color: white;
-  font-weight: 900;
-  box-shadow: 0 16px 36px rgba(18,183,106,.26);
-  transition: .25s ease;
-}
-
-.bank-submit-btn{
-
-    width:240px;
-
-    height:56px;
-
-    border-radius:999px;
-
-}
-
-@media (max-width: 900px) {
-  .bottle-bank-section {
-    padding: calc(var(--nav-height) + 24px) 14px 36px;
-  }
-
-  .bottle-bank-card {
-    grid-template-columns: 1fr;
-    padding: 18px;
-    border-radius: 24px;
-  }
-
-  .bank-photo {
-    min-height: 250px;
-    border-radius: 20px;
-  }
-
-  .bank-info {
-    padding: 10px 4px 14px;
-  }
-
-  .bank-submit-btn {
-    width: 100%;
-  }
-}
-/* ===== BOTTLE BANK CLEAN LAYOUT ===== */
-
 .bottle-bank-section {
   min-height: calc(100vh - var(--nav-height));
   padding: calc(var(--nav-height) + 36px) 24px 50px;
@@ -2009,7 +1026,6 @@ color:white;
   overflow: hidden;
 }
 
-/* รูปฝั่งซ้าย */
 .bank-photo {
   position: relative;
   width: 100%;
@@ -2017,14 +1033,12 @@ color:white;
   border-radius: 26px;
   overflow: hidden;
 }
-
 .bank-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-
 .bank-status {
   position: absolute;
   top: 18px;
@@ -2038,13 +1052,11 @@ color:white;
   box-shadow: 0 12px 28px rgba(0,0,0,.28);
 }
 
-/* ข้อมูลฝั่งขวา */
 .bank-info {
   color: #fff;
   text-align: left;
   padding: 18px 8px;
 }
-
 .bank-label {
   display: inline-flex;
   margin-bottom: 14px;
@@ -2059,13 +1071,11 @@ color:white;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
-
 .bank-info h2 {
   font-size: clamp(2.4rem, 4vw, 4rem);
   line-height: 1.05;
   margin-bottom: 18px;
 }
-
 .bank-info p {
   color: rgba(255,255,255,.78);
   font-size: 1.08rem;
@@ -2073,13 +1083,11 @@ color:white;
   margin-bottom: 26px;
 }
 
-/* รายละเอียดแบบสะอาด ไม่แยกกล่องรก */
 .bank-detail {
   display: grid;
   gap: 18px;
   margin-bottom: 30px;
 }
-
 .bank-detail div {
   display: grid;
   grid-template-columns: 140px 1fr;
@@ -2087,18 +1095,9 @@ color:white;
   align-items: start;
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(255,255,255,.12);
-  background: transparent !important;
 }
-
-.bank-detail strong {
-  color: #fff;
-  font-weight: 900;
-}
-
-.bank-detail span {
-  color: rgba(255,255,255,.76);
-  line-height: 1.6;
-}
+.bank-detail strong { color: #fff; font-weight: 900; }
+.bank-detail span { color: rgba(255,255,255,.76); line-height: 1.6; }
 
 .bank-submit-btn {
   display: inline-flex;
@@ -2114,42 +1113,32 @@ color:white;
   box-shadow: 0 16px 36px rgba(18,183,106,.28);
   transition: .25s ease;
 }
+.bank-submit-btn:hover { transform: translateY(-3px); box-shadow: 0 22px 46px rgba(18,183,106,.38); }
 
-.bank-submit-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 22px 46px rgba(18,183,106,.38);
+@media (max-width: 900px) {
+  .bottle-bank-section { padding: calc(var(--nav-height) + 24px) 14px 36px; }
+  .bottle-bank-card { grid-template-columns: 1fr; gap: 22px; padding: 18px; border-radius: 24px; }
+  .bank-photo { height: 320px; border-radius: 20px; }
+  .bank-info { text-align: center; padding: 8px 4px 14px; }
+  .bank-detail div { grid-template-columns: 1fr; gap: 4px; text-align: center; }
+  .bank-submit-btn { width: 100%; }
 }
 
-/* มือถือ */
+/* ============================================================
+   GALLERY MASONRY — Pinterest-style variable-height grid
+   Optional alternative to the default 4-up gallery grid; add
+   class="masonry" alongside .gallery-grid to enable.
+   ============================================================ */
+.gallery-grid.masonry {
+  column-count: 3;
+  column-gap: 18px;
+}
+.gallery-grid.masonry .gallery-tile { break-inside: avoid; margin-bottom: 18px; }
+.school-gallery-card { break-inside: avoid; margin-bottom: 18px; }
+
 @media (max-width: 900px) {
-  .bottle-bank-section {
-    padding: calc(var(--nav-height) + 24px) 14px 36px;
-  }
-
-  .bottle-bank-card {
-    grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 18px;
-    border-radius: 24px;
-  }
-
-  .bank-photo {
-    height: 320px;
-    border-radius: 20px;
-  }
-
-  .bank-info {
-    text-align: center;
-    padding: 8px 4px 14px;
-  }
-
-  .bank-detail div {
-    grid-template-columns: 1fr;
-    gap: 4px;
-    text-align: center;
-  }
-
-  .bank-submit-btn {
-    width: 100%;
-  }
+  .gallery-grid.masonry { column-count: 2; }
+}
+@media (max-width: 600px) {
+  .gallery-grid.masonry { column-count: 1; }
 }
