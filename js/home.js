@@ -29,6 +29,12 @@ const HomeWorldHero = (() => {
     if (el) el.src = value;
   }
 
+  /** Safely set an element's text content; no-ops if the element doesn't exist. */
+  function setText(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  }
+
   function showStatus(message) {
     const el = document.getElementById('worldStatus');
     if (!el) return;
@@ -52,6 +58,7 @@ const HomeWorldHero = (() => {
     const rawPct = Math.max(0, (currentKg / targetKg) * 100);
     const stage = stageForPercent(rawPct);
     setSrc('worldStageImage', `images/world-stage-${stage}.png`);
+    setText('worldProgressPct', `${rawPct.toFixed(1)}%`);
   }
 
   async function init() {
