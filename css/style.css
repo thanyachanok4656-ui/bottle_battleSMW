@@ -497,7 +497,7 @@ textarea:focus-visible, select:focus-visible {
 }
 @media (max-width: 640px) {
   .hero-section { padding-left: var(--space-3); padding-right: var(--space-3); }
-  .hero-card { border-radius: 18px; }
+  .hero-card { border-radius: 0px; }
   .hero-card-media { height: 200px; padding: var(--space-3) var(--space-3) 0; }
   .hero-card-content { padding: var(--space-4) var(--space-3); }
   .hero-stats-row { padding: 0 var(--space-3); }
