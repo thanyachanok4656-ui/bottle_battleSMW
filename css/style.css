@@ -1310,3 +1310,38 @@ img, svg { max-width: 100%; }
     width: 100%;
   }
 }
+.bank-shell {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.bank-shell .dash-sidebar {
+  display: block;
+}
+
+.bank-shell .bank-main {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bank-shell .bottle-bank-section {
+  padding: calc(var(--nav-height) + 36px) 28px 48px;
+}
+
+.bank-shell .bottle-bank-card {
+  width: 100%;
+  max-width: none;
+}
+
+@media (max-width: 900px) {
+  .bank-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .bank-shell .dash-sidebar {
+    display: none;
+  }
+}
