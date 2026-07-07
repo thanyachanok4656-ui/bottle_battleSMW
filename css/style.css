@@ -549,7 +549,7 @@ textarea:focus-visible, select:focus-visible {
    404 PAGE
    ============================================================ */
 .error-page {
-  min-height: 600vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -608,7 +608,7 @@ textarea:focus-visible, select:focus-visible {
    OVERFLOW SAFETY NET
    ============================================================ */
 .widgets-row > *, .footer-grid > *, .kpi-row > *,
-.quick-link-grid > *, .feature-grid > *, .process-strip > * {
+.feature-grid > *, .process-strip > * {
   min-width: 0;
 }
 h1, h2, h3, p { overflow-wrap: break-word; word-break: break-word; }
@@ -623,6 +623,7 @@ img, svg { max-width: 100%; }
 .world-hero {
   position: relative;
   overflow: hidden;
+  min-height: 620px;
   padding: calc(var(--nav-height) + 16px) 0 0 var(--space-4);
   background-image:
     linear-gradient(135deg, rgba(4,29,21,0.9) 0%, rgba(5,46,58,0.88) 100%),
@@ -634,14 +635,18 @@ img, svg { max-width: 100%; }
 .world-hero-inner {
   position: relative;
   z-index: 2;
-  max-width: 1320px;
-  margin: 0 auto;
-  padding-right: var(--space-4);
+  max-width: 620px;
+  margin: 0;
 }
 .world-hero-copy {
   width: min(560px, 100%);
   padding-top: var(--space-3);
   padding-bottom: var(--space-4);
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .world-hero-copy .eyebrow {
   display: inline-flex;
@@ -746,7 +751,7 @@ img, svg { max-width: 100%; }
    .world-hero-copy's own padding-bottom instead). */
 .world-hero-visual {
   position: absolute;
-  top: 75px;
+  top: 84px;
   right: 0;
   bottom: 0;
   width: 58%;
@@ -767,7 +772,7 @@ img, svg { max-width: 100%; }
 }
 
 @media (max-width: 1000px) {
-  .world-hero { padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4); }
+  .world-hero { min-height: 0; padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4); }
   .world-hero-visual {
     position: relative;
     top: auto; right: auto; bottom: auto;
