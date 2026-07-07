@@ -12,7 +12,7 @@
 const HomeWorldHero = (() => {
   /** Stage number thresholds — the display name for each stage is illustrated
       directly inside each world-stage-N.png artwork (and previously shown in
-      the H1; the H1 is now a static "Bottle Battle to Carbon Goal" title).
+      the H2; the H1 is now a static "Bottle Battle to Carbon Goal" title).
       1: เกาะเริ่มต้น · 2: เกาะแห่งชีวิต · 3: เกาะสีเขียว ·
       4: เกาะคาร์บอนต่ำ · 5: โลกสมบูรณ์ · 6: เกาะแห่งชีวิตอุดมสมบูรณ์ (>100%) */
   const STAGE_MAX = [20, 40, 60, 80, 100, Infinity];
