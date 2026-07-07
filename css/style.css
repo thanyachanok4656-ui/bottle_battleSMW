@@ -854,9 +854,9 @@ img, svg { max-width: 100%; }
   max-width: 1320px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.15fr;
   gap: var(--space-6);
-  align-items: center;
+  align-items: stretch;
 }
 .world-hero-copy .eyebrow { color: var(--c-green-300); }
 .world-title {
@@ -891,7 +891,8 @@ img, svg { max-width: 100%; }
 .world-hero-visual { position: relative; }
 .world-image-frame {
   position: relative;
-  aspect-ratio: 4 / 3;
+  height: 100%;
+  min-height: 420px;
 }
 /* Fade the image's left edge to transparent so it dissolves into the
    section's own dark-green background instead of showing a hard box
@@ -988,7 +989,7 @@ img, svg { max-width: 100%; }
   .world-subtitle { margin-left: auto; margin-right: auto; }
   .hero-progress-card { margin-left: auto; margin-right: auto; }
   .world-stats-row { grid-template-columns: repeat(2, 1fr); }
-  .world-image-frame { border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-strong); }
+  .world-image-frame { height: 320px; min-height: 0; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-strong); }
   .world-image-frame img { -webkit-mask-image: none; mask-image: none; }
 }
 @media (max-width: 560px) {
