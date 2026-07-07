@@ -618,7 +618,7 @@ img, svg { max-width: 100%; }
    WORLD HERO — "เกาะแห่งชีวิต" (home page)
    ============================================================ */
 .world-hero {
-  padding: calc(var(--nav-height) + 16px) var(--space-4) var(--space-4);
+  padding: calc(var(--nav-height) 0px) var(--space-4) var(--space-4);
   background-image:
     linear-gradient(135deg, rgba(4,29,21,0.9) 0%, rgba(5,46,58,0.88) 100%),
     url('../images/school-bg.jpg');
