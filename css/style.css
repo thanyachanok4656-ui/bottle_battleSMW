@@ -1345,3 +1345,37 @@ img, svg { max-width: 100%; }
     display: none;
   }
 }
+/* ===== FIX SIDEBAR POSITION ===== */
+
+.bank-shell {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  align-items: stretch;
+  min-height: calc(100vh - var(--nav-height));
+  padding-top: var(--nav-height);
+  background: #061519;
+}
+
+.bank-shell .dash-sidebar {
+  position: sticky;
+  top: var(--nav-height);
+  align-self: start;
+  height: calc(100vh - var(--nav-height));
+}
+
+.bank-shell .bank-main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bank-shell .bottle-bank-section {
+  min-height: calc(100vh - var(--nav-height));
+  padding: 28px;
+}
+
+.bank-shell .bottle-bank-card {
+  width: 100%;
+  max-width: none;
+}
