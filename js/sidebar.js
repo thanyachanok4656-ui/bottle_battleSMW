@@ -37,9 +37,7 @@ const Sidebar = (() => {
     { file: 'carbon.html', th: 'วิเคราะห์คาร์บอน', en: 'Carbon Analytics', icon: 'chart' },
     { file: 'map.html', th: 'แผนที่จุดรับขวด', en: 'Bottle Map', icon: 'pin' },
     { file: 'gallery.html', th: 'คลังกิจกรรม', en: 'Gallery', icon: 'gallery' },
-    { file: 'innovation.html', th: 'นวัตกรรม', en: 'Innovation', icon: 'bulb' },
     { file: 'history.html', th: 'หลักฐานและรายงาน', en: 'Evidence & Report', icon: 'file' },
-    { file: 'admin.html', th: 'ผู้ดูแลระบบ', en: 'Admin', icon: 'gear' }
   ];
 
   const THAI_MONTHS = ['ม.ค.', 'ก.พ.', 'มี.ค.', 'เม.ย.', 'พ.ค.', 'มิ.ย.', 'ก.ค.', 'ส.ค.', 'ก.ย.', 'ต.ค.', 'พ.ย.', 'ธ.ค.'];
