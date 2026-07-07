@@ -188,24 +188,14 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-strong);
-
-  height: auto;
-  min-height: 0;
-}
-
-  min-height: ุ1500px;      /* เดิม 180px */
-  width: 100%;
+  min-height: 180px;
   display: flex;
   align-items: center;
 }
 .dash-hero-img {
-  position: relative;
-  inset: auto;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
 }
 .dash-hero-scrim {
   position: absolute; inset: 0;
@@ -219,7 +209,7 @@
 /* ============================================================
    KPI ROW (horizontal icon-left cards)
    ============================================================ */
-.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+.kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
 .kpi-card-h {
   padding: var(--space-3) var(--space-4);
   display: flex;
@@ -517,44 +507,12 @@
 }
 
 /* ============================================================
-   HOME PAGE — quick-link grid + ranking teaser
+   HOME PAGE — ranking teaser
    ============================================================ */
-.quick-link-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
-.quick-link-card {
-  padding: var(--space-4);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.quick-link-card .ico {
-  width: 44px; height: 44px;
-  border-radius: var(--radius-md);
-  background: var(--grad-eco);
-  color: #fff;
-  display: flex; align-items: center; justify-content: center;
-}
-.quick-link-card .ico svg { width: 22px; height: 22px; }
-.quick-link-card h3 { font-size: 1rem; }
-.quick-link-card .en { font-size: 0.7rem; color: var(--text-muted); font-weight: 500; }
-.quick-link-card p { font-size: 0.82rem; color: var(--text-secondary); flex: 1; }
-.quick-link-card .go {
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: 0.8rem; font-weight: 700; color: var(--c-green-700);
-}
-.quick-link-card .go svg { width: 13px; height: 13px; transition: transform var(--transition-base); }
-.quick-link-card:hover .go svg { transform: translateX(4px); }
-
 .top-ranking-teaser { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
 .top-ranking-teaser .mini-podium { flex: 1; min-width: 240px; margin-bottom: 0; }
 .top-ranking-teaser .teaser-copy { flex: 1; min-width: 220px; }
 .top-ranking-teaser .teaser-copy p { color: var(--text-secondary); font-size: 0.86rem; margin: 6px 0 var(--space-3); }
-
-@media (max-width: 1024px) {
-  .quick-link-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px) {
-  .quick-link-grid { grid-template-columns: 1fr; }
-}
 
 /* Equal three-up grid used for journey/day detail cards (still responsive via .widgets-row rules) */
 .widgets-row.cols-3-even { grid-template-columns: repeat(3, 1fr); }
