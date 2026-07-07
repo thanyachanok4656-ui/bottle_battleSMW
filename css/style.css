@@ -760,10 +760,19 @@ img, svg { max-width: 100%; }
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
 }
+/* These cards also carry the shared .glass-card class for its hover/reveal
+   behavior — reset its background/border/shadow/sheen here so they render
+   with no visible frame at all, just floating text over the section bg. */
+.world-stat-card.glass-card {
+  background: none;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.world-stat-card.glass-card::before { display: none; }
+.world-stat-card.glass-card:hover { transform: none; box-shadow: none; }
 .world-stat-icon { font-size: 1.6rem; }
 .world-stat-value { font-family: var(--font-mono); font-weight: 700; font-size: 1.5rem; color: #fff; }
 .world-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
