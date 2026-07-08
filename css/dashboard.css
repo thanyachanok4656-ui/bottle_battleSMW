@@ -683,3 +683,26 @@
   font-size: 1rem;
   line-height: 1.9;
 }
+.bank-main .dash-hero {
+  height: 200px !important;
+  min-height: 200px !important;
+  max-height: 200px !important;
+  padding: 0 !important;
+  margin-bottom: 24px !important;
+  border-radius: 0 !important;
+}
+
+.bank-main .dash-hero-img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+.bank-main .dash-hero-copy,
+.bank-main .dash-hero-scrim {
+  display: none !important;
+}
