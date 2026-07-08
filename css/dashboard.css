@@ -193,7 +193,6 @@
   display: flex;
   align-items: center;
 }
-}
 .dash-hero-img {
   position: absolute;
   inset: 0;
@@ -201,7 +200,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-}
 }
 .dash-hero-scrim {
   position: absolute; inset: 0;
@@ -529,33 +527,139 @@
 .gallery-grid.is-full { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 900px) { .gallery-grid.is-full { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 600px) { .gallery-grid.is-full { grid-template-columns: repeat(2, 1fr); } }
-
 /* When .page-hero (from ranking/history) is nested inside the sidebar app-shell,
    the shell already sits below the fixed navbar, so drop the extra top offset. */
-.dash-main .page-hero { padding-top: var(--space-4); border-radius: var(--radius-lg); }
-
-.app-shell {
-  display: grid;
-  grid-template-columns: 240px 1fr;
+.dash-main .page-hero {
+  padding-top: var(--space-4);
+  border-radius: var(--radius-lg);
 }
 
-.sidebar {
-  width: 240px;
-  min-width: 240px;
-}
-.bank-info{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+/* ============================================================
+   FINAL CLEAN OVERRIDES
+   These rules fix the duplicated/overlapping edits at the end of
+   this file while keeping all unrelated dashboard styles above.
+   ============================================================ */
 
-    padding:0 50px 0 20px;   /* ขวา 50px ซ้าย 20px */
-    max-width:480px;         /* จำกัดความกว้าง */
-    margin:0 auto;           /* จัดให้อยู่กลางฝั่งขวา */
+/* ---------- Dashboard hero: compact header banner ---------- */
+.dash-main {
+  padding: 24px !important;
+}
+
+.dash-hero {
+  position: relative;
+  height: 220px !important;
+  min-height: 220px !important;
+  max-height: 220px !important;
+  padding: 0 !important;
+  margin-bottom: 24px !important;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-strong);
+  display: flex;
+  align-items: center;
+}
+
+.dash-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block;
+}
+
+.dash-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(6,62,43,0.78) 0%, rgba(6,62,43,0.35) 55%, rgba(6,62,43,0.05) 100%);
+}
+
+.dash-hero-copy {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: var(--space-4) var(--space-5);
+  max-width: 560px;
+}
+
+/* ---------- KPI: exactly 3 cards on dashboard ---------- */
+.kpi-row {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+.kpi-card-h {
+  min-height: 104px;
+  padding: 22px 26px;
+  border-radius: 24px;
+}
+
+/* ---------- Bottle bank / map page ---------- */
+.bank-main {
+  padding: 24px !important;
+}
+
+/* On map page, keep the same head size as dashboard and make the image fill it. */
+.bank-main .dash-hero {
+  height: 200px !important;
+  min-height: 200px !important;
+  max-height: 200px !important;
+  padding: 0 !important;
+  margin-bottom: 24px !important;
+  border-radius: 0 !important;
+}
+
+.bank-main .dash-hero-img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+}
+
+/* Map page uses the banner as image-only. */
+.bank-main .dash-hero-copy,
+.bank-main .dash-hero-scrim {
+  display: none !important;
+}
+
+.bottle-bank-section {
+  padding-top: 0 !important;
+}
+
+/* Keep the bank photo sizing from style.css, but make the text side balanced. */
+.bank-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 56px 0 32px;
+}
+
+.bank-label {
+  width: fit-content;
+  padding: 8px 22px;
+  margin-bottom: 22px;
+}
+
+.bank-info h2 {
+  font-size: clamp(2.6rem, 3.8vw, 4rem);
+  line-height: 1.05;
+  margin-bottom: 22px;
+  max-width: 420px;
+  color: #fff;
 }
 
 .bank-info p {
   max-width: 420px;
-  margin: 0 auto 28px;
+  margin: 0 0 30px;
   font-size: 1rem;
   line-height: 1.9;
   color: rgba(255,255,255,.82);
@@ -563,7 +667,7 @@
 
 .bank-detail {
   max-width: 420px;
-  margin: 0 auto 34px;
+  margin: 0 0 34px;
   gap: 0;
 }
 
@@ -587,8 +691,10 @@
 }
 
 .bank-submit-btn {
-  margin: 0 auto;
+  margin: 0;
 }
+
+/* Old map-hero-banner support, in case any page still uses it. */
 .map-hero-banner {
   width: min(1180px, calc(100% - 48px));
   margin: 24px auto 28px;
@@ -603,106 +709,41 @@
   object-fit: cover;
   display: block;
 }
-.dash-main {
-  padding: 24px !important;
+
+/* ---------- Responsive safety ---------- */
+@media (max-width: 1024px) {
+  .kpi-row {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.dash-hero {
-  min-height: 220px !important;
-  margin-bottom: 24px;
+@media (max-width: 900px) {
+  .bank-info {
+    max-width: none;
+    padding: 8px 16px 16px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .bank-detail {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bank-submit-btn {
+    margin: 0 auto;
+  }
 }
 
-.dash-hero-img {
-  object-fit: cover;
-  object-position: center;
-}
+@media (max-width: 700px) {
+  .kpi-row {
+    grid-template-columns: 1fr;
+  }
 
-.kpi-row,
-.widgets-row {
-  display: grid !important;
-}
-.bank-main {
-  padding: 24px !important;
-}
-
-.bank-main .dash-hero {
-  height: 220px !important;
-  min-height: 220px !important;
-  max-height: 220px !important;
-  margin-bottom: 24px !important;
-}
-
-.bank-main .dash-hero-img {
-  object-fit: cover !important;
-  object-position: center !important;
-}
-
-.bottle-bank-section {
-  padding-top: 0 !important;
-}
-.bank-main {
-  padding: 24px !important;
-}
-
-.bank-main .dash-hero {
-  height: 220px !important;
-  min-height: 220px !important;
-  max-height: 220px !important;
-  margin-bottom: 24px !important;
-}
-
-.bank-main .dash-hero-img {
-  object-fit: cover !important;
-  object-position: center !important;
-}
-
-.bottle-bank-section {
-  padding-top: 0 !important;
-}
-.bank-info {
-  text-align: left;
-  padding: 0 56px;
-}
-
-.bank-label {
-  width: fit-content;
-  padding: 8px 22px;
-  margin-bottom: 24px;
-}
-
-.bank-info h2 {
-   font-size: clamp(2.6rem, 3.8vw, 4rem);
-  line-height: 1.05;
-  margin-bottom: 24px;
-  max-width: 420px;
-}
-
-.bank-info p {
-  max-width: 420px;
-  margin: 0 0 32px;
-  font-size: 1rem;
-  line-height: 1.9;
-}
-.bank-main .dash-hero {
-  height: 200px !important;
-  min-height: 200px !important;
-  max-height: 200px !important;
-  padding: 0 !important;
-  margin-bottom: 24px !important;
-  border-radius: 0 !important;
-}
-
-.bank-main .dash-hero-img {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-  display: block !important;
-}
-
-.bank-main .dash-hero-copy,
-.bank-main .dash-hero-scrim {
-  display: none !important;
+  .dash-hero,
+  .bank-main .dash-hero {
+    height: 180px !important;
+    min-height: 180px !important;
+    max-height: 180px !important;
+  }
 }
