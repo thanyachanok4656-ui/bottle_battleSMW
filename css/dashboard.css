@@ -634,3 +634,22 @@
 .bottle-bank-section {
   padding-top: 0 !important;
 }
+.bank-main {
+  padding: 24px !important;
+}
+
+.bank-main .dash-hero {
+  height: 220px !important;
+  min-height: 220px !important;
+  max-height: 220px !important;
+  margin-bottom: 24px !important;
+}
+
+.bank-main .dash-hero-img {
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.bottle-bank-section {
+  padding-top: 0 !important;
+}
