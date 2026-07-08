@@ -659,3 +659,27 @@
 .bottle-bank-section {
   padding-top: 0 !important;
 }
+.bank-info {
+  text-align: left;
+  padding: 0 56px;
+}
+
+.bank-label {
+  width: fit-content;
+  padding: 8px 22px;
+  margin-bottom: 24px;
+}
+
+.bank-info h2 {
+  font-size: clamp(3rem, 4.5vw, 4.8rem);
+  line-height: 1.05;
+  margin-bottom: 24px;
+  max-width: 420px;
+}
+
+.bank-info p {
+  max-width: 420px;
+  margin: 0 0 32px;
+  font-size: 1rem;
+  line-height: 1.9;
+}
