@@ -947,3 +947,7 @@ img, svg { max-width: 100%; }
 @media (max-width: 600px) {
   .gallery-grid.masonry { column-count: 1; }
 }
+.world-title {
+  white-space: nowrap;
+  font-size: clamp(2.2rem, 4vw, 4.2rem);
+}
