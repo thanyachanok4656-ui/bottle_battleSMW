@@ -124,7 +124,29 @@ const Api = (() => {
 uploadImage(file) {
   return post('uploadImage', { file });
 },
+uploadImage(file) {
+  return post('uploadImage', { file });
+},
 
+getGallery(filters = {}) {
+  return get('getGallery', filters);
+},
+
+uploadGalleryImages(payload) {
+  return post('uploadGalleryImages', payload);
+},
+
+updateGalleryItem(item) {
+  return post('updateGalleryItem', { item });
+},
+
+deleteGalleryItem(galleryId) {
+  return post('deleteGalleryItem', { galleryId });
+},
+
+setGalleryFeatured(galleryId, isFeatured) {
+  return post('setGalleryFeatured', { galleryId, isFeatured });
+}
 /**
  * โหลดคลังกิจกรรม
  */
