@@ -586,3 +586,17 @@
 .bank-submit-btn {
   margin: 0 auto;
 }
+.map-hero-banner {
+  width: min(1180px, calc(100% - 48px));
+  margin: 24px auto 28px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,.35);
+}
+
+.map-hero-banner img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
