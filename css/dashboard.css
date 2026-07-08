@@ -571,25 +571,37 @@
 }
 
 /* On map page, keep the same head size as dashboard and make the image fill it. */
-.bank-main .dash-hero {
-  height: 200px !important;
-  min-height: 200px !important;
-  max-height: 200px !important;
-  padding: 0 !important;
-  margin-bottom: 24px !important;
-  border-radius: 0 !important;
+.bank-main .dash-hero{
+    position: relative;
+    overflow: hidden;
+
+    width: calc(100% + 24px);
+    margin-left: -12px;
+    margin-right: -12px;
+
+    height: 300px;          /* เดิม 200px */
+    min-height: 300px;
+    max-height: 300px;
+
+    padding: 0;
+    margin-bottom: 28px;
+
+    border-radius: 28px;
+    box-shadow: var(--shadow-strong);
 }
 
-.bank-main .dash-hero-img {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center center !important;
-  display: block !important;
-}
+.bank-main .dash-hero-img{
+    position:absolute;
+    inset:0;
 
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center 35%;
+
+    display:block;
+}
 /* Map page uses the banner as image-only. */
 .bank-main .dash-hero-copy,
 .bank-main .dash-hero-scrim {
