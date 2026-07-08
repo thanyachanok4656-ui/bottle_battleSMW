@@ -1,0 +1,1493 @@
+/* ============================================================
+   GALLERY.CSS — Gallery Module V2
+   Part 2.1: Theme + Layout + Hero + Toolbar
+   ============================================================ */
+
+/* ---------- Page shell ---------- */
+
+.gallery-main {
+  padding-bottom: var(--space-6);
+}
+
+.gallery-main::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(18, 183, 106, 0.28), transparent 34%),
+    radial-gradient(circle at 82% 30%, rgba(11, 165, 236, 0.22), transparent 35%),
+    linear-gradient(rgba(7,18,25,0.68), rgba(7,18,25,0.88));
+  pointer-events: none;
+}
+
+/* ---------- Shared gallery surfaces ---------- */
+
+.gallery-hero,
+.gallery-toolbar,
+.gallery-admin-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04)),
+    rgba(3, 35, 38, 0.76);
+  border: 1px solid rgba(110, 231, 183, 0.22);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+.gallery-hero::before,
+.gallery-toolbar::before,
+.gallery-admin-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(255,255,255,0.16), transparent 42%),
+    radial-gradient(circle at 85% 15%, rgba(18,183,106,0.18), transparent 32%);
+  pointer-events: none;
+}
+
+.gallery-hero > *,
+.gallery-toolbar > *,
+.gallery-admin-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Hero ---------- */
+
+.gallery-hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 28px;
+  padding: 34px;
+  margin-bottom: 22px;
+}
+
+.gallery-hero-text {
+  min-width: 0;
+}
+
+.gallery-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #6ee7b7;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.gallery-eyebrow::before {
+  content: "📸";
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+
+.gallery-hero h1 {
+  margin: 12px 0 10px;
+  color: #fff;
+  font-size: clamp(2.2rem, 4vw, 4.2rem);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-shadow: 0 10px 26px rgba(0,0,0,0.35);
+}
+
+.gallery-hero p {
+  max-width: 74ch;
+  color: rgba(255,255,255,0.78);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  font-weight: 700;
+}
+
+.gallery-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.gallery-add-btn {
+  min-height: 52px;
+  padding: 0 24px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #12b76a, #0ba5ec);
+  font-weight: 900;
+  font-size: 0.96rem;
+  box-shadow:
+    0 18px 38px rgba(11, 165, 236, 0.28),
+    inset 0 1px 0 rgba(255,255,255,0.24);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    filter 0.28s ease;
+}
+
+.gallery-add-btn:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 24px 48px rgba(11, 165, 236, 0.34),
+    inset 0 1px 0 rgba(255,255,255,0.26);
+  filter: saturate(1.08);
+}
+
+.gallery-add-btn:active {
+  transform: scale(0.98);
+}
+
+.gallery-add-btn.secondary {
+  min-height: 46px;
+  padding: 0 18px;
+  background:
+    linear-gradient(135deg, rgba(18,183,106,0.28), rgba(11,165,236,0.24));
+  border: 1px solid rgba(110,231,183,0.32);
+  box-shadow: none;
+}
+
+/* ---------- Toolbar ---------- */
+
+.gallery-toolbar {
+  display: grid;
+  grid-template-columns: 220px minmax(260px, 1fr) 220px;
+  gap: 18px;
+  align-items: end;
+  padding: 22px;
+  margin-bottom: 22px;
+}
+
+.gallery-filter-group {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.gallery-filter-group label {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.gallery-filter-group input,
+.gallery-filter-group select {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  padding: 0 14px;
+  outline: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.gallery-filter-group input::placeholder {
+  color: rgba(255,255,255,0.42);
+}
+
+.gallery-filter-group input:focus,
+.gallery-filter-group select:focus {
+  border-color: rgba(110,231,183,0.75);
+  box-shadow: 0 0 0 4px rgba(18,183,106,0.16);
+  background: rgba(255,255,255,0.11);
+}
+
+.gallery-filter-group select option {
+  background: #063e2b;
+  color: #fff;
+}
+
+/* ---------- Admin section header ---------- */
+
+.gallery-admin-panel {
+  padding: 28px;
+}
+
+.gallery-admin-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.gallery-admin-head h2 {
+  color: #fff;
+  margin: 0 0 6px;
+  font-size: clamp(1.4rem, 2.4vw, 2.2rem);
+  font-weight: 900;
+}
+
+.gallery-admin-head p {
+  margin: 0;
+  color: rgba(255,255,255,0.68);
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.gallery-state {
+  padding: 18px 20px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.07);
+  border: 1px dashed rgba(255,255,255,0.16);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  font-weight: 800;
+  margin-bottom: 22px;
+}
+
+.gallery-state.is-hidden {
+  display: none;
+}
+
+.gallery-state.is-error {
+  color: #ffd7d7;
+  background: rgba(239,68,68,0.14);
+  border-color: rgba(239,68,68,0.34);
+}
+
+/* ---------- Responsive for Part 2.1 ---------- */
+
+@media (max-width: 1100px) {
+  .gallery-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-hero-actions {
+    justify-content: flex-start;
+  }
+
+  .gallery-toolbar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-filter-group:nth-child(2) {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .gallery-main {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .gallery-hero,
+  .gallery-toolbar,
+  .gallery-admin-panel {
+    border-radius: 24px;
+  }
+
+  .gallery-hero {
+    padding: 24px;
+  }
+
+  .gallery-toolbar {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .gallery-admin-panel {
+    padding: 20px;
+  }
+
+  .gallery-admin-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .gallery-add-btn {
+    width: 100%;
+  }
+
+  .gallery-hero-actions {
+    width: 100%;
+  }
+}
+/* ============================================================
+   Gallery V2
+   Part 2.2
+   Masonry + Cards + Hover
+   ============================================================ */
+
+.gallery-grid{
+    column-count:4;
+    column-gap:22px;
+    margin-top:12px;
+}
+
+@media(max-width:1400px){
+    .gallery-grid{
+        column-count:3;
+    }
+}
+
+@media(max-width:900px){
+    .gallery-grid{
+        column-count:2;
+    }
+}
+
+@media(max-width:600px){
+    .gallery-grid{
+        column-count:1;
+    }
+}
+
+/* ---------- Card ---------- */
+
+.school-gallery-card{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:100%;
+
+    margin-bottom:22px;
+
+    overflow:hidden;
+
+    border-radius:24px;
+
+    background:#0b2c2a;
+
+    cursor:pointer;
+
+    break-inside:avoid;
+
+    transition:
+    transform .35s,
+    box-shadow .35s,
+    border-color .35s;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.28);
+
+}
+
+.school-gallery-card:hover{
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 32px 80px rgba(0,0,0,.42);
+
+    border-color:
+    rgba(18,183,106,.35);
+
+}
+
+/* ---------- Image ---------- */
+
+.school-gallery-card img{
+
+    width:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:
+    transform .7s ease,
+    filter .45s ease;
+
+}
+
+.school-gallery-card:hover img{
+
+    transform:scale(1.06);
+
+    filter:
+    saturate(1.12)
+    brightness(1.05);
+
+}
+
+/* ---------- Gradient ---------- */
+
+.school-gallery-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:48%;
+
+    background:
+
+    linear-gradient(
+    transparent,
+    rgba(0,0,0,.18),
+    rgba(0,0,0,.84));
+
+    pointer-events:none;
+
+}
+
+/* ---------- Caption ---------- */
+
+.school-gallery-caption{
+
+    position:absolute;
+
+    left:18px;
+
+    right:18px;
+
+    bottom:18px;
+
+    color:#fff;
+
+    z-index:3;
+
+}
+
+.school-gallery-caption span{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:5px 11px;
+
+    border-radius:999px;
+
+    background:
+    rgba(18,183,106,.22);
+
+    color:#6ee7b7;
+
+    font-size:.72rem;
+
+    font-weight:900;
+
+    margin-bottom:10px;
+
+}
+
+.school-gallery-caption strong{
+
+    display:block;
+
+    font-size:1.18rem;
+
+    line-height:1.3;
+
+    font-weight:900;
+
+    margin-bottom:8px;
+
+}
+
+.school-gallery-caption p{
+
+    font-size:.88rem;
+
+    line-height:1.55;
+
+    color:
+    rgba(255,255,255,.78);
+
+}
+
+/* ---------- Featured ---------- */
+
+.gallery-featured{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #ffd54a,
+    #ffb300);
+
+    color:#222;
+
+    font-size:20px;
+
+    box-shadow:
+    0 12px 32px rgba(255,193,7,.4);
+
+    z-index:5;
+
+}
+
+/* ---------- Category ---------- */
+
+.gallery-category{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    background:
+    rgba(0,0,0,.45);
+
+    color:white;
+
+    font-size:.72rem;
+
+    font-weight:800;
+
+    backdrop-filter:blur(10px);
+
+    z-index:5;
+
+}
+
+/* ---------- Date ---------- */
+
+.gallery-date{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-top:10px;
+
+    font-size:.72rem;
+
+    color:
+    rgba(255,255,255,.56);
+
+}
+
+/* ---------- Hover Buttons ---------- */
+
+.gallery-card-actions{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:16px;
+
+    background:
+    rgba(0,0,0,.42);
+
+    opacity:0;
+
+    transition:.35s;
+
+    z-index:6;
+
+}
+
+.school-gallery-card:hover
+.gallery-card-actions{
+
+    opacity:1;
+
+}
+
+.gallery-card-actions button{
+
+    width:54px;
+
+    height:54px;
+
+    border-radius:50%;
+
+    border:none;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:20px;
+
+    background:
+    rgba(255,255,255,.16);
+
+    backdrop-filter:blur(14px);
+
+    transition:.28s;
+
+}
+
+.gallery-card-actions button:hover{
+
+    transform:translateY(-5px);
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #12b76a,
+    #0ba5ec);
+
+}
+
+/* ---------- Empty ---------- */
+
+.gallery-empty{
+
+    text-align:center;
+
+    padding:90px 20px;
+
+    color:rgba(255,255,255,.45);
+
+    font-size:1rem;
+
+}
+
+/* ---------- Loading Skeleton ---------- */
+
+.gallery-skeleton{
+
+    display:inline-block;
+
+    width:100%;
+
+    height:280px;
+
+    margin-bottom:22px;
+
+    border-radius:22px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.04),
+        rgba(255,255,255,.10),
+        rgba(255,255,255,.04)
+    );
+
+    background-size:300% 100%;
+
+    animation:
+    galleryLoading 1.2s infinite;
+
+}
+
+@keyframes galleryLoading{
+
+0%{
+
+background-position:100% 0;
+
+}
+
+100%{
+
+background-position:-100% 0;
+
+}
+
+}
+
+/* ---------- Fade ---------- */
+
+.school-gallery-card{
+
+animation:
+galleryFade .5s ease;
+
+}
+
+@keyframes galleryFade{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+/* ============================================================
+   GALLERY.CSS — Gallery Module V2
+   Part 2.3: Upload Modal + Multi Preview + Progress + Edit Modal
+   ============================================================ */
+
+/* ---------- Modal backdrop ---------- */
+
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(18,183,106,0.25), transparent 32%),
+    radial-gradient(circle at 75% 70%, rgba(11,165,236,0.20), transparent 34%),
+    rgba(0,0,0,0.72);
+  backdrop-filter: blur(14px);
+}
+
+.gallery-modal.is-open {
+  display: flex;
+  animation: galleryModalFade .25s ease both;
+}
+
+@keyframes galleryModalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---------- Modal card ---------- */
+
+.gallery-modal-card {
+  position: relative;
+  width: min(760px, 96vw);
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 30px;
+  border-radius: 30px;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04)),
+    rgba(3, 42, 38, 0.96);
+  border: 1px solid rgba(110,231,183,0.28);
+  box-shadow:
+    0 36px 110px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.14);
+  animation: galleryModalPop .28s ease both;
+}
+
+.gallery-modal-card.small {
+  width: min(520px, 94vw);
+}
+
+@keyframes galleryModalPop {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.gallery-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.14);
+  font-size: 28px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  transition: .25s ease;
+}
+
+.gallery-close:hover {
+  transform: rotate(90deg) scale(1.06);
+  background: rgba(239,68,68,0.22);
+}
+
+/* ---------- Modal header ---------- */
+
+.gallery-modal-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-right: 48px;
+  margin-bottom: 20px;
+}
+
+.gallery-modal-head > span {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 1.7rem;
+  background: linear-gradient(135deg, #12b76a, #0ba5ec);
+  box-shadow: 0 18px 38px rgba(11,165,236,0.22);
+}
+
+.gallery-modal-head h3,
+.gallery-modal-card > h3 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  font-weight: 900;
+}
+
+.gallery-modal-head p {
+  margin: 4px 0 0;
+  color: rgba(255,255,255,0.66);
+  font-weight: 700;
+}
+
+/* ---------- Drag & Drop Upload ---------- */
+
+.gallery-upload-box {
+  min-height: 190px;
+  margin: 22px 0;
+  padding: 24px;
+  border-radius: 24px;
+  border: 2px dashed rgba(110,231,183,0.34);
+  background:
+    radial-gradient(circle at center, rgba(18,183,106,0.14), transparent 64%),
+    rgba(255,255,255,0.06);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color .25s ease,
+    background .25s ease,
+    transform .25s ease;
+}
+
+.gallery-upload-box input {
+  display: none;
+}
+
+.gallery-upload-box .upload-icon {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
+}
+
+.gallery-upload-box strong {
+  display: block;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.gallery-upload-box small {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255,255,255,0.56);
+  font-weight: 700;
+}
+
+.gallery-upload-box:hover,
+.gallery-upload-box.is-dragover {
+  transform: translateY(-3px);
+  border-color: rgba(110,231,183,0.78);
+  background:
+    radial-gradient(circle at center, rgba(18,183,106,0.24), transparent 64%),
+    rgba(255,255,255,0.09);
+}
+
+/* ---------- Multi preview ---------- */
+
+.gallery-preview-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.gallery-preview-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  min-height: 138px;
+}
+
+.gallery-preview-item img {
+  width: 100%;
+  height: 112px;
+  object-fit: cover;
+}
+
+.gallery-preview-item span {
+  display: block;
+  padding: 8px 10px;
+  color: rgba(255,255,255,0.78);
+  font-size: .75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gallery-preview-remove {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(239,68,68,0.78);
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+}
+
+/* ---------- Form fields ---------- */
+
+.gallery-form-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 16px;
+}
+
+.gallery-field {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.gallery-field label {
+  color: rgba(255,255,255,0.72);
+  font-size: .86rem;
+  font-weight: 900;
+}
+
+.gallery-field input,
+.gallery-field select,
+.gallery-field textarea,
+.gallery-modal-card > input,
+.gallery-modal-card > textarea,
+.gallery-modal-card > select {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  padding: 12px 14px;
+  outline: none;
+  font-size: .96rem;
+  font-weight: 700;
+  resize: vertical;
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+.gallery-field textarea {
+  min-height: 110px;
+}
+
+.gallery-field input::placeholder,
+.gallery-field textarea::placeholder {
+  color: rgba(255,255,255,0.38);
+}
+
+.gallery-field input:focus,
+.gallery-field select:focus,
+.gallery-field textarea:focus,
+.gallery-modal-card > input:focus,
+.gallery-modal-card > textarea:focus,
+.gallery-modal-card > select:focus {
+  border-color: rgba(110,231,183,0.75);
+  box-shadow: 0 0 0 4px rgba(18,183,106,0.16);
+  background: rgba(255,255,255,0.11);
+}
+
+.gallery-field select option,
+.gallery-modal-card select option {
+  background: #063e2b;
+  color: #fff;
+}
+
+/* ---------- Checkbox ---------- */
+
+.gallery-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0 18px;
+  color: rgba(255,255,255,0.82);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.gallery-check input {
+  width: 20px;
+  height: 20px;
+  accent-color: #12b76a;
+}
+
+/* ---------- Upload progress ---------- */
+
+.gallery-upload-progress {
+  display: none;
+  height: 12px;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 16px 0 20px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.gallery-upload-progress.is-visible {
+  display: block;
+}
+
+.gallery-upload-progress div {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #12b76a, #0ba5ec, #6ee7b7);
+  box-shadow: 0 0 22px rgba(18,183,106,.55);
+  transition: width .35s ease;
+}
+
+/* ---------- Modal actions ---------- */
+
+.gallery-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.gallery-cancel-btn,
+.gallery-submit-btn {
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 900;
+  transition: .25s ease;
+}
+
+.gallery-cancel-btn {
+  color: #fff;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.gallery-submit-btn {
+  color: #fff;
+  background: linear-gradient(135deg, #12b76a, #0ba5ec);
+  box-shadow: 0 16px 34px rgba(11,165,236,0.26);
+}
+
+.gallery-cancel-btn:hover,
+.gallery-submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+.gallery-submit-btn:disabled,
+.gallery-cancel-btn:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---------- Delete dialog style support ---------- */
+
+.gallery-delete-warning {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(239,68,68,0.12);
+  border: 1px solid rgba(239,68,68,0.28);
+  color: #ffd7d7;
+  font-weight: 800;
+  line-height: 1.7;
+  margin: 16px 0;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 720px) {
+  .gallery-modal {
+    padding: 14px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .gallery-modal-card {
+    padding: 22px;
+    border-radius: 24px;
+    max-height: none;
+  }
+
+  .gallery-modal-head {
+    padding-right: 38px;
+  }
+
+  .gallery-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-preview-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-modal-actions {
+    flex-direction: column;
+  }
+
+  .gallery-cancel-btn,
+  .gallery-submit-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .gallery-preview-list {
+    grid-template-columns: 1fr;
+  }
+}
+/* ============================================================
+   GALLERY.CSS — Gallery Module V2
+   Part 2.4: Lightbox + Responsive + Animations
+   ============================================================ */
+
+/* ---------- Lightbox ---------- */
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10060;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(18,183,106,.18), transparent 34%),
+    radial-gradient(circle at 85% 75%, rgba(11,165,236,.16), transparent 34%),
+    rgba(0,0,0,.82);
+  backdrop-filter: blur(16px);
+}
+
+.gallery-lightbox.is-open {
+  display: flex;
+  animation: galleryFadeIn .25s ease both;
+}
+
+.gallery-lightbox-inner {
+  width: min(1180px, 96vw);
+  max-height: 92vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.gallery-lightbox-inner img {
+  width: 100%;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 26px;
+  background: rgba(0,0,0,.35);
+  box-shadow: 0 35px 100px rgba(0,0,0,.58);
+  animation: galleryZoomIn .28s ease both;
+}
+
+.gallery-lightbox-caption {
+  padding: 24px;
+  border-radius: 26px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.04)),
+    rgba(3, 42, 38, .92);
+  border: 1px solid rgba(110,231,183,.24);
+  color: #fff;
+  box-shadow: 0 35px 100px rgba(0,0,0,.38);
+}
+
+.gallery-lightbox-caption span {
+  display: inline-flex;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: rgba(18,183,106,.18);
+  color: #6ee7b7;
+  font-size: .78rem;
+  font-weight: 900;
+  margin-bottom: 14px;
+}
+
+.gallery-lightbox-caption strong {
+  display: block;
+  font-size: 1.55rem;
+  line-height: 1.25;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.gallery-lightbox-caption p {
+  color: rgba(255,255,255,.76);
+  font-weight: 700;
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+.gallery-lightbox-caption small {
+  color: rgba(255,255,255,.48);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.gallery-lightbox-close {
+  position: fixed;
+  top: 22px;
+  right: 22px;
+  z-index: 10070;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.16);
+  font-size: 32px;
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(12px);
+  transition: .25s ease;
+}
+
+.gallery-lightbox-close:hover {
+  transform: rotate(90deg) scale(1.05);
+  background: rgba(239,68,68,.28);
+}
+
+/* ---------- Better gallery mobile behavior ---------- */
+
+@media (max-width: 960px) {
+  .gallery-lightbox-inner {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  .gallery-lightbox-inner img {
+    max-height: 68vh;
+  }
+
+  .gallery-lightbox-caption {
+    max-height: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-lightbox {
+    padding: 14px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .gallery-lightbox-close {
+    top: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
+  }
+
+  .gallery-lightbox-inner img,
+  .gallery-lightbox-caption {
+    border-radius: 20px;
+  }
+}
+
+/* ---------- Page-level responsive polish ---------- */
+
+@media (max-width: 1180px) {
+  .gallery-main {
+    padding-top: calc(var(--nav-height) + 18px);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-main {
+    padding-top: calc(var(--nav-height) + 14px);
+  }
+
+  .gallery-hero h1 {
+    font-size: clamp(2rem, 10vw, 3.4rem);
+  }
+
+  .gallery-hero p {
+    font-size: .95rem;
+  }
+
+  .gallery-toolbar {
+    gap: 14px;
+  }
+}
+
+/* ---------- Animation utilities ---------- */
+
+@keyframes galleryFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes galleryZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes galleryFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes galleryGlowPulse {
+  0%, 100% {
+    box-shadow:
+      0 20px 60px rgba(0,0,0,.28),
+      0 0 0 rgba(18,183,106,0);
+  }
+  50% {
+    box-shadow:
+      0 30px 80px rgba(0,0,0,.42),
+      0 0 34px rgba(18,183,106,.28);
+  }
+}
+
+/* ---------- Optional premium effects ---------- */
+
+.gallery-add-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-add-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.42),
+    transparent
+  );
+  transform: skewX(-18deg);
+  transition: left .75s ease;
+}
+
+.gallery-add-btn:hover::after {
+  left: 130%;
+}
+
+.school-gallery-card.is-featured {
+  border-color: rgba(255,184,0,.45);
+  animation: galleryGlowPulse 2.6s ease-in-out infinite;
+}
+
+/* ---------- Scrollbar styling ---------- */
+
+.gallery-modal-card::-webkit-scrollbar,
+.gallery-lightbox-inner::-webkit-scrollbar {
+  width: 10px;
+}
+
+.gallery-modal-card::-webkit-scrollbar-track,
+.gallery-lightbox-inner::-webkit-scrollbar-track {
+  background: rgba(255,255,255,.06);
+  border-radius: 999px;
+}
+
+.gallery-modal-card::-webkit-scrollbar-thumb,
+.gallery-lightbox-inner::-webkit-scrollbar-thumb {
+  background: rgba(110,231,183,.38);
+  border-radius: 999px;
+}
+
+.gallery-modal-card::-webkit-scrollbar-thumb:hover,
+.gallery-lightbox-inner::-webkit-scrollbar-thumb:hover {
+  background: rgba(110,231,183,.62);
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-lightbox.is-open,
+  .gallery-lightbox-inner img,
+  .school-gallery-card,
+  .gallery-modal.is-open,
+  .gallery-modal-card,
+  .gallery-add-btn::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .school-gallery-card:hover img {
+    transform: none !important;
+  }
+}
