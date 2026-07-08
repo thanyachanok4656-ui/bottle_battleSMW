@@ -189,17 +189,21 @@
   overflow: hidden;
   box-shadow: var(--shadow-strong);
 
-  min-height: 240px;   /* เดิม 180px */
+  min-height: 320px;   /* เดิม 180px */
   display: flex;
   align-items: center;
 }
-.dash-hero-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+.dash-hero-img{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center;
+
+    display:block;
 }
 .dash-hero-scrim {
   position: absolute; inset: 0;
