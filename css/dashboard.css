@@ -191,9 +191,9 @@
     margin-left: -12px;
     margin-right: -12px;
 
-    height: 350px;              /* เดิม 220px */
+    height: 400px;              /* เดิม 220px */
     min-height: 300px;
-    max-height: 300px;
+    max-height: 400px;
 
     padding: 0;
     border-radius: 28px;
