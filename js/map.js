@@ -3,7 +3,6 @@
  */
 const MapPage = (() => {
   const PIN_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2h6v4l3 4v9a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-9l3-4V2z"/></svg>';
-
   function renderPins() {
     const pinLayer = document.getElementById('mapPins');
     if (!pinLayer) return;
