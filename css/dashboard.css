@@ -533,15 +533,6 @@
 /* When .page-hero (from ranking/history) is nested inside the sidebar app-shell,
    the shell already sits below the fixed navbar, so drop the extra top offset. */
 .dash-main .page-hero { padding-top: var(--space-4); border-radius: var(--radius-lg); }
-.app-main,
-.dashboard-main,
-.map-main {
-  margin-left: 240px;
-  padding: 32px;
-  min-height: calc(100vh - var(--nav-height));
-  background: #063e2b;
-  overflow: visible;
-}
 
 .app-shell {
   display: grid;
