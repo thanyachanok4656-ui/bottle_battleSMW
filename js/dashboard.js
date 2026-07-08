@@ -35,12 +35,24 @@ const Dashboard = (() => {
     setCounter('kpiWeight', summary.totalWeightKg || 0);
     setCounter('kpiCo2', summary.totalCo2Kg || 0);
     setCounter('kpiTrees', summary.totalTrees || 0);
-    setCounter('kpiParticipants', summary.totalParticipants || 0);
     document.getElementById('kpiBottles').textContent = `${(summary.totalBottles || 0).toLocaleString('th-TH')} ขวด`;
     document.getElementById('kpiCo2Tons').textContent = `${((summary.totalCo2Kg || 0) / 1000).toFixed(2)} ตัน CO₂e`;
     const pct = CONFIG.TOTAL_STUDENTS > 0 ? ((summary.totalParticipants || 0) / CONFIG.TOTAL_STUDENTS) * 100 : 0;
-    document.getElementById('kpiParticipantsPct').textContent = `${pct.toFixed(2)}% จากทั้งหมด`;
+  }function renderKpis(summary) {
+  setCounter('kpiWeight', summary.totalWeightKg || 0);
+  setCounter('kpiCo2', summary.totalCo2Kg || 0);
+  setCounter('kpiTrees', summary.totalTrees || 0);
+
+  const kpiBottles = document.getElementById('kpiBottles');
+  if (kpiBottles) {
+    kpiBottles.textContent = `${(summary.totalBottles || 0).toLocaleString('th-TH')} ขวด`;
   }
+
+  const kpiCo2Tons = document.getElementById('kpiCo2Tons');
+  if (kpiCo2Tons) {
+    kpiCo2Tons.textContent = `${((summary.totalCo2Kg || 0) / 1000).toFixed(2)} ตัน CO₂e`;
+  }
+}
 
   function initials(classroom) {
     const match = classroom.match(/[A-Za-z]+|\d+/g) || [];
