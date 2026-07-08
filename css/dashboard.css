@@ -185,7 +185,7 @@
    ============================================================ */
 .dash-hero {
   position: relative;
-  border-radius: 28px;
+  border-radius: 2px;
   overflow: hidden;
   box-shadow: var(--shadow-strong);
 
