@@ -183,15 +183,19 @@
 /* ============================================================
    COMPACT HERO BANNER (dashboard header strip)
    ============================================================ */
-.dash-hero {
-  position: relative;
-  border-radius: 2px;
-  overflow: hidden;
-  box-shadow: var(--shadow-strong);
+.dash-hero{
+    position:relative;
+    overflow:hidden;
 
-  min-height: 320px;   /* เดิม 180px */
-  display: flex;
-  align-items: center;
+    height:220px;
+    min-height:220px;
+    max-height:220px;
+
+    padding:0;
+    margin-bottom:24px;
+
+    border-radius:28px;
+    box-shadow:var(--shadow-strong);
 }
 .dash-hero-img{
     position:absolute;
