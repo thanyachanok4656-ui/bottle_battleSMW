@@ -597,3 +597,21 @@
   object-fit: cover;
   display: block;
 }
+.dash-main {
+  padding: 24px !important;
+}
+
+.dash-hero {
+  min-height: 220px !important;
+  margin-bottom: 24px;
+}
+
+.dash-hero-img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.kpi-row,
+.widgets-row {
+  display: grid !important;
+}
