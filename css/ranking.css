@@ -156,16 +156,22 @@
 .podium-slot.rank-1 .podium-weight {
   transform: translate(0, -52px);
 }
-/* M.2/1 ขยับขึ้น + ขวา */
-.podium-slot.rank-2 .podium-name,
-.podium-slot.rank-2 .podium-weight {
-  transform: translate(54px, -5px);
+/* 🥇 อันดับ 1 */
+.podium-slot.rank-1 .podium-name,
+.podium-slot.rank-1 .podium-weight {
+  transform: translate(0, 25px);
 }
 
-/* M.1/5 ขยับขึ้น + ซ้าย */
+/* 🥈 อันดับ 2 */
+.podium-slot.rank-2 .podium-name,
+.podium-slot.rank-2 .podium-weight {
+  transform: translate(54px, 55px);
+}
+
+/* 🥉 อันดับ 3 */
 .podium-slot.rank-3 .podium-name,
 .podium-slot.rank-3 .podium-weight {
-  transform: translate(-54px, 10px);
+  transform: translate(-54px, 70px);
 }
 
 /* ---------- RANK 4-10 ---------- */
